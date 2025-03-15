@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/addons/Asset_Drawer
+/addons/better_top_bar_workspace_
+/addons/Unity_Theme
