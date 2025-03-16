@@ -1,5 +1,75 @@
-[gd_scene format=3 uid="uid://drp4xjhuc7t1d"]
+[gd_scene load_steps=4 format=3 uid="uid://drp4xjhuc7t1d"]
+
+[ext_resource type="PackedScene" uid="uid://boe5hdpwn7j1i" path="res://Player.tscn" id="1_pq8q7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pq8q7"]
+albedo_color = Color(0.717647, 0.533333, 0.462745, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pyidc"]
+albedo_color = Color(0.302004, 0.302004, 0.302004, 1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Player3D" type="Node3D" parent="."]
+[node name="World" type="Node" parent="."]
+
+[node name="Plane" type="CSGBox3D" parent="World"]
+transform = Transform3D(40, 0, 0, 0, 0.1, 0, 0, 0, 40, 0, 0, 0)
+material = SubResource("StandardMaterial3D_pq8q7")
+
+[node name="Rocks" type="Node" parent="World"]
+
+[node name="rock1" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.748047, 2)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock2" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59686, 0.748047, 7.61781)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock3" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51756, 0.748047, 6.07063)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock4" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6513, 0.748047, -3.50789)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock5" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79482, 0.748047, -9.16805)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock6" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90163, 0.748047, -3.79294)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock7" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80047, 0.748047, 1.80567)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock8" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80047, 0.748047, 1.80567)
+size = Vector3(1, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock9" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9202, 0.748047, 0.0522728)
+size = Vector3(0.317261, 0.496094, 1)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="rock10" type="CSGBox3D" parent="World/Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34337, 1.04541, -1.84401)
+size = Vector3(0.317261, 1.09082, 0.552734)
+material = SubResource("StandardMaterial3D_pyidc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.979586, -0.187053, 0.0736408, -1.73735e-09, 0.366323, 0.930488, -0.201027, -0.911493, 0.358845, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_pq8q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
