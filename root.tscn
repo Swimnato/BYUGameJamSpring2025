@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://drp4xjhuc7t1d"]
 
 [ext_resource type="PackedScene" uid="uid://boe5hdpwn7j1i" path="res://Player.tscn" id="1_pq8q7"]
@@ -8,6 +9,9 @@ albedo_color = Color(0.717647, 0.533333, 0.462745, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pyidc"]
 albedo_color = Color(0.302004, 0.302004, 0.302004, 1)
 
+=======
+[gd_scene load_steps=0 format=3 uid="uid://drp4xjhuc7t1d"]
+>>>>>>> Stashed changes
 
 [node name="Node3D" type="Node3D"]
 
