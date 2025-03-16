@@ -1,9 +1,13 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://bspx88cpqqboi"]
 
 [ext_resource type="PackedScene" uid="uid://daqnxcm14bmdw" path="res://3d Models/player.blend" id="1_xhfnw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
+=======
+[gd_scene load_steps=0 format=3 uid="uid://boe5hdpwn7j1i"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=0 format=3 uid="uid://boe5hdpwn7j1i"]
 >>>>>>> Stashed changes
