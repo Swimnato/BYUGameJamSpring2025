@@ -13,7 +13,8 @@ config_version=5
 config/name="Game Jam Spring 2025"
 run/main_scene="uid://bu1oagecn7qt8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://d0nc7eqy5dp1y"
+config/icon="uid://c0eaqpidg6oi4"
 
 [editor_plugins]
 
