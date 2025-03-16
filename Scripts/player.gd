@@ -1,12 +1,17 @@
 extends Node3D
 
 @export var maxVelocity:Vector3 = Vector3(15,53.6,15);
-@export var frictionCoeffiecient:Vector3 = Vector3(1,0,1);
-@export var impulseAmount:int = 7;
+@export var airResistance:Vector3 = Vector3(.1,0,.1);
+@export var friction:Vector3 = Vector3(2.5,0,2.5);
+@export var impulseAmount:int = 3.5;
 @export var jumpSpeed = 5;
+@export var groundSpeedBonus = 2.5;
 
 @onready var velocity:Vector3 = Vector3(0,0,0);
 @onready var acceleration:Vector3 = Vector3(0,-9.8,0);
+var oldPosition:Vector3;
+
+var onGround:bool;
 
 
 
@@ -16,8 +21,16 @@ func _ready():
 
 # Called every frame.
 func _process(delta):
-	velocity -= frictionCoeffiecient * velocity * delta;
-	velocity += acceleration * delta;
+	if(onGround and velocity.y < 0):
+		velocity += acceleration * delta * groundSpeedBonus;
+		if(acceleration.x == 0):	
+			velocity.x -= friction.x * velocity.x * delta;
+		if(acceleration.z == 0):	
+			velocity.z -= friction.z * velocity.z * delta;
+		oldPosition = position;
+	else:
+		velocity += acceleration * delta;
+	velocity -= airResistance * velocity * delta;
 	for i in range(3):
 		if(abs(velocity[i]) > maxVelocity[i]):
 			if(velocity[i] < 0):
@@ -25,6 +38,8 @@ func _process(delta):
 			else:
 				velocity[i] = maxVelocity[i];
 	position += velocity * delta;
+	if(onGround and oldPosition.y > position.y):
+		position.y = oldPosition.y;
 	get_parent().playerPosition = position;
 
 func _input(event):
@@ -47,9 +62,11 @@ func _input(event):
 			velocity.y = jumpSpeed;
 
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	print_debug("Hello");
-	print_debug(body.name);
-	if body.name == "Ground":
-		if(velocity.y < 0):
-			velocity.y = 0;
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.name == "Ground":
+		onGround = true;
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.name == "Ground":
+		onGround = false;
