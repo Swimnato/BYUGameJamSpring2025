@@ -3,7 +3,7 @@ extends Camera3D
 var toLookAt:Vector3;
 
 func _ready() -> void:
-	position = Vector3(0,10,0);
+	position = Vector3(10,2,0);
 
 func _process(delta: float):
 	toLookAt = $"../Player".playerPosition;
