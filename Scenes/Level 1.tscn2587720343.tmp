@@ -21,11 +21,11 @@ transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346
 shape = SubResource("BoxShape3D_lvv5c")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.992125, 0.123419, 0.021329, -0.123419, 0.934354, 0.334291, 0.021329, -0.334291, 0.942228, -5.9572, 8.36084, 16.1356)
 script = ExtResource("3_o30o5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.979575, -0.170709, 0.106257, 0, 0.528438, 0.848972, -0.201078, -0.831632, 0.517645, 0, 22.0672, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.0672, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_lvv5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

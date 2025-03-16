@@ -25,6 +25,7 @@ func _process(delta):
 			else:
 				velocity[i] = maxVelocity[i];
 	position += velocity * delta;
+	get_parent().playerPosition = position;
 
 func _input(event):
 	if event is InputEventKey:
@@ -44,3 +45,11 @@ func _input(event):
 				acceleration.x = 0;
 		if event.pressed and event.keycode == KEY_SPACE:
 			velocity.y = jumpSpeed;
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	print_debug("Hello");
+	print_debug(body.name);
+	if body.name == "Ground":
+		if(velocity.y < 0):
+			velocity.y = 0;
