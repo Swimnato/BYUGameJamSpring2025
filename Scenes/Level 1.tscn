@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy5ho7r3hgk5p"]
+
+[ext_resource type="PackedScene" uid="uid://bnbgc8dn2p5qu" path="res://3d Models/Floor.blend" id="1_uttew"]
+
+[node name="Level1" type="Node3D"]
+transform = Transform3D(-0.346346, 0, 0.938107, 0, 1, 0, -0.938107, 0, -0.346346, 0, 0, 0)
+
+[node name="Floor" parent="." instance=ExtResource("1_uttew")]
+transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346, -0.98436, 0, 0.164609)
