@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu1oagecn7qt8"]
+[gd_scene load_steps=8 format=3 uid="uid://bu1oagecn7qt8"]
 
 [ext_resource type="PackedScene" uid="uid://bnbgc8dn2p5qu" path="res://3d Models/Floor.blend" id="1_uttew"]
 [ext_resource type="Script" uid="uid://cin2nrbcrdgy0" path="res://Scripts/level_1.gd" id="1_vgl5k"]
 [ext_resource type="PackedScene" uid="uid://dyjnb3l3ju1nv" path="res://Scenes/Player.tscn" id="2_lvv5c"]
 [ext_resource type="Script" uid="uid://c4u7t3ebxl6us" path="res://Scenes/level1_camera.gd" id="3_o30o5"]
 [ext_resource type="PackedScene" uid="uid://bqin3e6tdqhbi" path="res://3d Models/catprototype.blend" id="5_rwcms"]
+[ext_resource type="PackedScene" uid="uid://dduhy33xhtkyq" path="res://3d Models/billboard.blend" id="6_a2n4b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvv5c"]
 size = Vector3(1000, 1, 1000)
@@ -14,7 +15,7 @@ transform = Transform3D(-0.346346, 0, 0.938107, 0, 1, 0, -0.938107, 0, -0.346346
 script = ExtResource("1_vgl5k")
 
 [node name="Floor" parent="." instance=ExtResource("1_uttew")]
-transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346, 0, -1.5, 0)
+transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346, 0, 0, 0)
 
 [node name="Ground" type="Area3D" parent="Floor"]
 
@@ -32,4 +33,7 @@ transform = Transform3D(0.979575, -0.170709, 0.106257, 0, 0.528438, 0.848972, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="catprototype" parent="." instance=ExtResource("5_rwcms")]
-transform = Transform3D(-0.346346, 0, -0.938106, 0, 1, 0, 0.938106, 0, -0.346346, 16.43, 0, 5.619)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
+
+[node name="billboard" parent="." instance=ExtResource("6_a2n4b")]
+transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346, 2.305, 1.5, -5.345)
