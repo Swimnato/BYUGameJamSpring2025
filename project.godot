@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Game Jam Spring 2025"
-run/main_scene="uid://drp4xjhuc7t1d"
+run/main_scene="uid://dy5ho7r3hgk5p"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/better_top_bar_workspace_/plugin.cfg")
+enabled=PackedStringArray()
 
 [rendering]
 
