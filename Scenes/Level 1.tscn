@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu1oagecn7qt8"]
+[gd_scene load_steps=9 format=3 uid="uid://bu1oagecn7qt8"]
 
 [ext_resource type="PackedScene" uid="uid://bnbgc8dn2p5qu" path="res://3d Models/Floor.blend" id="1_uttew"]
 [ext_resource type="Script" uid="uid://cin2nrbcrdgy0" path="res://Scripts/level_1.gd" id="1_vgl5k"]
 [ext_resource type="PackedScene" uid="uid://dyjnb3l3ju1nv" path="res://Scenes/Player.tscn" id="2_lvv5c"]
 [ext_resource type="Script" uid="uid://c4u7t3ebxl6us" path="res://Scenes/level1_camera.gd" id="3_o30o5"]
-[ext_resource type="PackedScene" uid="uid://bqin3e6tdqhbi" path="res://3d Models/catprototype.blend" id="5_rwcms"]
+[ext_resource type="PackedScene" uid="uid://dvhfttb1g2ogl" path="res://3d Models/catprototype.glb" id="5_6jqpp"]
 [ext_resource type="PackedScene" uid="uid://dduhy33xhtkyq" path="res://3d Models/billboard.blend" id="6_a2n4b"]
+[ext_resource type="PackedScene" uid="uid://be3081kd3qg2k" path="res://3d Models/burger.blend" id="7_ycu76"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lvv5c"]
 size = Vector3(1000, 1, 1000)
@@ -31,8 +32,11 @@ transform = Transform3D(0.979575, -0.170709, 0.106257, 0, 0.528438, 0.848972, -0
 [node name="Player" parent="." instance=ExtResource("2_lvv5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="catprototype" parent="." instance=ExtResource("5_rwcms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
+[node name="catprototype2" parent="." instance=ExtResource("5_6jqpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 1.5, -3)
 
 [node name="billboard" parent="." instance=ExtResource("6_a2n4b")]
 transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346, 2.305, 1.5, -5.345)
+
+[node name="burger" parent="." instance=ExtResource("7_ycu76")]
+transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346, 6.0762, 1.20484, -1.18658)
