@@ -58,7 +58,7 @@ func _input(event):
 				acceleration.x = -impulseAmount;
 			else:
 				acceleration.x = 0;
-		if event.pressed and event.keycode == KEY_SPACE:
+		if event.pressed and event.keycode == KEY_SPACE and onGround:
 			velocity.y = jumpSpeed;
 
 

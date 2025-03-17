@@ -23,7 +23,6 @@ transform = Transform3D(-0.346346, 0, -0.938107, 0, 1, 0, 0.938107, 0, -0.346346
 shape = SubResource("BoxShape3D_lvv5c")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("3_o30o5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
