@@ -25,7 +25,8 @@ enabled=PackedStringArray()
 folder_colors={
 "res://3d Models/": "orange",
 "res://Scenes/unused/": "gray",
-"res://Scripts/": "blue"
+"res://Scripts/": "blue",
+"res://materials/": "purple"
 }
 
 [input]
