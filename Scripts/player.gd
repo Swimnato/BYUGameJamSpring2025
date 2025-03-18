@@ -1,9 +1,9 @@
 extends Node3D
 
-@export var maxVelocity:Vector3 = Vector3(15,53.6,15);
+@export var maxVelocity:Vector3 = Vector3(12.0,53.6,12.0);
 @export var airResistance:Vector3 = Vector3(.1,0,.1);
-@export var friction:Vector3 = Vector3(2.5,0,2.5);
-@export var impulseAmount:int = 3.5;
+@export var friction:Vector3 = Vector3(8.0,0,8.0);
+@export var impulseAmount:int = 8.0;
 @export var jumpSpeed = 5;
 @export var groundSpeedBonus = 2.5;
 

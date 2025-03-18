@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmmqgbhw21v3a"
-path.s3tc="res://.godot/imported/catprototype_catface.png-8d32d3e35f109763487d7494007d99c9.s3tc.ctex"
+path.s3tc="res://.godot/imported/catprototype_catface.png-148eca0762b135f2926cb7ccd3c147c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://3d Models/catprototype_catface.png"
-dest_files=["res://.godot/imported/catprototype_catface.png-8d32d3e35f109763487d7494007d99c9.s3tc.ctex"]
+source_file="res://3d Models/objects/catprototype_catface.png"
+dest_files=["res://.godot/imported/catprototype_catface.png-148eca0762b135f2926cb7ccd3c147c8.s3tc.ctex"]
 
 [params]
 

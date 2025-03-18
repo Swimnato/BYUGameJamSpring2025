@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://be3081kd3qg2k"
-path="res://.godot/imported/burger.blend-64f54c2933d891a6c87a93ffa96dbc26.scn"
+uid="uid://bqin3e6tdqhbi"
+path="res://.godot/imported/catprototype.blend-aa50158a8a69be335896af1b55d6979a.scn"
 
 [deps]
 
-source_file="res://3d Models/burger.blend"
-dest_files=["res://.godot/imported/burger.blend-64f54c2933d891a6c87a93ffa96dbc26.scn"]
+source_file="res://3d Models/characters/catprototype.blend"
+dest_files=["res://.godot/imported/catprototype.blend-aa50158a8a69be335896af1b55d6979a.scn"]
 
 [params]
 

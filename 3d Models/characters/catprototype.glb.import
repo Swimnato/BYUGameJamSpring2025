@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvhfttb1g2ogl"
-path="res://.godot/imported/catprototype.glb-a2d8cbc77a44cbe18a3fc80aee69c2e1.scn"
+path="res://.godot/imported/catprototype.glb-2bbfc547ec96ce013ee733f440d83a74.scn"
 
 [deps]
 
-source_file="res://3d Models/catprototype.glb"
-dest_files=["res://.godot/imported/catprototype.glb-a2d8cbc77a44cbe18a3fc80aee69c2e1.scn"]
+source_file="res://3d Models/characters/catprototype.glb"
+dest_files=["res://.godot/imported/catprototype.glb-2bbfc547ec96ce013ee733f440d83a74.scn"]
 
 [params]
 

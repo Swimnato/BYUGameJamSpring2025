@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyjnb3l3ju1nv"]
 
-[ext_resource type="Script" uid="uid://c7t3rlu3x1gfv" path="res://Scenes/playerGlobalVals.gd" id="1_gntrk"]
-[ext_resource type="PackedScene" uid="uid://daqnxcm14bmdw" path="res://3d Models/player.blend" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://c7t3rlu3x1gfv" path="res://Scripts/playerGlobalVals.gd" id="1_gntrk"]
+[ext_resource type="PackedScene" uid="uid://daqnxcm14bmdw" path="res://3d Models/characters/player.blend" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://cvemsgmi6kdvo" path="res://Scripts/player.gd" id="2_kyqiw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 
 [node name="Player" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0157204, -0.0232592, 0.00133514)
 script = ExtResource("1_gntrk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
