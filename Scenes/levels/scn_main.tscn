@@ -33,32 +33,37 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_vuhdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419979, 0.0195313, -1.17553)
 
-[node name="ground" type="MeshInstance3D" parent="."]
+[node name="objects" type="Node3D" parent="."]
+
+[node name="ground" type="MeshInstance3D" parent="objects"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("PlaneMesh_bktcs")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/ground/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976563, -0.249023, 0.00140381)
 shape = SubResource("BoxShape3D_bktcs")
 
-[node name="box" type="MeshInstance3D" parent="."]
+[node name="box" type="MeshInstance3D" parent="objects"]
 transform = Transform3D(3.04595, 0, 0, 0, 2.5399, 0, 0, 0, 3.80819, -6.58987, 1.23535, -4.78978)
 material_override = ExtResource("2_ct860")
 mesh = SubResource("BoxMesh_vuhdq")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="box"]
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/box"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="box/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/box/StaticBody3D"]
 shape = SubResource("BoxShape3D_ct860")
 
-[node name="box2" type="MeshInstance3D" parent="."]
+[node name="box2" type="MeshInstance3D" parent="objects"]
 transform = Transform3D(2.01687, 0, 0, 0, 1.77883, 0, 0, 0, 1.87893, -6.86865, 0.522768, 0.36863)
 material_override = ExtResource("2_ct860")
 mesh = SubResource("BoxMesh_vuhdq")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="box2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/box2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="box2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/box2/StaticBody3D"]
 shape = SubResource("BoxShape3D_ct860")
