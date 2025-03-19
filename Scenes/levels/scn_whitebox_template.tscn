@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cggl63tufvgfe"]
+[gd_scene load_steps=6 format=3 uid="uid://bds73ogncj3hs"]
 
-[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_red.tres" id="2_8livs"]
+[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="2_8livs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bktcs"]
 

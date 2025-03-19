@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b65hp46cls10n"]
+[gd_scene load_steps=12 format=3 uid="uid://b65hp46cls10n"]
 
-[ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/scn_player.tscn" id="1_vuhdq"]
-[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_red.tres" id="2_ct860"]
-[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/scn_npc.tscn" id="3_lyvv4"]
+[ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_vuhdq"]
+[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="2_ct860"]
+[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="3_lyvv4"]
+[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="4_uc5yf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -36,38 +37,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419979, 0.0195313, -1.17553
 
 [node name="objects" type="Node3D" parent="."]
 
-[node name="ground" type="MeshInstance3D" parent="objects"]
+[node name="Interactibles" type="Node3D" parent="objects"]
+
+[node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("3_lyvv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41949, 0.0195343, -3.73713)
+
+[node name="Collisions" type="Node3D" parent="objects"]
+
+[node name="ground" type="MeshInstance3D" parent="objects/Collisions"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("PlaneMesh_bktcs")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="objects/ground"]
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/ground/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976563, -0.249023, 0.00140381)
 shape = SubResource("BoxShape3D_bktcs")
 
-[node name="box" type="MeshInstance3D" parent="objects"]
+[node name="box" type="MeshInstance3D" parent="objects/Collisions"]
 transform = Transform3D(3.04595, 0, 0, 0, 2.5399, 0, 0, 0, 3.80819, -6.58987, 1.23535, -4.78978)
 material_override = ExtResource("2_ct860")
 mesh = SubResource("BoxMesh_vuhdq")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="objects/box"]
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/box"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/box/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/box/StaticBody3D"]
 shape = SubResource("BoxShape3D_ct860")
 
-[node name="box2" type="MeshInstance3D" parent="objects"]
+[node name="box2" type="MeshInstance3D" parent="objects/Collisions"]
 transform = Transform3D(2.01687, 0, 0, 0, 1.77883, 0, 0, 0, 1.87893, -6.86865, 0.522768, 0.36863)
 material_override = ExtResource("2_ct860")
 mesh = SubResource("BoxMesh_vuhdq")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="objects/box2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/box2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/box2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/box2/StaticBody3D"]
 shape = SubResource("BoxShape3D_ct860")
 
-[node name="ScnNpc" parent="." instance=ExtResource("3_lyvv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41949, 0.0195343, -3.73713)
+[node name="Hurtboxes" type="Node3D" parent="objects"]
+
+[node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("4_uc5yf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13247, 0.519535, 3.4603)

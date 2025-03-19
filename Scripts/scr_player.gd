@@ -25,3 +25,6 @@ func _physics_process(delta):
 		target_velocity.y = 20.0
 	velocity = target_velocity
 	move_and_slide()
+
+func die() -> void:
+	print("TODO: die");
