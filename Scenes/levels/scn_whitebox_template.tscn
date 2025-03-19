@@ -1,17 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b65hp46cls10n"]
+[gd_scene load_steps=6 format=3 uid="uid://cggl63tufvgfe"]
 
-[ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/scn_player.tscn" id="1_vuhdq"]
-[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_red.tres" id="2_ct860"]
-[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/scn_npc.tscn" id="3_lyvv4"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
-
-[sub_resource type="Sky" id="Sky_ct860"]
-sky_material = SubResource("ProceduralSkyMaterial_vuhdq")
-
-[sub_resource type="Environment" id="Environment_lyvv4"]
-background_mode = 2
-sky = SubResource("Sky_ct860")
+[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_red.tres" id="2_8livs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bktcs"]
 
@@ -23,16 +12,6 @@ size = Vector3(2, 0.501953, 1.9989)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ct860"]
 
 [node name="ScnMain" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_lyvv4")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource("1_vuhdq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419979, 0.0195313, -1.17553)
 
 [node name="objects" type="Node3D" parent="."]
 
@@ -49,7 +28,7 @@ shape = SubResource("BoxShape3D_bktcs")
 
 [node name="box" type="MeshInstance3D" parent="objects"]
 transform = Transform3D(3.04595, 0, 0, 0, 2.5399, 0, 0, 0, 3.80819, -6.58987, 1.23535, -4.78978)
-material_override = ExtResource("2_ct860")
+material_override = ExtResource("2_8livs")
 mesh = SubResource("BoxMesh_vuhdq")
 skeleton = NodePath("../..")
 
@@ -60,7 +39,7 @@ shape = SubResource("BoxShape3D_ct860")
 
 [node name="box2" type="MeshInstance3D" parent="objects"]
 transform = Transform3D(2.01687, 0, 0, 0, 1.77883, 0, 0, 0, 1.87893, -6.86865, 0.522768, 0.36863)
-material_override = ExtResource("2_ct860")
+material_override = ExtResource("2_8livs")
 mesh = SubResource("BoxMesh_vuhdq")
 skeleton = NodePath("../..")
 
@@ -68,6 +47,3 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="objects/box2/StaticBody3D"]
 shape = SubResource("BoxShape3D_ct860")
-
-[node name="ScnNpc" parent="." instance=ExtResource("3_lyvv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41949, 0.0195343, -3.73713)
