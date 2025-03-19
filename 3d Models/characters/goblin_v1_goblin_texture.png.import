@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmmqgbhw21v3a"
-path.s3tc="res://.godot/imported/catprototype_catface.png-148eca0762b135f2926cb7ccd3c147c8.s3tc.ctex"
+uid="uid://c6k1uddlp385m"
+path.s3tc="res://.godot/imported/goblin_v1_goblin_texture.png-b7a28f87e2ea1cb2a6eb2291c91a8d14.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "19e545c1d5ce4a046dc7fe8b3aff0261"
+"md5": "965293c156fa0a578ad4d78fcab8f729"
 }
 
 [deps]
 
-source_file="res://3d Models/objects/catprototype_catface.png"
-dest_files=["res://.godot/imported/catprototype_catface.png-148eca0762b135f2926cb7ccd3c147c8.s3tc.ctex"]
+source_file="res://3d Models/characters/goblin_v1_goblin_texture.png"
+dest_files=["res://.godot/imported/goblin_v1_goblin_texture.png-b7a28f87e2ea1cb2a6eb2291c91a8d14.s3tc.ctex"]
 
 [params]
 
