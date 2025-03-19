@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=16 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/scn_stamp.tscn" id="2_3yaxh"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="3_khnxe"]
 [ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/Floating Platform.tscn" id="4_khnxe"]
 [ext_resource type="PackedScene" uid="uid://dvhfttb1g2ogl" path="res://3d Models/characters/catprototype.glb" id="7_crnpl"]
+[ext_resource type="Script" uid="uid://cjjluumojh0qk" path="res://Scripts/scr_cat_out_of_water.gd" id="8_6wd78"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khnxe"]
 transparency = 1
@@ -14,7 +17,46 @@ albedo_color = Color(0.137255, 1, 1, 0.74902)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3yaxh"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h85wo"]
+height = 5.0
+radius = 20.0
+
+[sub_resource type="Animation" id="Animation_8wpu8"]
+resource_name = "Cat Out of Water"
+step = 0.008
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../objects/Interactibles/catprototype:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-110.974, -7.19148, 46.3199), Vector3(-110.974, -1.224, 46.3199)]
+}
+
+[sub_resource type="Animation" id="Animation_x1l0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../objects/Interactibles/catprototype:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-110.974, -7.19148, 46.3199)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujri8"]
+_data = {
+&"Cat Out of Water": SubResource("Animation_8wpu8"),
+&"RESET": SubResource("Animation_x1l0e")
+}
 
 [node name="scn_Pond_Map" type="Node3D"]
 
@@ -27,6 +69,14 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -98.4361, 0.442986, -127.751)
 
 [node name="Stamp" parent="objects/Interactibles" instance=ExtResource("2_3yaxh")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 93.395, 2, -153.907)
+
+[node name="catprototype" parent="objects/Interactibles" instance=ExtResource("7_crnpl")]
+transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -110.974, -7.19148, 46.3199)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="objects/Interactibles/catprototype"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Interactibles/catprototype/CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_crnpl")
 
 [node name="Collisions" type="Node3D" parent="objects"]
 
@@ -106,15 +156,26 @@ material = ExtResource("3_42eyn")
 [node name="FloatingPlatform" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
 
-[node name="catprototype" parent="objects/Collisions" instance=ExtResource("7_crnpl")]
-transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -67.7169, 0.577112, 46.3199)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="objects/Collisions/catprototype"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/catprototype/CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_crnpl")
-
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
 [node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("3_khnxe")]
 transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, 14.6531, -1.82235, 3.8154)
+
+[node name="Trigger Zones" type="Node3D" parent="objects"]
+
+[node name="Trigger Cat" type="Area3D" parent="objects/Trigger Zones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.5334, 0, 48.1192)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Trigger Zones/Trigger Cat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.644554, 0, -6.40799)
+shape = SubResource("CylinderShape3D_h85wo")
+
+[node name="Animations" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
+libraries = {
+&"": SubResource("AnimationLibrary_ujri8")
+}
+script = ExtResource("8_6wd78")
+
+[connection signal="body_entered" from="objects/Trigger Zones/Trigger Cat" to="Animations/AnimationPlayer" method="_on_trigger_cat_body_entered"]
