@@ -38,3 +38,6 @@ func handleAnimations(_target_velocity: Vector3) -> void:
 
 func die() -> void:
 	print("TODO: die");
+
+func collect_stamp(ID_num:int):
+	print("Collected Stamp: " + str(ID_num))

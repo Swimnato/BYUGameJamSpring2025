@@ -1,18 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=9 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
-[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="2_42eyn"]
+[ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/scn_stamp.tscn" id="2_3yaxh"]
+[ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="2_khnxe"]
 [ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="3_42eyn"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="3_khnxe"]
 [ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/Floating Platform.tscn" id="4_khnxe"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_vuhdq"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ct860"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khnxe"]
 transparency = 1
-albedo_color = Color(0.137255, 1, 1, 0.835294)
+albedo_color = Color(0.137255, 1, 1, 0.74902)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3yaxh"]
 
@@ -22,25 +19,18 @@ albedo_color = Color(0.137255, 1, 1, 0.835294)
 
 [node name="Interactibles" type="Node3D" parent="objects"]
 
-[node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("1_wj234")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41949, 0.0195343, -3.73713)
+[node name="Frog" parent="objects/Interactibles" instance=ExtResource("1_wj234")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -98.4361, 0.442986, -127.751)
+
+[node name="Stamp" parent="objects/Interactibles" instance=ExtResource("2_3yaxh")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 93.395, 2, -153.907)
 
 [node name="Collisions" type="Node3D" parent="objects"]
-
-[node name="box" type="MeshInstance3D" parent="objects/Collisions"]
-transform = Transform3D(3.04595, 0, 0, 0, 2.5399, 0, 0, 0, 3.80819, -6.58987, 1.23535, -4.78978)
-material_override = ExtResource("2_42eyn")
-mesh = SubResource("BoxMesh_vuhdq")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/box"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/box/StaticBody3D"]
-shape = SubResource("BoxShape3D_ct860")
 
 [node name="Pond Edge" type="CSGBox3D" parent="objects/Collisions"]
 transform = Transform3D(500, 0, 0, 0, 10, 0, 0, 0, 500, 13.347, -5, 3.878)
 use_collision = true
+material = ExtResource("2_khnxe")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="objects/Collisions/Pond Edge"]
 transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, 0.18, 0, -0.18, -7.86805e-09, -0.362321, 0.654459, -0.0403575)

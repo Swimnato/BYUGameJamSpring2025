@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3mui13brndfm"]
+
+[ext_resource type="Script" uid="uid://dx17bff11nola" path="res://Scripts/scr_stamp.gd" id="1_7yok8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35h5r"]
+albedo_color = Color(0.0858275, 0.600469, 0.675027, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_35h5r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7s25v"]
+
+[node name="Hurtbox" type="Node3D"]
+script = ExtResource("1_7yok8")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_35h5r")
+mesh = SubResource("BoxMesh_35h5r")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_7s25v")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
