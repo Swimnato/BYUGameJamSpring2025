@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://djyvbiy2c4g2n"]
+
+[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_sm4qq"]
+[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="2_o5308"]
+[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="3_8wirg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bktcs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bktcs"]
+size = Vector3(2, 0.501953, 1.9989)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vuhdq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ct860"]
+
+[node name="whiteboxTemplate" type="Node3D"]
+
+[node name="objects" type="Node3D" parent="."]
+
+[node name="Interactibles" type="Node3D" parent="objects"]
+
+[node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("1_sm4qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41949, 0.0195343, -3.73713)
+
+[node name="Collisions" type="Node3D" parent="objects"]
+
+[node name="Old" type="Node3D" parent="objects/Collisions"]
+visible = false
+
+[node name="ground" type="MeshInstance3D" parent="objects/Collisions/Old"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_bktcs")
+skeleton = NodePath("../../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/Old/ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Old/ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976563, -0.249023, 0.00140381)
+shape = SubResource("BoxShape3D_bktcs")
+
+[node name="box" type="MeshInstance3D" parent="objects/Collisions/Old"]
+transform = Transform3D(3.04595, 0, 0, 0, 2.5399, 0, 0, 0, 3.80819, -6.58987, 1.23535, -4.78978)
+material_override = ExtResource("2_o5308")
+mesh = SubResource("BoxMesh_vuhdq")
+skeleton = NodePath("../../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/Old/box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Old/box/StaticBody3D"]
+shape = SubResource("BoxShape3D_ct860")
+
+[node name="box2" type="MeshInstance3D" parent="objects/Collisions/Old"]
+transform = Transform3D(2.01687, 0, 0, 0, 1.77883, 0, 0, 0, 1.87893, -6.86865, 0.522768, 0.36863)
+material_override = ExtResource("2_o5308")
+mesh = SubResource("BoxMesh_vuhdq")
+skeleton = NodePath("../../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/Old/box2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Old/box2/StaticBody3D"]
+shape = SubResource("BoxShape3D_ct860")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+use_collision = true
+size = Vector3(14, 1, 14)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(0.900684, -0.434474, -2.81196e-05, -0.000218196, -0.000387677, -1, 0.434474, 0.900684, -0.000443973, 1.79549, -0.145981, 1.94941)
+operation = 2
+polygon = PackedVector2Array(-2.16879, -2.67669, -3.33239, 0.341726, -2.4806, 3.4673, -0.287274, 2.96647, 1.4479, 1.61571, 1.32038, -1.60076)
+
+[node name="Hurtboxes" type="Node3D" parent="objects"]
+
+[node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("3_8wirg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13247, 0.519535, 3.4603)
