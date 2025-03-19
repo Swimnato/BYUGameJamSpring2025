@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=11 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/scn_stamp.tscn" id="2_3yaxh"]
@@ -6,12 +6,15 @@
 [ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="3_42eyn"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="3_khnxe"]
 [ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/Floating Platform.tscn" id="4_khnxe"]
+[ext_resource type="PackedScene" uid="uid://dvhfttb1g2ogl" path="res://3d Models/characters/catprototype.glb" id="7_crnpl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khnxe"]
 transparency = 1
 albedo_color = Color(0.137255, 1, 1, 0.74902)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3yaxh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
 
 [node name="whiteboxTemplate" type="Node3D"]
 
@@ -102,6 +105,14 @@ material = ExtResource("3_42eyn")
 
 [node name="FloatingPlatform" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
+
+[node name="catprototype" parent="objects/Collisions" instance=ExtResource("7_crnpl")]
+transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -67.7169, 0.577112, 46.3199)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="objects/Collisions/catprototype"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/catprototype/CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_crnpl")
 
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
