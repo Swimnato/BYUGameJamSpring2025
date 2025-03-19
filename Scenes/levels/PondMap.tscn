@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=10 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
 [ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="2_42eyn"]
 [ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="3_42eyn"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="3_khnxe"]
+[ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/Floating Platform.tscn" id="4_khnxe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vuhdq"]
 
@@ -48,18 +49,65 @@ polygon = PackedVector2Array(0.265676, 0.457272, 0.111596, 0.688188, -0.0130711,
 depth = 5.0
 
 [node name="water" type="MeshInstance3D" parent="objects/Collisions/Pond Edge"]
-transform = Transform3D(0.5, 0, 0, 0, 25, 0, 0, 0, 0.5, -0.026694, 0.403891, -0.007756)
+transform = Transform3D(0.5, 0, 0, 0, 25, 0, 0, 0, 0.5, 0.0052623, 0.403891, -0.00442656)
 material_override = SubResource("StandardMaterial3D_khnxe")
 mesh = SubResource("PlaneMesh_3yaxh")
 skeleton = NodePath("../..")
 
-[node name="LillyPad" type="CSGPolygon3D" parent="objects/Collisions"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -159.144, -0.448917, -34.7051)
+[node name="LillyPads" type="Node3D" parent="objects/Collisions"]
+
+[node name="LillyPad" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -159.347, -0.448917, -34.2317)
 use_collision = true
 polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
 material = ExtResource("3_42eyn")
 
+[node name="LillyPad2" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -177.413, -0.448917, 17.1584)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad3" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -154.866, -0.448917, 67.3431)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad4" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -123.787, -0.448917, 116.218)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad5" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -123.787, -0.448917, 171.56)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad6" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -145.865, -0.448917, 216.143)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad7" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -62.4945, -0.448917, 166.217)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad8" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -20.5708, -0.448917, 126.011)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="FloatingPlatform" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9913, 0, -5.301)
+
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
 [node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("3_khnxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.56057, 1.33672, -0.709818)
+transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, 14.6531, -1.82235, 3.8154)

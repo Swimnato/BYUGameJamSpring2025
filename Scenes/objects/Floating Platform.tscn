@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc5s0rft0e5gf"]
+
+[ext_resource type="Script" uid="uid://bxkuapurh3v8x" path="res://Scripts/FollowPath.gd" id="1_x2mso"]
+[ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="2_yd2ce"]
+
+[sub_resource type="Curve3D" id="Curve3D_yd2ce"]
+closed = true
+_data = {
+"points": PackedVector3Array(-8.92036, 0, -15.1712, 8.92036, 0, 15.1712, 16.544, 0, 119.487, -24.0837, 0, 5.30344, 24.0837, 0, -5.30344, 69.7933, 0, 129.784, -10.7671, 0, 20.0459, 10.7671, 0, -20.0459, 103.037, 0, 110.073, -8.9958, 0, 15.4998, 8.9958, 0, -15.4998, 127.75, 0, 83.595, 0.297394, 0, 11.7511, -0.297394, 0, -11.7511, 140.4, 0, 51.5277, 11.7045, 0, 5.39113, -11.7045, 0, -5.39113, 127.48, 0, 35.9442, -1.37366, 0, 20.2219, 1.37366, 0, -20.2219, 107.769, 0, -0.83025, 26.2807, 0, -2.56915, -26.2807, 0, 2.56915, 80.1142, 0, -30.2498, 21.3972, 0, 2.5623, -21.3972, 0, -2.5623, 47.164, 0, -25.5444, 10.2496, 0, 1.26042, -10.2496, 0, -1.26042, 13.9199, 0, -19.9547, 10.7884, 0, -5.12753, -10.7884, 0, 5.12753, -19.9125, 0, -12.3057, -3.50576, 0, -8.06463, 3.50576, 0, 8.06463, -25.7964, 0, 11.8184, -12.1621, 0, -5.07625, 12.1621, 0, 5.07625, -11.0867, 0, 27.9991, -14.3813, 0, 2.40534, 14.3813, 0, -2.40534, 27.4529, 0, 23.292, -14.1625, 0, -10.4977, 14.1625, 0, 10.4977, 64.8157, 0, 34.1772, 2.04168, 0, -12.3743, -2.04168, 0, 12.3743, 77.4661, 0, 64.4793, 14.0181, 0, -9.13285, -14.0181, 0, 9.13285, 58.9318, 0, 84.1904, 11.1928, 0, -9.38427, -11.1928, 0, 9.38427, 20.3922, 0, 87.7207),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 18
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t4la1"]
+top_radius = 25.0
+bottom_radius = 25.0
+height = 0.25
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nihuc"]
+height = 0.25
+radius = 25.0
+
+[node name="FloatingPlatform" type="Node3D"]
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_yd2ce")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.862009, 0, -0.506844, 0, 1, 0, 0.506844, 0, -0.862009, 16.544, 0, 119.487)
+script = ExtResource("1_x2mso")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+mesh = SubResource("CylinderMesh_t4la1")
+surface_material_override/0 = ExtResource("2_yd2ce")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Path3D/PathFollow3D/MeshInstance3D"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/MeshInstance3D/RigidBody3D"]
+transform = Transform3D(1, 0, -2.08616e-07, 0, 1.00002, 0, 2.08616e-07, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_nihuc")

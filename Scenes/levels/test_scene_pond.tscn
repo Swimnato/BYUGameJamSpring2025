@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bijqr2dctgayj"]
+
+[ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_ygifq"]
+[ext_resource type="PackedScene" uid="uid://ce4ec5mvhrpsw" path="res://Scenes/levels/scn_whitebox_template.tscn" id="2_0pplq"]
+[ext_resource type="PackedScene" uid="uid://3i3ucjfxkmq7" path="res://Scenes/levels/PondMap.tscn" id="3_76m6k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
+
+[sub_resource type="Sky" id="Sky_ct860"]
+sky_material = SubResource("ProceduralSkyMaterial_vuhdq")
+
+[sub_resource type="Environment" id="Environment_lyvv4"]
+background_mode = 2
+sky = SubResource("Sky_ct860")
+
+[node name="ScnMain" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lyvv4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_ygifq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419979, 0.0195313, -1.17553)
+
+[node name="whiteboxTemplate" parent="." instance=ExtResource("2_0pplq")]
+
+[node name="whiteboxTemplate2" parent="." instance=ExtResource("3_76m6k")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -58.9565, -5.14585, -71.0735)
