@@ -16,7 +16,7 @@ albedo_color = Color(0.137255, 1, 1, 0.74902)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
 
-[node name="whiteboxTemplate" type="Node3D"]
+[node name="scn_Pond_Map" type="Node3D"]
 
 [node name="objects" type="Node3D" parent="."]
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bijqr2dctgayj"]
+[gd_scene load_steps=6 format=3 uid="uid://bijqr2dctgayj"]
 
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_ygifq"]
-[ext_resource type="PackedScene" uid="uid://ce4ec5mvhrpsw" path="res://Scenes/levels/scn_whitebox_template.tscn" id="2_0pplq"]
-[ext_resource type="PackedScene" uid="uid://3i3ucjfxkmq7" path="res://Scenes/levels/PondMap.tscn" id="3_76m6k"]
+[ext_resource type="PackedScene" uid="uid://3i3ucjfxkmq7" path="res://Scenes/levels/scn_PondMap.tscn" id="3_76m6k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -25,7 +24,5 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_ygifq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3381, 4.05162, -25.7483)
 
-[node name="whiteboxTemplate" parent="." instance=ExtResource("2_0pplq")]
-
-[node name="whiteboxTemplate2" parent="." instance=ExtResource("3_76m6k")]
+[node name="Pond Map" parent="." instance=ExtResource("3_76m6k")]
 transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, -48.6179, 0, -52.2118)
