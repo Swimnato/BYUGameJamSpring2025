@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc5s0rft0e5gf"]
+[gd_scene load_steps=8 format=3 uid="uid://bc5s0rft0e5gf"]
+
+[ext_resource type="Script" uid="uid://bxkuapurh3v8x" path="res://Scripts/FollowPath.gd" id="1_x2mso"]
 
 [sub_resource type="Curve3D" id="Curve3D_yd2ce"]
 closed = true
@@ -20,7 +22,7 @@ radius = 25.0
 [sub_resource type="Animation" id="Animation_vhvj6"]
 resource_name = "Moving_Platform"
 length = 30.0
-loop_mode = 1
+loop_mode = 2
 step = 0.00833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -65,6 +67,7 @@ curve = SubResource("Curve3D_yd2ce")
 transform = Transform3D(0.999899, 0, 0, 0, 1, 0, 0, 0, 0.999899, 16.544, 0, 119.487)
 rotation_mode = 0
 cubic_interp = false
+script = ExtResource("1_x2mso")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
@@ -81,4 +84,3 @@ process_physics_priority = 1
 libraries = {
 &"": SubResource("AnimationLibrary_yd2ce")
 }
-autoplay = "Moving_Platform"

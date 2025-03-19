@@ -1,6 +1,6 @@
 extends PathFollow3D
 
-@export var speed = 4;
+@export var speed = 30;
 
 func ready():
 	pass
