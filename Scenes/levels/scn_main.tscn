@@ -12,7 +12,7 @@ sky_material = SubResource("ProceduralSkyMaterial_vuhdq")
 background_mode = 2
 sky = SubResource("Sky_ct860")
 
-[node name="ScnMain" type="Node3D"]
+[node name="ScnMain2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lyvv4")
