@@ -2,9 +2,9 @@ extends CharacterBody3D
 
 @onready var animations: AnimationPlayer = $Pivot/model/AnimationPlayer
 
-@export var speed = 8
+@export var speed = 12
 @export var fall_acceleration = 75
-@export var jump_force = 20
+@export var jump_force = 30
 var target_velocity = Vector3.ZERO
 
 func _physics_process(delta):
@@ -30,8 +30,8 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 	
-func handleAnimations(target_velocity: Vector3) -> void: 
-	if target_velocity.x || target_velocity.z != 0:
+func handleAnimations(_target_velocity: Vector3) -> void: 
+	if _target_velocity.x || _target_velocity.z != 0:
 		animations.current_animation = animations.get_animation_list()[1]
 	else: 
 		animations.current_animation = animations.get_animation_list()[0]

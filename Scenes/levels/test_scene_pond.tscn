@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ygifq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9021, 10.2046, -32.4712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3381, 4.05162, -25.7483)
 
 [node name="whiteboxTemplate" parent="." instance=ExtResource("2_0pplq")]
 
