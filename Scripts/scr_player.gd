@@ -17,7 +17,7 @@ func _physics_process(delta):
 			  else 0))
 	if(direction != Vector3.ZERO):
 		direction = direction.normalized()
-		$Pivot.basis = Basis.looking_at(direction)
+		$Pivot.basis = $Pivot.basis.slerp(Basis.looking_at(direction), .25)
 
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed

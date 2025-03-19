@@ -405,8 +405,11 @@ _data = {
 script = ExtResource("1_kbahq")
 
 [node name="camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.293507, 0.955957, 0, -0.955957, 0.293507, 0, 12.433, 4)
+transform = Transform3D(1, 0, 0, 0, 0.589239, 0.807959, 0, -0.807959, 0.589239, 9.53674e-07, 9.42906, 5.59042)
 current = true
+
+[node name="topdown_camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.293507, 0.955957, 0, -0.955957, 0.293507, 0, 12.433, 4)
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.00854, 0, 0, 0, 1.00797, 0.0338078, 0, -0.0338078, 1.00797, 0, 1, 0)

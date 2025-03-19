@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ckvaakn8a2c51"
+path.s3tc="res://.godot/imported/NPC_bully_bully_texture.png-d91bf28a202d7d7b98ed8f1b8c73f1a2.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "02f1a079758ba5734511bb0623d0fdef"
+}
+
+[deps]
+
+source_file="res://3d Models/characters/NPC_bully_bully_texture.png"
+dest_files=["res://.godot/imported/NPC_bully_bully_texture.png-d91bf28a202d7d7b98ed8f1b8c73f1a2.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
