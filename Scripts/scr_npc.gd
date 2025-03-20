@@ -1,7 +1,6 @@
 extends Node3D
 
-@export var text = "Howdy Partner!";
-@export var cooldown = 5; #cooldown for speaking to NPC
+@export var cooldown = 500; #cooldown for speaking to NPC
 
 var lastTimeSpokenTo = 0;
 var speed;
@@ -16,8 +15,9 @@ enum{
 	NEW_DIR,
 	MOVE
 }
+
 func _process(delta: float) -> void:
-	if(Input.is_action_just_pressed("chat") && (player_in_chat_zone)):
+	if(Input.is_action_just_pressed("chat") && (player_in_chat_zone) && !$Dialogue.d_active && Time.get_ticks_msec() - lastTimeSpokenTo > cooldown):
 		print("chatting with npc");
 		$Dialogue.start();
 		is_chatting = true;
@@ -25,11 +25,9 @@ func _process(delta: float) -> void:
 		
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if(body.name == "Player" && (lastTimeSpokenTo == 0 || Time.get_ticks_msec() - lastTimeSpokenTo >= cooldown * 1000)):
+	if(body.name == "Player"):
 		player_in_chat_zone = true;
-		lastTimeSpokenTo = Time.get_ticks_msec();
-		print("Todo: Dialog   " + text);
-		body.stop_and_face_npc(self, text);
+		body.stop_and_face_npc(self);
 		
 
 
@@ -40,4 +38,5 @@ func _on_speaking_zone_body_exited(body: Node3D) -> void:
 
 
 func _on_dialogue_dialogue_finished() -> void:
+	lastTimeSpokenTo = Time.get_ticks_msec();
 	is_chatting = false;

@@ -42,6 +42,6 @@ func die() -> void:
 func collect_stamp(ID_num:int):
 	print("Collected Stamp: " + str(ID_num))
 
-func stop_and_face_npc(npc:Node3D, dialog:String):
+func stop_and_face_npc(npc:Node3D):
 	print("Todo: face NPC, disable physics and input, and maybe zoom camera?");
 	
