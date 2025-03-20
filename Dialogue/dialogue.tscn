@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c33833ffvdp02"]
+
+[ext_resource type="Texture2D" uid="uid://2hfrriyaelbi" path="res://3d Models/textures/inventory-slot.png" id="1_1ei20"]
+[ext_resource type="Script" uid="uid://bikefhhuntohi" path="res://Dialogue/dialogueplayer.gd" id="1_je2oo"]
+
+[sub_resource type="GDScript" id="GDScript_jx425"]
+script/source = "extends RichTextLabel
+"
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_je2oo")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 132.0
+offset_bottom = 73.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_1ei20")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 257.0
+offset_bottom = 26.0
+scale = Vector2(0.5, 0.5)
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 14.0
+offset_right = 299.0
+offset_bottom = 150.0
+scale = Vector2(0.4, 0.4)
+text = "Chatting..."
+script = SubResource("GDScript_jx425")
