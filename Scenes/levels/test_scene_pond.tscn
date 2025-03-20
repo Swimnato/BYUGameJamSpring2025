@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bijqr2dctgayj"]
+[gd_scene load_steps=8 format=3 uid="uid://bijqr2dctgayj"]
 
+[ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_0pplq"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_ygifq"]
 [ext_resource type="PackedScene" uid="uid://3i3ucjfxkmq7" path="res://Scenes/levels/scn_PondMap.tscn" id="3_76m6k"]
+[ext_resource type="Script" uid="uid://brl6usinhjm8y" path="res://Scripts/death_rectangle.gd" id="4_0pplq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -13,6 +15,7 @@ background_mode = 2
 sky = SubResource("Sky_ct860")
 
 [node name="ScnMain" type="Node3D"]
+script = ExtResource("1_0pplq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lyvv4")
@@ -26,3 +29,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3381, 4.05162, -25.7483)
 
 [node name="Pond Map" parent="." instance=ExtResource("3_76m6k")]
 transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, -48.6179, 0, -52.2118)
+
+[node name="deathRectangle" type="ColorRect" parent="."]
+offset_left = -19.0
+offset_top = -29.0
+offset_right = 1211.0
+offset_bottom = 684.0
+script = ExtResource("4_0pplq")
