@@ -13,6 +13,7 @@ var typing = false  # Tracks if typing is in progress
 
 func _ready() -> void:
 	$NinePatchRect.visible = false #make sure its not seen first
+	$finished_typing.visible = false #make sure its not seen first
 	if not $typing_timer.timeout.is_connected(_on_typing_timer_timeout):#comfirm timeout connection for typing effect
 		$typing_timer.timeout.connect(_on_typing_timer_timeout)
 		
@@ -42,6 +43,7 @@ func _input(event: InputEvent) -> void:
 			next_script()
 
 func next_script():
+	$finished_typing.visible = false
 	current_dialogue_id += 1
 	if current_dialogue_id >= len(dialogue):
 		d_active = false
@@ -49,7 +51,7 @@ func next_script():
 		emit_signal("dialogue_finished")
 		return
 	$NinePatchRect/Name.text = dialogue[current_dialogue_id]['name']
-	full_text = dialogue[current_dialogue_id]['text']
+	full_text = "[color=black]" + dialogue[current_dialogue_id]['text']
 	displayed_text = ""
 	$NinePatchRect/Text.text = ""
 	typing = true
@@ -63,3 +65,4 @@ func _on_typing_timer_timeout():
 	else:
 		$typing_timer.stop()
 		typing = false
+		$finished_typing.visible = true

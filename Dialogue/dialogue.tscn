@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c33833ffvdp02"]
+[gd_scene load_steps=6 format=3 uid="uid://c33833ffvdp02"]
 
-[ext_resource type="Texture2D" uid="uid://2hfrriyaelbi" path="res://3d Models/textures/inventory-slot.png" id="1_1ei20"]
 [ext_resource type="Script" uid="uid://bikefhhuntohi" path="res://Dialogue/dialogueplayer.gd" id="1_je2oo"]
+[ext_resource type="Texture2D" uid="uid://dwhjtejtqkhs0" path="res://3d Models/textures/dialogueBox.webp" id="2_jx425"]
 [ext_resource type="Script" uid="uid://bdoy8ftun5vqw" path="res://Dialogue/typing_timer.gd" id="3_jx425"]
+[ext_resource type="Texture2D" uid="uid://h63mi4oq30p5" path="res://3d Models/textures/dialogueEner.webp" id="4_mvbsq"]
 
 [sub_resource type="GDScript" id="GDScript_jx425"]
 script/source = "extends RichTextLabel
@@ -18,12 +19,12 @@ d_file = "res://Dialogue/boblin_dialogue.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 73.0
+offset_left = -17.0
+offset_top = -20.0
+offset_right = 118.0
+offset_bottom = 43.0
 scale = Vector2(4, 4)
-texture = ExtResource("1_1ei20")
+texture = ExtResource("2_jx425")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
@@ -31,21 +32,31 @@ patch_margin_bottom = 3
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 1.0
-offset_right = 257.0
-offset_bottom = 26.0
+offset_left = 18.75
+offset_top = 8.0
+offset_right = 274.75
+offset_bottom = 34.0
 scale = Vector2(0.5, 0.5)
 text = "Name:"
 
 [node name="Text" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 14.0
-offset_right = 299.0
-offset_bottom = 150.0
+offset_left = 13.0
+offset_top = 23.0
+offset_right = 285.0
+offset_bottom = 100.0
 scale = Vector2(0.4, 0.4)
-text = "Chatting..."
+bbcode_enabled = true
+text = "[color=black] Chatting..."
 script = SubResource("GDScript_jx425")
 
 [node name="typing_timer" type="Timer" parent="."]
 script = ExtResource("3_jx425")
+
+[node name="finished_typing" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 188.0
+offset_right = 284.0
+offset_bottom = 228.0
+texture = ExtResource("4_mvbsq")
