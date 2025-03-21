@@ -65,7 +65,15 @@ sprite_frames = SubResource("SpriteFrames_wr6wu")
 animation = &"walk_w"
 
 [node name="Dialogue" parent="." instance=ExtResource("2_ethv3")]
-d_file = "res://Dialogue/boblin_dialogue.json"
+
+[node name="TalkPrompt" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95332, 0)
+visible = false
+billboard = 1
+modulate = Color(1, 0.0666667, 0.121569, 1)
+text = "C"
+font_size = 80
+outline_size = 30
 
 [connection signal="body_entered" from="Speaking zone" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Speaking zone" to="." method="_on_speaking_zone_body_exited"]

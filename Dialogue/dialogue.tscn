@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c33833ffvdp02"]
+[gd_scene load_steps=5 format=3 uid="uid://c33833ffvdp02"]
 
 [ext_resource type="Texture2D" uid="uid://2hfrriyaelbi" path="res://3d Models/textures/inventory-slot.png" id="1_1ei20"]
 [ext_resource type="Script" uid="uid://bikefhhuntohi" path="res://Dialogue/dialogueplayer.gd" id="1_je2oo"]
+[ext_resource type="Script" uid="uid://bdoy8ftun5vqw" path="res://Dialogue/typing_timer.gd" id="3_jx425"]
 
 [sub_resource type="GDScript" id="GDScript_jx425"]
 script/source = "extends RichTextLabel
@@ -13,6 +14,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_je2oo")
+d_file = "res://Dialogue/boblin_dialogue.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -44,3 +46,6 @@ offset_bottom = 150.0
 scale = Vector2(0.4, 0.4)
 text = "Chatting..."
 script = SubResource("GDScript_jx425")
+
+[node name="typing_timer" type="Timer" parent="."]
+script = ExtResource("3_jx425")
