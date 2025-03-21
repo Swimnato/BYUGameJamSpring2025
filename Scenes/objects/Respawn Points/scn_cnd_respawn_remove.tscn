@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdm1kprq8fc2r"]
 
-[ext_resource type="Script" uid="uid://ccexoaligqwyg" path="res://Scripts/scr_cnd_respawn_set.gd" id="1_a7jql"]
+[ext_resource type="Script" uid="uid://dmmdrtx8yk8fk" path="res://Scripts/scR_cnd_respawn_remove.gd" id="1_a7jql"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="2_i1f4q"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d5asg"]
-radius = 6.0
+radius = 25.0
 
 [node name="ConditionalRespawn" type="Node3D"]
 script = ExtResource("1_a7jql")

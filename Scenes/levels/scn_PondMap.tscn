@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=20 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_h85wo"]
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cjjluumojh0qk" path="res://Scripts/scr_cat_out_of_water.gd" id="8_6wd78"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="10_8wpu8"]
 [ext_resource type="PackedScene" uid="uid://ditt1bva0gim6" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_set.tscn" id="11_x1l0e"]
+[ext_resource type="PackedScene" uid="uid://cdm1kprq8fc2r" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_remove.tscn" id="12_ujri8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
 
@@ -198,6 +199,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.25, 0, 68.1392)
 [node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
 
 [node name="ConditionalRespawn" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("11_x1l0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.086, 0, 116.67)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.3823, 0, 152.848)
+
+[node name="ConditionalRespawn2" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("12_ujri8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.621, 0.668285, 11.5067)
 
 [connection signal="body_entered" from="objects/Trigger Zones/Trigger Cat" to="Animations/AnimationPlayer" method="_on_trigger_cat_body_entered"]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce4ec5mvhrpsw"]
+[gd_scene load_steps=8 format=3 uid="uid://ce4ec5mvhrpsw"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_ggxd7"]
 [ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="2_8livs"]
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_ggxd7"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="4_3vvfw"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="4_jj5kh"]
+[ext_resource type="PackedScene" uid="uid://ditt1bva0gim6" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_set.tscn" id="6_u3pk4"]
+[ext_resource type="PackedScene" uid="uid://cdm1kprq8fc2r" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_remove.tscn" id="7_3smd5"]
 
 [node name="whiteboxTemplate" type="Node3D"]
 script = ExtResource("1_ggxd7")
@@ -44,6 +46,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13247, 0.519535, 3.4603)
 [node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
 
 [node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("4_jj5kh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.25, 0, 68.1392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00688, 0, 31.7543)
 
 [node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ConditionalRespawn" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("6_u3pk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4931, 0, 22.405)
+
+[node name="ConditionalRespawn2" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("7_3smd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4112, 0.668285, 11.5067)

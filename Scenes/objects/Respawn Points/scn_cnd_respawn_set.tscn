@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="1_nnqoe"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d5asg"]
-radius = 6.0
+radius = 25.0
 
 [node name="ConditionalRespawn" type="Node3D"]
 script = ExtResource("1_d5asg")
