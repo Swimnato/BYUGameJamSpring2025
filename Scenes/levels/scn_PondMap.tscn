@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=19 format=3 uid="uid://3i3ucjfxkmq7"]
 
+[ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_h85wo"]
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/scn_stamp.tscn" id="2_3yaxh"]
 [ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="2_khnxe"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/Floating Platform.tscn" id="4_khnxe"]
 [ext_resource type="PackedScene" uid="uid://dvhfttb1g2ogl" path="res://3d Models/characters/catprototype.glb" id="7_crnpl"]
 [ext_resource type="Script" uid="uid://cjjluumojh0qk" path="res://Scripts/scr_cat_out_of_water.gd" id="8_6wd78"]
+[ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="10_8wpu8"]
+[ext_resource type="PackedScene" uid="uid://ditt1bva0gim6" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_set.tscn" id="11_x1l0e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
 
@@ -34,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-110.974, -7.19148, 46.3199), Vector3(-110.974, -1.224, 46.3199)]
+"values": [Vector3(112.832, -7.19148, -49.5317), Vector3(112.832, -0.603279, -49.5317)]
 }
 
 [sub_resource type="Animation" id="Animation_x1l0e"]
@@ -59,19 +62,21 @@ _data = {
 }
 
 [node name="scn_Pond_Map" type="Node3D"]
+script = ExtResource("1_h85wo")
 
 [node name="objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171906, 0.265594, -0.462372)
 
 [node name="Interactibles" type="Node3D" parent="objects"]
 
 [node name="Frog" parent="objects/Interactibles" instance=ExtResource("1_wj234")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -98.4361, 0.442986, -127.751)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 64.7562, 0.442986, 131.734)
 
 [node name="Stamp" parent="objects/Interactibles" instance=ExtResource("2_3yaxh")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 93.395, 2, -153.907)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -99.8687, 2, 152.059)
 
 [node name="catprototype" parent="objects/Interactibles" instance=ExtResource("7_crnpl")]
-transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -110.974, -7.19148, 46.3199)
+transform = Transform3D(1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, -110.974, -7.19148, 46.3199)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="objects/Interactibles/catprototype"]
 
@@ -79,6 +84,7 @@ transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -110.974, -7.1
 shape = SubResource("CapsuleShape3D_crnpl")
 
 [node name="Collisions" type="Node3D" parent="objects"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Pond Edge" type="CSGBox3D" parent="objects/Collisions"]
 transform = Transform3D(500, 0, 0, 0, 10, 0, 0, 0, 500, 13.347, -5, 3.878)
@@ -156,18 +162,22 @@ material = ExtResource("3_42eyn")
 [node name="FloatingPlatform" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
 
+[node name="FloatingPlatform2" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
+progressOffsetRatio = 0.5
+
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
 [node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("3_khnxe")]
-transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, 14.6531, -1.82235, 3.8154)
+transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, -12.7578, -1.82235, -2.19385)
 
 [node name="Trigger Zones" type="Node3D" parent="objects"]
 
 [node name="Trigger Cat" type="Area3D" parent="objects/Trigger Zones"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.5334, 0, 48.1192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.205, 0, -41.8613)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Trigger Zones/Trigger Cat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.644554, 0, -6.40799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99995, 0, -2.10509)
 shape = SubResource("CylinderShape3D_h85wo")
 
 [node name="Animations" type="Node3D" parent="."]
@@ -177,5 +187,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_ujri8")
 }
 script = ExtResource("8_6wd78")
+
+[node name="RespawnPoints" type="Node3D" parent="."]
+
+[node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("10_8wpu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.25, 0, 68.1392)
+
+[node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ConditionalRespawn" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("11_x1l0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.086, 0, 116.67)
 
 [connection signal="body_entered" from="objects/Trigger Zones/Trigger Cat" to="Animations/AnimationPlayer" method="_on_trigger_cat_body_entered"]

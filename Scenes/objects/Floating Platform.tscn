@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc5s0rft0e5gf"]
+[gd_scene load_steps=7 format=3 uid="uid://bc5s0rft0e5gf"]
 
+[ext_resource type="Script" uid="uid://danmkyiubuvq4" path="res://Scripts/scr_floating_platform_manager.gd" id="1_t4la1"]
 [ext_resource type="Script" uid="uid://bxkuapurh3v8x" path="res://Scripts/FollowPath.gd" id="1_x2mso"]
 [ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="2_yd2ce"]
 
@@ -22,12 +23,14 @@ height = 0.5
 radius = 25.0
 
 [node name="FloatingPlatform" type="Node3D"]
+script = ExtResource("1_t4la1")
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_yd2ce")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 transform = Transform3D(0.999899, 0, 0, 0, 1, 0, 0, 0, 0.999899, 16.544, 0, 119.487)
+progress = 663.434
 rotation_mode = 0
 cubic_interp = false
 script = ExtResource("1_x2mso")

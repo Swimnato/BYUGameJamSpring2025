@@ -10,6 +10,8 @@ var target_velocity = Vector3.ZERO
 @onready var respawnPoints = get_parent().respawnPoints;
 
 var isBlackedOut = false;
+var specificRespawn = false;
+var specificRespawnPoint:Node3D;
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
@@ -53,21 +55,31 @@ func wakeUp():
 	isBlackedOut = false;
 	
 func teleportToRespawn():
-	var distanceToEachPoint:Array;
-	var indexOfShortest:int = 0;
-	var test:Vector3;
-	for point in respawnPoints:
-		distanceToEachPoint.append((position-point).length_squared());
-	var shortestDist:int = distanceToEachPoint[0]
-	for distance in range(len(distanceToEachPoint)):
-		if distanceToEachPoint[distance] < shortestDist:
-			shortestDist = distanceToEachPoint[distance];
-			indexOfShortest = distance;
-	position = respawnPoints[indexOfShortest];
+	if !specificRespawn:
+		var distanceToEachPoint:Array;
+		var indexOfShortest:int = 0;
+		var test:Vector3;
+		for point in respawnPoints:
+			distanceToEachPoint.append((position-point).length_squared());
+		var shortestDist:int = distanceToEachPoint[0]
+		for distance in range(len(distanceToEachPoint)):
+			if distanceToEachPoint[distance] < shortestDist:
+				shortestDist = distanceToEachPoint[distance];
+				indexOfShortest = distance;
+		position = respawnPoints[indexOfShortest];
+	else:
+		position = get_parent().to_local(specificRespawnPoint.get_parent().get_parent().to_global(specificRespawnPoint.position))
 
 func collect_stamp(ID_num:int):
 	print("Collected Stamp: " + str(ID_num))
 
 func stop_and_face_npc(npc:Node3D):
 	print("Todo: face NPC, disable physics and input, and maybe zoom camera?");
+
+func setSpecifiedRespawn(point:Node3D):
+	specificRespawnPoint = point;
+	specificRespawn = true;
+	
+func disableSpecifiedRespawn():
+	specificRespawn = false;
 	
