@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://d0nc7eqy5dp1y"
 config/icon="uid://c0eaqpidg6oi4"
 
+[autoload]
+
+EventController="*res://Scripts/eventController.gd"
+GameController="*res://Scripts/game_controller.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray()

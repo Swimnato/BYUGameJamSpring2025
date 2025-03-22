@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ikuk1jy74us"]
+
+[ext_resource type="Script" uid="uid://e7jfkbvrfnor" path="res://Scenes/objects/stamp_ui.gd" id="1_nj6pr"]
+[ext_resource type="Texture2D" uid="uid://bseofyklgrdd5" path="res://3d Models/stamps/StampUI.webp" id="1_wpfd1"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="StampUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_right = -112.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_nj6pr")
+
+[node name="TextureRect" type="TextureRect" parent="StampUI"]
+layout_mode = 0
+offset_right = 91.0
+offset_bottom = 79.0
+texture = ExtResource("1_wpfd1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="StampUI"]
+layout_mode = 0
+offset_left = 73.0
+offset_right = 161.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
