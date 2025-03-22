@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3i4fnxerfma5"
-path.bptc="res://.godot/imported/stampBlue.webp-e5ec4c23ad908e2bbae7f4292824ece8.bptc.ctex"
+uid="uid://uuq4tr1ogwkb"
+path="res://.godot/imported/stamp3.png-7c5a839f73fbc04f31658ef91313e7b0.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://3d Models/stamps/stampBlue.webp"
-dest_files=["res://.godot/imported/stampBlue.webp-e5ec4c23ad908e2bbae7f4292824ece8.bptc.ctex"]
+source_file="res://Visual Assets/Stamps/stamp3.png"
+dest_files=["res://.godot/imported/stamp3.png-7c5a839f73fbc04f31658ef91313e7b0.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=true
+compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

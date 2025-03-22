@@ -51,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00688, 0, -5.04441)
 [node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
 
 [node name="ConditionalRespawn" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("6_u3pk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4931, 0, 22.405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12032, 0, 9.19935)
 
 [node name="ConditionalRespawn2" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("7_3smd5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4112, 0.668285, 11.5067)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1491, 0.668285, 8.56791)
