@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b5ggjwe4t67j3"]
+
+[ext_resource type="Texture2D" uid="uid://c3i4fnxerfma5" path="res://3d Models/stamps/stampBlue.webp" id="1_da5hs"]
+
+[resource]
+albedo_texture = ExtResource("1_da5hs")
+albedo_texture_force_srgb = true

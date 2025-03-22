@@ -1,16 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3mui13brndfm"]
+[gd_scene load_steps=5 format=3 uid="uid://b3mui13brndfm"]
 
 [ext_resource type="Script" uid="uid://dx17bff11nola" path="res://Scripts/scr_stamp.gd" id="1_7yok8"]
-[ext_resource type="Texture2D" uid="uid://c3i4fnxerfma5" path="res://3d Models/stamps/stampBlue.webp" id="2_7ut0b"]
+[ext_resource type="Material" uid="uid://b5ggjwe4t67j3" path="res://materials/BlueStamp.tres" id="2_7ut0b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s25v"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5np1"]
-albedo_texture = ExtResource("2_7ut0b")
-albedo_texture_force_srgb = true
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_5r0n8"]
-material = SubResource("StandardMaterial3D_y5np1")
+material = ExtResource("2_7ut0b")
 size = Vector2(1, 1)
 
 [node name="stamp" type="Node3D"]
@@ -21,11 +17,11 @@ script = ExtResource("1_7yok8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_7s25v")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="imageFront" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.34202, 0.939693, 0, -0.939693, -0.34202, 0, 0, 0)
 mesh = SubResource("PlaneMesh_5r0n8")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="imageBack" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0)
 mesh = SubResource("PlaneMesh_5r0n8")
 

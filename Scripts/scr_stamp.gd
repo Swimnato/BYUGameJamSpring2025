@@ -7,10 +7,17 @@ extends Node3D
 var angle = 0;
 var direction = 1;
 
-var textures = ["res://Visual Assets/Stamps/stamp1.png","res://Visual Assets/Stamps/stamp2.png","res://Visual Assets/Stamps/stamp3.png","res://Visual Assets/Stamps/stamp4.png"];
+const firstStamp = preload("res://materials/BlueStamp.tres")
+const secondStamp = preload("res://materials/GreenStamp.tres");
+const thirdStamp = preload("res://materials/OrangeStamp.tres");
+const fourthStamp = preload("res://materials/RedStamp.tres");
+
+const textures = [firstStamp,secondStamp,thirdStamp,fourthStamp];
 
 func _ready():
 	turnAmount = turnAmount * PI / 180.0;
+	$imageFront.material_override = textures[ID_num];
+	$imageBack.material_override = textures[ID_num];
 
 func _process(delta):
 	rotation.y += direction * delta * turnSpeed;
