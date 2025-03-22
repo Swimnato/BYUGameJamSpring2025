@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cfj8d01iln7co" path="res://3d Models/stamps/stampOrange.webp" id="1_yjmoh"]
 
 [resource]
+transparency = 1
 albedo_texture = ExtResource("1_yjmoh")
 albedo_texture_force_srgb = true
