@@ -7,12 +7,12 @@ albedo_color = Color(0.0313726, 0.788235, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_p5gi1"]
 material = SubResource("StandardMaterial3D_yr0vt")
-radius = 2.5
-height = 5.0
+radius = 1.0
+height = 2.0
 
 [node name="ScnRespawnStandard" type="Node3D"]
 
 [node name="Indicator" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("SphereMesh_p5gi1")
 script = ExtResource("1_uinko")
