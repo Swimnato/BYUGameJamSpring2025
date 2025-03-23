@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b65hp46cls10n"]
+[gd_scene load_steps=10 format=3 uid="uid://b65hp46cls10n"]
 
 [ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_lyvv4"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_vuhdq"]
 [ext_resource type="PackedScene" uid="uid://ce4ec5mvhrpsw" path="res://Scenes/levels/scn_whitebox_template.tscn" id="3_lyvv4"]
-[ext_resource type="Script" path="res://Scripts/death_rectangle.gd" id="4_uc5yf"]
+[ext_resource type="Script" uid="uid://brl6usinhjm8y" path="res://Scripts/death_rectangle.gd" id="4_uc5yf"]
+[ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/scn_stamp.tscn" id="5_sa1m2"]
+[ext_resource type="PackedScene" uid="uid://c7ikuk1jy74us" path="res://Scenes/objects/StampUI.tscn" id="6_tiwv8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -21,7 +23,7 @@ script = ExtResource("1_lyvv4")
 environment = SubResource("Environment_lyvv4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(0.910222, -0.141713, -0.38912, 0.414121, 0.311478, 0.855269, 0, -0.939627, 0.342201, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_vuhdq")]
@@ -38,3 +40,8 @@ script = ExtResource("4_uc5yf")
 
 [node name="whiteboxTemplate" parent="SubScenes" instance=ExtResource("3_lyvv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000407934, -0.0163436, 0.0126014)
+
+[node name="stamp" parent="." instance=ExtResource("5_sa1m2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03356, 1.15561, -1.56123)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_tiwv8")]
