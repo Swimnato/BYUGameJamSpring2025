@@ -20,6 +20,7 @@ var prev_mesh:Mesh;
 
 var player;
 var player_in_chat_zone = false;
+var player_too_close = false;
 
 enum {
 	IDLE,
@@ -34,9 +35,11 @@ func _process(delta: float) -> void:
 	if(jumping):
 		if not NPC_Body.is_on_floor():
 			NPC_Body.velocity.y = NPC_Body.velocity.y - (fall_acceleration * delta)
-		elif(abs(Time.get_ticks_msec() - lastTimeJumped) >= jump_delay and !$Dialogue.d_active):
+		elif(abs(Time.get_ticks_msec() - lastTimeJumped) >= jump_delay and !$Dialogue.d_active and !player_too_close):
 			lastTimeJumped = Time.get_ticks_msec();
 			NPC_Body.velocity = Vector3(0, jumpingVelocity, 0);
+		else:
+			NPC_Body.position = Vector3(0,1,0);
 		NPC_Body.move_and_slide()
 	if(prev_mesh != NPC_Mesh):
 		prev_mesh = NPC_Mesh;
@@ -49,7 +52,6 @@ func _process(delta: float) -> void:
 			current_state = IDLE;
 		else:
 			var remaining_time = cooldown - (Time.get_ticks_msec() - lastTimeSpokenTo) / 1000;
-			print("You must wait " + str(remaining_time) + " more seconds to chat with the NPC.");
 		
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
@@ -62,5 +64,14 @@ func _on_speaking_zone_body_exited(body: Node3D) -> void:
 		$TalkPrompt.visible = false;
 
 func _on_dialogue_dialogue_finished() -> void:
-	print('Dialogue finished')
 	lastTimeSpokenTo = Time.get_ticks_msec();
+
+
+func _on_no_jump_region_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		player_too_close = true;
+
+
+func _on_no_jump_region_body_exited(body: Node3D) -> void:
+	if body.name == "Player":
+		player_too_close = false;
