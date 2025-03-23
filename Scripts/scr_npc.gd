@@ -4,6 +4,15 @@ extends Node3D
 @export_file("*.json") var d_file; #dialogue file to read from
 @export var NPC_Mesh:Mesh;
 
+@export var jumping:bool = false;
+@export var jumpingVelocity = 10;
+@export var fall_acceleration = 75
+@export var jump_delay = 1000;
+
+
+@onready var NPC_Body = $CharacterBody3D;
+
+var lastTimeJumped = 0;
 var lastTimeSpokenTo = 0;  # Keeps track of the last time the player spoke to the NPC
 var speed;
 var current_state = IDLE;
@@ -22,9 +31,16 @@ func _ready() -> void:
 	$Dialogue.connect("dialogue_finished", Callable(self, "_on_dialogue_dialogue_finished"));
 
 func _process(delta: float) -> void:
+	if(jumping):
+		if not NPC_Body.is_on_floor():
+			NPC_Body.velocity.y = NPC_Body.velocity.y - (fall_acceleration * delta)
+		elif(abs(Time.get_ticks_msec() - lastTimeJumped) >= jump_delay and !$Dialogue.d_active):
+			lastTimeJumped = Time.get_ticks_msec();
+			NPC_Body.velocity = Vector3(0, jumpingVelocity, 0);
+		NPC_Body.move_and_slide()
 	if(prev_mesh != NPC_Mesh):
 		prev_mesh = NPC_Mesh;
-		$MeshInstance3D.mesh = NPC_Mesh;
+		$CharacterBody3D/MeshInstance3D.mesh = NPC_Mesh;
 	if Input.is_action_just_pressed("chat") and player_in_chat_zone:
 		if lastTimeSpokenTo == 0 or Time.get_ticks_msec() - lastTimeSpokenTo >= cooldown * 1000:
 			print("chatting with npc");

@@ -13,7 +13,7 @@ const secondStamp = preload("res://materials/GreenStamp.tres");
 const thirdStamp = preload("res://materials/OrangeStamp.tres");
 const fourthStamp = preload("res://materials/RedStamp.tres");
 
-const textures = [firstStamp,secondStamp,thirdStamp,fourthStamp];
+const textures:Array = [firstStamp,secondStamp,thirdStamp,fourthStamp];
 
 func _ready():
 	turnAmount = turnAmount * PI / 180.0;
