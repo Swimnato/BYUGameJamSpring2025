@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfabpgfj3vlue"]
+[gd_scene load_steps=9 format=3 uid="uid://cfabpgfj3vlue"]
 
 [ext_resource type="Script" uid="uid://bi37ffismaxk2" path="res://Scripts/scr_npc.gd" id="1_oek5n"]
 [ext_resource type="PackedScene" uid="uid://c33833ffvdp02" path="res://Dialogue/dialogue.tscn" id="2_ethv3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ethv3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oek5n"]
 albedo_color = Color(0.505556, 0.707164, 1, 1)
@@ -43,6 +45,8 @@ animations = [{
 
 [node name="ScnNpc" type="Node3D"]
 script = ExtResource("1_oek5n")
+d_file = "res://Dialogue/boblin_dialogue.json"
+NPC_Mesh = SubResource("CapsuleMesh_ethv3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

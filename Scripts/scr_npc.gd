@@ -1,10 +1,13 @@
 extends Node3D
 
 @export var cooldown = 1;  # Cooldown for speaking to NPC in seconds
+@export_file("*.json") var d_file; #dialogue file to read from
+@export var NPC_Mesh:Mesh;
 
 var lastTimeSpokenTo = 0;  # Keeps track of the last time the player spoke to the NPC
 var speed;
 var current_state = IDLE;
+var prev_mesh:Mesh;
 
 var player;
 var player_in_chat_zone = false;
@@ -19,6 +22,9 @@ func _ready() -> void:
 	$Dialogue.connect("dialogue_finished", Callable(self, "_on_dialogue_dialogue_finished"));
 
 func _process(delta: float) -> void:
+	if(prev_mesh != NPC_Mesh):
+		prev_mesh = NPC_Mesh;
+		$MeshInstance3D.mesh = NPC_Mesh;
 	if Input.is_action_just_pressed("chat") and player_in_chat_zone:
 		if lastTimeSpokenTo == 0 or Time.get_ticks_msec() - lastTimeSpokenTo >= cooldown * 1000:
 			print("chatting with npc");

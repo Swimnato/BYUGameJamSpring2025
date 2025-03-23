@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bijqr2dctgayj"]
+[gd_scene load_steps=9 format=3 uid="uid://bijqr2dctgayj"]
 
 [ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_0pplq"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_ygifq"]
 [ext_resource type="PackedScene" uid="uid://3i3ucjfxkmq7" path="res://Scenes/levels/scn_PondMap.tscn" id="3_76m6k"]
 [ext_resource type="Script" path="res://Scripts/death_rectangle.gd" id="4_0pplq"]
+[ext_resource type="PackedScene" uid="uid://bj3njwgib7ys7" path="res://Scenes/levels/scn_cookie_tree.tscn" id="5_76m6k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -25,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 0.404902, 0.91436, 0, -0.91436, 0.404902, 0,
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ygifq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7984, 0, -35.0471)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10074, 0, 20.6928)
 
 [node name="deathRectangle" type="ColorRect" parent="."]
 offset_left = -19.0
@@ -38,3 +39,6 @@ script = ExtResource("4_0pplq")
 
 [node name="Pond Map" parent="SubScenes" instance=ExtResource("3_76m6k")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -48.6179, 0, -52.2118)
+
+[node name="CookieTree" parent="SubScenes" instance=ExtResource("5_76m6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9518, 0, 17.2513)

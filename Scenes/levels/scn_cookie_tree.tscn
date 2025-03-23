@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://bj3njwgib7ys7"]
+
+[ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_0n740"]
+[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_l2wx1"]
+[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="3_8vv17"]
+[ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="3_b4qwi"]
+[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="4_e7cin"]
+[ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="5_ghrgq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4qwi"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_0n740"]
+inner_radius = 1.39
+outer_radius = 3.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2wx1"]
+albedo_color = Color(0, 0.298031, 0.0551608, 1)
+
+[node name="CookieTree" type="Node3D"]
+script = ExtResource("1_0n740")
+
+[node name="objects" type="Node3D" parent="."]
+
+[node name="Interactibles" type="Node3D" parent="objects"]
+
+[node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("2_l2wx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60887, 0.0195343, 2.74556)
+
+[node name="Collisions" type="Node3D" parent="objects"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(30, 1, 30)
+material = ExtResource("3_b4qwi")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="objects/Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+use_collision = true
+radius = 2.0
+height = 7.0
+material = ExtResource("3_8vv17")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75608, 1.52069)
+operation = 2
+material = SubResource("StandardMaterial3D_b4qwi")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="objects/Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.39468, 0)
+mesh = SubResource("TorusMesh_0n740")
+material = SubResource("StandardMaterial3D_l2wx1")
+
+[node name="Hurtboxes" type="Node3D" parent="objects"]
+
+[node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("4_e7cin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0378885, 0.519535, 1.0626)
+
+[node name="RespawnPoints" type="Node3D" parent="."]
+
+[node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("5_ghrgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2401, 0, 12.2622)
+
+[node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]

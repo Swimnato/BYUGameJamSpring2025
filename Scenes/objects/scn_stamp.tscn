@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckdejuksdix4b" path="res://3d Models/stamps/Stamp_3d Model Export.glb" id="3_y5np1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s25v"]
+size = Vector3(1.7, 2, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5r0n8"]
 material = ExtResource("2_7ut0b")
@@ -19,14 +20,14 @@ script = ExtResource("1_7yok8")
 shape = SubResource("BoxShape3D_7s25v")
 
 [node name="imageBack" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.34202, 0.939693, 0, -0.939693, -0.34202, 0, -0.0178747, -0.0491104)
+transform = Transform3D(2, 0, 0, 0, -0.68404, 1.87939, 0, -1.87939, -0.68404, 0, -0.0344833, -0.0947421)
 mesh = SubResource("PlaneMesh_5r0n8")
 
 [node name="imageFront" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0.0185811, 0.051051)
+transform = Transform3D(2, 0, 0, 0, 0.68404, -1.87939, 0, 1.87939, 0.68404, 0, 0.0357839, 0.0983153)
 mesh = SubResource("PlaneMesh_5r0n8")
 
 [node name="Stamp_3d Model Export" parent="." instance=ExtResource("3_y5np1")]
-transform = Transform3D(0.2, 0, 0, 0, 0.068404, -0.187939, 0, 0.187939, 0.068404, 0, 0, 0)
+transform = Transform3D(0.4, 0, 0, 0, 0.136808, -0.375877, 0, 0.375877, 0.136808, 0, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
