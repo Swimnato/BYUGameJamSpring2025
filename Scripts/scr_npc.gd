@@ -19,6 +19,7 @@ var current_state = IDLE;
 var prev_mesh:Mesh;
 
 var player;
+var playerBody;
 var player_in_chat_zone = false;
 var player_too_close = false;
 
@@ -46,16 +47,17 @@ func _process(delta: float) -> void:
 		$CharacterBody3D/MeshInstance3D.mesh = NPC_Mesh;
 	if Input.is_action_just_pressed("chat") and player_in_chat_zone:
 		if lastTimeSpokenTo == 0 or Time.get_ticks_msec() - lastTimeSpokenTo >= cooldown * 1000:
-			print("chatting with npc");
 			$Dialogue.start();  # Start the dialogue if the cooldown has passed
 			lastTimeSpokenTo = Time.get_ticks_msec();  # Update the last time spoken to NPC
 			current_state = IDLE;
+			playerBody.stop_and_face_npc(self);
 		else:
 			var remaining_time = cooldown - (Time.get_ticks_msec() - lastTimeSpokenTo) / 1000;
 		
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		player_in_chat_zone = true;
+		playerBody = body;
 		$TalkPrompt.visible = true;
 
 func _on_speaking_zone_body_exited(body: Node3D) -> void:
@@ -65,6 +67,7 @@ func _on_speaking_zone_body_exited(body: Node3D) -> void:
 
 func _on_dialogue_dialogue_finished() -> void:
 	lastTimeSpokenTo = Time.get_ticks_msec();
+	playerBody.release_player()
 
 
 func _on_no_jump_region_body_entered(body: Node3D) -> void:

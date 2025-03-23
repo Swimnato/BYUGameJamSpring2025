@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/death_rectangle.gd" id="4_uc5yf"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/scn_stamp.tscn" id="5_sa1m2"]
 [ext_resource type="PackedScene" path="res://Scenes/objects/StampUI.tscn" id="6_tiwv8"]
-[ext_resource type="PackedScene" path="res://Scenes/objects/PauseMenu.tscn" id="7_ih4ht"]
+[ext_resource type="PackedScene" uid="uid://bxkiq03h5yyl2" path="res://Scenes/objects/PauseMenu.tscn" id="7_ih4ht"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 

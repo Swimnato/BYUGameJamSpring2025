@@ -10,12 +10,15 @@ var target_velocity = Vector3.ZERO
 @onready var respawnPoints = get_parent().respawnPoints;
 
 var isBlackedOut = false;
+var isTalking = false;
 var specificRespawn = false;
 var specificRespawnPoint:Node3D;
+var direction:Vector3;
 
 func _physics_process(delta):
-	var direction = Vector3.ZERO
-	if(!isBlackedOut):
+	if(!isTalking):
+		direction = Vector3.ZERO
+	if(!isBlackedOut && !isTalking):
 		direction.x += (1 if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") 
 			  else (-1 if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right")
 			  else 0))
@@ -26,12 +29,13 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		$Pivot.basis = $Pivot.basis.slerp(Basis.looking_at(direction), .25)
 
-	target_velocity.x = direction.x * speed
-	target_velocity.z = direction.z * speed
+	if(!isTalking):
+		target_velocity.x = direction.x * speed
+		target_velocity.z = direction.z * speed
 
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-	elif Input.is_action_pressed("jump"):
+	elif Input.is_action_pressed("jump") and !isBlackedOut && !isTalking:
 		target_velocity.y = jump_force
 	handleAnimations(target_velocity)
 	velocity = target_velocity
@@ -74,7 +78,18 @@ func collect_stamp(ID_num:int):
 	print("Collected Stamp: " + str(ID_num))
 
 func stop_and_face_npc(npc:Node3D):
-	print("Todo: face NPC, disable physics and input, and maybe zoom camera?");
+	isTalking = true;
+	#$Pivot.look_at(npc.get_parent().get_parent().get_parent().to_global(npc.position))
+	var tween:Tween = $Pivot.create_tween();
+	var basis:Basis = Basis.looking_at(npc.get_parent().get_parent().get_parent().to_global(npc.position) - $Pivot.position)
+	print($Pivot.rotation);
+	print(basis.get_euler());
+	tween.tween_property($Pivot, "rotation:y", Basis.looking_at(npc.get_parent().get_parent().get_parent().to_global(npc.position) - $Pivot.position) , .5)
+
+	
+
+func release_player():
+	isTalking = false;
 
 func setSpecifiedRespawn(point:Node3D):
 	specificRespawnPoint = point;
