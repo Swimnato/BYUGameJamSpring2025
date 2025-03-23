@@ -5,7 +5,7 @@ signal PlayerDied;
 
 @export var speed = 12
 @export var fall_acceleration = 75
-@export var jump_force = 30
+@export var jump_force = 20
 var target_velocity = Vector3.ZERO
 @onready var respawnPoints = get_parent().respawnPoints;
 

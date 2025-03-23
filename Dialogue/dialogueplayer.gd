@@ -1,6 +1,6 @@
 extends Control
 
-@export_file("*.json") var d_file;
+@onready var d_file = get_parent().d_file;
 signal dialogue_finished;
 
 var dialogue = [] #holds dialogue info
