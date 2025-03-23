@@ -401,8 +401,6 @@ _data = {
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_kbahq")
-speed = null
-fall_acceleration = null
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.293507, 0.955957, 0, -0.955957, 0.293507, 0, 12.433, 4)

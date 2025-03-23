@@ -1,0 +1,207 @@
+[gd_scene load_steps=20 format=3 uid="uid://3i3ucjfxkmq7"]
+
+[ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_h85wo"]
+[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
+[ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/scn_stamp.tscn" id="2_3yaxh"]
+[ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="2_khnxe"]
+[ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="3_42eyn"]
+[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="3_khnxe"]
+[ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/Floating Platform.tscn" id="4_khnxe"]
+[ext_resource type="PackedScene" uid="uid://dvhfttb1g2ogl" path="res://3d Models/characters/catprototype.glb" id="7_crnpl"]
+[ext_resource type="Script" uid="uid://cjjluumojh0qk" path="res://Scripts/scr_cat_out_of_water.gd" id="8_6wd78"]
+[ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="10_8wpu8"]
+[ext_resource type="PackedScene" uid="uid://ditt1bva0gim6" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_set.tscn" id="11_x1l0e"]
+[ext_resource type="PackedScene" uid="uid://cdm1kprq8fc2r" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_remove.tscn" id="12_ujri8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khnxe"]
+transparency = 1
+albedo_color = Color(0.137255, 1, 1, 0.74902)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3yaxh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h85wo"]
+height = 5.0
+radius = 20.0
+
+[sub_resource type="Animation" id="Animation_8wpu8"]
+resource_name = "Cat Out of Water"
+step = 0.008
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../objects/Interactibles/catprototype:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(112.832, -7.19148, -49.5317), Vector3(112.832, -0.603279, -49.5317)]
+}
+
+[sub_resource type="Animation" id="Animation_x1l0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../objects/Interactibles/catprototype:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-110.974, -7.19148, 46.3199)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujri8"]
+_data = {
+&"Cat Out of Water": SubResource("Animation_8wpu8"),
+&"RESET": SubResource("Animation_x1l0e")
+}
+
+[node name="scn_Pond_Map" type="Node3D"]
+script = ExtResource("1_h85wo")
+
+[node name="objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171906, 0.265594, -0.462372)
+
+[node name="Interactibles" type="Node3D" parent="objects"]
+
+[node name="Frog" parent="objects/Interactibles" instance=ExtResource("1_wj234")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 64.7562, 0.442986, 131.734)
+
+[node name="Stamp" parent="objects/Interactibles" instance=ExtResource("2_3yaxh")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -99.8687, 2, 152.059)
+
+[node name="catprototype" parent="objects/Interactibles" instance=ExtResource("7_crnpl")]
+transform = Transform3D(1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, -110.974, -7.19148, 46.3199)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="objects/Interactibles/catprototype"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Interactibles/catprototype/CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_crnpl")
+
+[node name="Collisions" type="Node3D" parent="objects"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Pond Edge" type="CSGBox3D" parent="objects/Collisions"]
+transform = Transform3D(500, 0, 0, 0, 10, 0, 0, 0, 500, 13.347, -5, 3.878)
+use_collision = true
+material = ExtResource("2_khnxe")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="objects/Collisions/Pond Edge"]
+transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, 0.18, 0, -0.18, -7.86805e-09, -0.362321, 0.654459, -0.0403575)
+operation = 2
+polygon = PackedVector2Array(0.265676, 0.457272, 0.165946, 0.562574, 0.111596, 0.688188, 0.0643673, 0.796038, 0.0365727, 0.853738, -0.0130711, 0.912375, -0.00828469, 0.990107, 0.0386924, 1.05409, 0.0530443, 1.12348, -0.0191661, 1.15623, -0.115755, 1.16628, -0.187834, 1.14246, -0.481617, 1.0548, -0.648394, 0.533193, -0.670618, 0.0586545, -0.70118, -0.590429, -0.640681, -1.13171, -0.644097, -1.31143, -0.527447, -1.49068, -0.446096, -1.63711, -0.369898, -1.70675, -0.274679, -1.73252, -0.233841, -1.84256, -0.273466, -1.95486, -0.369461, -2.04214, -0.457907, -2.19194, -0.480022, -2.3565, -0.444011, -2.56154, -0.375952, -2.70704, -0.238914, -2.84905, 0.134543, -2.95931, 0.402647, -2.86667, 0.672968, -2.66897, 1.01576, -2.63499, 1.41278, -2.55259, 1.66421, -2.20999, 2.00333, -2.04345, 2.45154, -2.15602, 3.34388, -2.17187, 3.78292, -1.26901, 4.21297, -0.812209, 3.9114, -0.216357, 4.15961, 0.799021, 4.02022, 1.60446, 3.68434, 1.89354, 3.20433, 2.25453, 2.57651, 2.31574, 2.09148, 2.35062, 0.960074, 2.20796, 0.643603, 1.97254, 0.945405, 1.89116, 1.1297, 1.69164, 1.32452, 1.30156, 1.16984, 0.994082, 1.11771, 0.947409, 1.05628, 0.923581, 0.959405, 0.906987, 0.884617, 0.824114, 0.834829, 0.748853, 0.808462, 0.698494, 0.749502, 0.680148, 0.706906, 0.591623, 0.706906, 0.591623, 0.65922, 0.524117, 0.585345, 0.462688, 0.491719, 0.426995, 0.400321, 0.423403, 0.335508, 0.435777)
+depth = 5.0
+
+[node name="water" type="MeshInstance3D" parent="objects/Collisions/Pond Edge"]
+transform = Transform3D(0.5, 0, 0, 0, 25, 0, 0, 0, 0.5, 0.0052623, 0.403891, -0.00442656)
+material_override = SubResource("StandardMaterial3D_khnxe")
+mesh = SubResource("PlaneMesh_3yaxh")
+skeleton = NodePath("../..")
+
+[node name="LillyPads" type="Node3D" parent="objects/Collisions"]
+
+[node name="LillyPad" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -135.934, -0.448917, -8.26407)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad9" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -147.977, -0.448917, 205.488)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad2" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -149.896, -0.448917, 50.9149)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad3" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -121.112, -0.448917, 111.663)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad4" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 37.2605, -0.448917, -108.788)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad5" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 103.577, -0.448917, -153.85)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad6" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -57.7357, -0.261051, 43.9505)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad7" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -55.4612, -0.358158, 135.363)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="LillyPad8" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 42.3986, -0.448917, -166.292)
+use_collision = true
+polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
+material = ExtResource("3_42eyn")
+
+[node name="FloatingPlatform" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
+
+[node name="FloatingPlatform2" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
+progressOffsetRatio = 0.5
+
+[node name="Hurtboxes" type="Node3D" parent="objects"]
+
+[node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("3_khnxe")]
+transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, -12.7578, -1.82235, -2.19385)
+
+[node name="Trigger Zones" type="Node3D" parent="objects"]
+
+[node name="Trigger Cat" type="Area3D" parent="objects/Trigger Zones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.205, 0, -41.8613)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Trigger Zones/Trigger Cat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99995, 0, -2.10509)
+shape = SubResource("CylinderShape3D_h85wo")
+
+[node name="Animations" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
+libraries = {
+&"": SubResource("AnimationLibrary_ujri8")
+}
+script = ExtResource("8_6wd78")
+
+[node name="RespawnPoints" type="Node3D" parent="."]
+
+[node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("10_8wpu8")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 123.25, 0, 68.1392)
+
+[node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ConditionalRespawn" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("11_x1l0e")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -93.2102, 0, 152.848)
+
+[node name="ConditionalRespawn2" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("12_ujri8")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 148.197, 0.668285, 9.44348)
+
+[connection signal="body_entered" from="objects/Trigger Zones/Trigger Cat" to="Animations/AnimationPlayer" method="_on_trigger_cat_body_entered"]

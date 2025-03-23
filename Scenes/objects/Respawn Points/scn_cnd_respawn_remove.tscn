@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdm1kprq8fc2r"]
+
+[ext_resource type="Script" uid="uid://dmmdrtx8yk8fk" path="res://Scripts/scR_cnd_respawn_remove.gd" id="1_a7jql"]
+[ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="2_i1f4q"]
+[ext_resource type="Script" uid="uid://cjf743hjumgga" path="res://Scripts/scr_respawn_point.gd" id="3_i1f4q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d5asg"]
+radius = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqmrr"]
+transparency = 1
+albedo_color = Color(0.976471, 0, 0, 0.294118)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v82sc"]
+top_radius = 6.0
+bottom_radius = 6.0
+
+[node name="ConditionalRespawn" type="Node3D"]
+script = ExtResource("1_a7jql")
+
+[node name="ScnRespawnStandard" parent="." instance=ExtResource("2_i1f4q")]
+
+[node name="trigger zone" type="Area3D" parent="."]
+
+[node name="Hitbox" type="CollisionShape3D" parent="trigger zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_d5asg")
+debug_color = Color(0.568627, 0.415686, 0.941176, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_rqmrr")
+mesh = SubResource("CylinderMesh_v82sc")
+script = ExtResource("3_i1f4q")
+
+[connection signal="body_entered" from="trigger zone" to="." method="_on_trigger_zone_body_entered"]
