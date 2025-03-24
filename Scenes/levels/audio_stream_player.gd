@@ -1,5 +1,10 @@
 extends AudioStreamPlayer
 
+enum musicTrack {
+	OUTSIDE,
+	COMPUTER_STORE,
+	GYM
+}
 var musicList:Array = [preload("res://Audio/Music/Song2Loop.wav"), preload("res://Audio/Music/Song1Loop.wav")];
 var currentSong = 0;
 var prevSong;
@@ -14,11 +19,10 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if(player.floorType == player.surfaceType.GRASS or player.floorType == player.surfaceType.LILLYPAD):
-		currentSong = 0;
+		currentSong = musicTrack.OUTSIDE;
 	else:
-		currentSong = 1;
+		currentSong = musicTrack.COMPUTER_STORE;
 	if((!playing or prevSong != currentSong) and shouldPlay):
-		print(currentSong);
 		if(playing):
 			stop();
 		prevSong = currentSong;

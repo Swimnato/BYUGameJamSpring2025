@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_l2wx1"]
 [ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="3_8vv17"]
 [ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="3_b4qwi"]
-[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="4_e7cin"]
+[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="4_e7cin"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="5_ghrgq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4qwi"]

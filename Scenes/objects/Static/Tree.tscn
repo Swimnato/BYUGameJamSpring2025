@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://3qo8l71slvw2"]
+
+[ext_resource type="Script" uid="uid://b5g0dx5ksg5dw" path="res://Scenes/objects/Static/tree.gd" id="1_4e0tr"]
+[ext_resource type="PackedScene" uid="uid://djg5i45oannkh" path="res://3d Models/objects/environment/env_tree1.glb" id="1_qac13"]
+[ext_resource type="PackedScene" uid="uid://cuq6i3eva5wp" path="res://3d Models/objects/environment/env_tree2.glb" id="2_4e0tr"]
+[ext_resource type="PackedScene" uid="uid://dahi8aorscj0b" path="res://3d Models/objects/environment/env_tree3.glb" id="3_bljmj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4e0tr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d6ni5"]
+top_radius = 0.75
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bljmj"]
+top_radius = 0.25
+bottom_radius = 0.25
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_krlro"]
+bottom_radius = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7l3u6"]
+top_radius = 0.4
+bottom_radius = 2.5
+height = 5.0
+
+[node name="Tree" type="Node3D"]
+script = ExtResource("1_4e0tr")
+
+[node name="env_tree1" parent="." instance=ExtResource("1_qac13")]
+
+[node name="collision" type="CSGMesh3D" parent="env_tree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.121304)
+visible = false
+mesh = SubResource("CylinderMesh_4e0tr")
+
+[node name="collision2" type="CSGSphere3D" parent="env_tree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.32925, 0.548847)
+visible = false
+radius = 1.5
+
+[node name="collision3" type="CSGSphere3D" parent="env_tree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499079, 3.32925, 0.0283543)
+visible = false
+radius = 1.5
+
+[node name="collision4" type="CSGSphere3D" parent="env_tree1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.49221, -0.500759)
+visible = false
+radius = 1.71733
+
+[node name="env_tree2" parent="." instance=ExtResource("2_4e0tr")]
+visible = false
+
+[node name="collision" type="CSGMesh3D" parent="env_tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.236242)
+visible = false
+mesh = SubResource("CylinderMesh_d6ni5")
+
+[node name="collision2" type="CSGSphere3D" parent="env_tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0460277, 3.0114, 2.08657)
+visible = false
+radius = 1.0
+
+[node name="collision3" type="CSGSphere3D" parent="env_tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.44341, 0.00981641)
+visible = false
+radius = 1.75
+
+[node name="collision4" type="CSGSphere3D" parent="env_tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07575, 2.77972, 0.291823)
+visible = false
+radius = 1.2
+
+[node name="collision5" type="CSGMesh3D" parent="env_tree2"]
+transform = Transform3D(1, 0, 0, 0, 0.470535, -0.882382, 0, 0.882382, 0.470535, 0.0128486, 1.80667, 0.742092)
+visible = false
+mesh = SubResource("CylinderMesh_bljmj")
+
+[node name="env_tree3" parent="." instance=ExtResource("3_bljmj")]
+visible = false
+
+[node name="collision" type="CSGMesh3D" parent="env_tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.0306108)
+visible = false
+mesh = SubResource("CylinderMesh_krlro")
+
+[node name="collision2" type="CSGMesh3D" parent="env_tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117284, 2.97336, -0.0736983)
+visible = false
+mesh = SubResource("CylinderMesh_7l3u6")
