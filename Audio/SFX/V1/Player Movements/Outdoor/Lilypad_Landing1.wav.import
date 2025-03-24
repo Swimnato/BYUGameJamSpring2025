@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ce175prf34qcn"
-path="res://.godot/imported/Lilypad_Landing1.wav-ae58bea5399950e6588005705a139ea5.sample"
+path="res://.godot/imported/Lilypad_Landing1.wav-48f135ed0ee7e32539d630dce91ea19a.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing1.wav"
-dest_files=["res://.godot/imported/Lilypad_Landing1.wav-ae58bea5399950e6588005705a139ea5.sample"]
+source_file="res://Audio/SFX/V1/Player Movements/Outdoor/Lilypad_Landing1.wav"
+dest_files=["res://.godot/imported/Lilypad_Landing1.wav-48f135ed0ee7e32539d630dce91ea19a.sample"]
 
 [params]
 

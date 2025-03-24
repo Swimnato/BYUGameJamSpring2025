@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cck7lfjs0ek4b"
-path="res://.godot/imported/Gym_Landing1.wav-013a782c95155cbe11a852ce0092859b.sample"
+path="res://.godot/imported/Gym_Landing1.wav-15518ae6c45052bae442213254ca840f.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Player Movements/Indoor/Gym_Landing1.wav"
-dest_files=["res://.godot/imported/Gym_Landing1.wav-013a782c95155cbe11a852ce0092859b.sample"]
+source_file="res://Audio/SFX/V1/Player Movements/Indoor/Gym_Landing1.wav"
+dest_files=["res://.godot/imported/Gym_Landing1.wav-15518ae6c45052bae442213254ca840f.sample"]
 
 [params]
 

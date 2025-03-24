@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bjss5coupdxvb"
-path="res://.godot/imported/Grass_Landing2.wav-f472e3059b886567b8e80337235b8401.sample"
+path="res://.godot/imported/Grass_Landing2.wav-1d632305915d6f57d72afb5c5b105931.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Player Movements/Outdoor/Grass_Landing2.wav"
-dest_files=["res://.godot/imported/Grass_Landing2.wav-f472e3059b886567b8e80337235b8401.sample"]
+source_file="res://Audio/SFX/V1/Player Movements/Outdoor/Grass_Landing2.wav"
+dest_files=["res://.godot/imported/Grass_Landing2.wav-1d632305915d6f57d72afb5c5b105931.sample"]
 
 [params]
 

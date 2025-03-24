@@ -10,7 +10,7 @@ var typing_speed = 0.05  # Speed of text appearing
 var full_text = ""  # Stores the complete dialogue text
 var displayed_text = ""  # Stores currently displayed portion of text
 var typing = false  # Tracks if typing is in progress
-var voiceSound = preload("res://Audio/SFX/UI/Text.wav");
+var voiceSound = preload("res://Audio/SFX/V2/UI/Text.wav");
 const charOffsetToStartSound = 10;
 
 func _ready() -> void:

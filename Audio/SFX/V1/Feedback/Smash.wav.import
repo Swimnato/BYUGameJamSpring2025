@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d1kluebr1qdy3"
-path="res://.godot/imported/Smash.wav-1167f01f0c963c4b5f8eedf98350a85f.sample"
+path="res://.godot/imported/Smash.wav-0ca5dc6ebb351a70be163b3e20b8ebea.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Feedback/Smash.wav"
-dest_files=["res://.godot/imported/Smash.wav-1167f01f0c963c4b5f8eedf98350a85f.sample"]
+source_file="res://Audio/SFX/V1/Feedback/Smash.wav"
+dest_files=["res://.godot/imported/Smash.wav-0ca5dc6ebb351a70be163b3e20b8ebea.sample"]
 
 [params]
 

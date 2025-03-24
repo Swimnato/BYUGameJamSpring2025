@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bt3n3ie3bprwq"
-path="res://.godot/imported/Kaching.wav-7ea7d82c1f09e44323c2900c680ae0be.sample"
+uid="uid://cimvuxhq025ad"
+path="res://.godot/imported/Text.wav-6492e72820afa5f7f2c7a212701d566a.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/V1/Feedback/Kaching.wav"
-dest_files=["res://.godot/imported/Kaching.wav-7ea7d82c1f09e44323c2900c680ae0be.sample"]
+source_file="res://Audio/SFX/V2/UI/Text.wav"
+dest_files=["res://.godot/imported/Text.wav-6492e72820afa5f7f2c7a212701d566a.sample"]
 
 [params]
 

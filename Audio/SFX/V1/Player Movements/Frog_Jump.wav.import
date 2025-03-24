@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://glvgibubypuh"
-path="res://.godot/imported/Frog_Jump.wav-2473eda032d57a2efbb25e6f63c72cfa.sample"
+path="res://.godot/imported/Frog_Jump.wav-d5a75caf699398f3a10db3afce8817af.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Player Movements/Frog_Jump.wav"
-dest_files=["res://.godot/imported/Frog_Jump.wav-2473eda032d57a2efbb25e6f63c72cfa.sample"]
+source_file="res://Audio/SFX/V1/Player Movements/Frog_Jump.wav"
+dest_files=["res://.godot/imported/Frog_Jump.wav-d5a75caf699398f3a10db3afce8817af.sample"]
 
 [params]
 

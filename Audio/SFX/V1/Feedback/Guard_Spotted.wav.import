@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cf1bpnft6sxj1"
-path="res://.godot/imported/Guard_Spotted.wav-643d45a7f7f769f35182fa963f509579.sample"
+path="res://.godot/imported/Guard_Spotted.wav-40902f80ab617423cf963638c35539fc.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Feedback/Guard_Spotted.wav"
-dest_files=["res://.godot/imported/Guard_Spotted.wav-643d45a7f7f769f35182fa963f509579.sample"]
+source_file="res://Audio/SFX/V1/Feedback/Guard_Spotted.wav"
+dest_files=["res://.godot/imported/Guard_Spotted.wav-40902f80ab617423cf963638c35539fc.sample"]
 
 [params]
 
