@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_sm4qq"]
 [ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="2_o5308"]
-[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/scn_hurtbox.tscn" id="3_8wirg"]
+[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="3_8wirg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bktcs"]
 
