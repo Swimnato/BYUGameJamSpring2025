@@ -10,13 +10,20 @@ var typing_speed = 0.05  # Speed of text appearing
 var full_text = ""  # Stores the complete dialogue text
 var displayed_text = ""  # Stores currently displayed portion of text
 var typing = false  # Tracks if typing is in progress
+var voiceSound = preload("res://Audio/SFX/UI/Text.wav");
+const charOffsetToStartSound = 10;
 
 func _ready() -> void:
 	$NinePatchRect.visible = false #make sure its not seen first
 	$finished_typing.visible = false #make sure its not seen first
 	if not $typing_timer.timeout.is_connected(_on_typing_timer_timeout):#comfirm timeout connection for typing effect
 		$typing_timer.timeout.connect(_on_typing_timer_timeout)
-		
+
+func _process(delta: float) -> void:
+	if(typing && !$AudioStreamPlayer.playing && $NinePatchRect/Text.text.length() > charOffsetToStartSound):
+		$AudioStreamPlayer.stream = voiceSound;
+		$AudioStreamPlayer.play();
+
 func start():
 	if d_active:
 		return

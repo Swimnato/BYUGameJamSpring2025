@@ -547,4 +547,3 @@ root_node = NodePath("../Pivot/model")
 anim_player = NodePath("../Pivot/model/AnimationPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 20.0
