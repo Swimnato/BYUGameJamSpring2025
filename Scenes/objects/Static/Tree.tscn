@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://3qo8l71slvw2"]
 
-[ext_resource type="Script" uid="uid://b5g0dx5ksg5dw" path="res://Scenes/objects/Static/tree.gd" id="1_4e0tr"]
+[ext_resource type="Script" uid="uid://b5g0dx5ksg5dw" path="res://Scripts/scn_tree.gd" id="1_4e0tr"]
 [ext_resource type="PackedScene" uid="uid://djg5i45oannkh" path="res://3d Models/objects/environment/env_tree1.glb" id="1_qac13"]
 [ext_resource type="PackedScene" uid="uid://cuq6i3eva5wp" path="res://3d Models/objects/environment/env_tree2.glb" id="2_4e0tr"]
 [ext_resource type="PackedScene" uid="uid://dahi8aorscj0b" path="res://3d Models/objects/environment/env_tree3.glb" id="3_bljmj"]

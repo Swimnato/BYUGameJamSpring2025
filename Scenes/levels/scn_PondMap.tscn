@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=22 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_h85wo"]
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/interactable/Floating Platform.tscn" id="4_khnxe"]
 [ext_resource type="PackedScene" uid="uid://dvhfttb1g2ogl" path="res://3d Models/characters/catprototype.glb" id="7_crnpl"]
 [ext_resource type="Script" uid="uid://cjjluumojh0qk" path="res://Scripts/scr_cat_out_of_water.gd" id="8_6wd78"]
+[ext_resource type="PackedScene" uid="uid://3qo8l71slvw2" path="res://Scenes/objects/Static/Tree.tscn" id="8_osfwr"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="10_8wpu8"]
 [ext_resource type="PackedScene" uid="uid://ditt1bva0gim6" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_set.tscn" id="11_x1l0e"]
 [ext_resource type="PackedScene" uid="uid://cdm1kprq8fc2r" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_remove.tscn" id="12_ujri8"]
@@ -170,6 +171,95 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
 [node name="FloatingPlatform2" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
 progressOffsetRatio = 0.5
+
+[node name="Tree" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 215.278, 0.684003, -188.919)
+treeMesh = 2
+
+[node name="Tree10" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 170.307, 0.684003, -210.174)
+treeMesh = 1
+
+[node name="Tree11" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 229.096, 0.684003, -223.325)
+
+[node name="Tree12" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 229.096, 0.684003, -95.6261)
+treeMesh = 1
+
+[node name="Tree13" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 229.096, 0.684003, -143.234)
+
+[node name="Tree14" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 214.699, 0.684003, -0.670071)
+
+[node name="Tree15" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 226.886, 0.684003, 126.313)
+treeMesh = 2
+
+[node name="Tree16" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 214.699, 0.684003, 198.836)
+
+[node name="Tree17" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 177.556, 0.684003, 157.094)
+treeMesh = 1
+
+[node name="Tree18" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 83.1536, 0.684003, 228.2)
+
+[node name="Tree19" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 12.6037, 0.684003, 187.306)
+treeMesh = 1
+
+[node name="Tree20" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -77.9162, 0.684003, 240.151)
+treeMesh = 2
+
+[node name="Tree2" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -142.896, 0.684003, -106.516)
+treeMesh = 2
+
+[node name="Tree3" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -95.5306, 0.684003, -163.404)
+
+[node name="Tree4" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -205.239, 0.684003, 144.648)
+treeMesh = 2
+
+[node name="Tree5" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 35.8225, 0.684003, -240.753)
+treeMesh = 2
+
+[node name="Tree9" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 116.397, 0.684003, -231.246)
+
+[node name="Tree6" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -68.2864, 0.684003, -229.972)
+treeMesh = 1
+
+[node name="Tree7" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -169.169, 0.684003, -143.81)
+treeMesh = 1
+
+[node name="Tree21" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -138.022, 0.684003, -207.256)
+treeMesh = 2
+
+[node name="Tree23" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -160.257, 0.684003, -230.91)
+
+[node name="Tree22" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -204.686, 0.684003, -171.43)
+
+[node name="Tree24" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -214.546, 0.684003, -198.99)
+
+[node name="Tree25" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -214.546, 0.684003, -228.566)
+treeMesh = 1
+
+[node name="Tree8" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -229.599, 0.684003, -94.8571)
 
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
