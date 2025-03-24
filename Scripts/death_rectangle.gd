@@ -13,31 +13,39 @@ var lastBlackedOut = 0;
 
 func _ready():
 	$"../Player".PlayerDied.connect(_on_player_death)
+	fadingIn = true;
 
 func _process(delta):
 	size = DisplayServer.screen_get_size();
 	visible = fadingScreen;
 	if(fadingIn):
-		screenAlpha -= fadeSpeed * delta;
-		if(screenAlpha <= fullyVisibleAlpha):
-			fadingIn = false;
-			screenAlpha = fullyVisibleAlpha;
-			fadingScreen = false;
-			inBlackoutPhase = false;
-			$"../Player".wakeUp();
-		set_color(Color(0,0,0,screenAlpha));
+		fadeIn(delta);
 	elif(inBlackoutPhase):
 		if(Time.get_ticks_msec() - lastBlackedOut >= blackoutLen):
 			fadingIn = true;
 	elif(fadingScreen):
-		screenAlpha += fadeSpeed * delta;
-		if(screenAlpha >= fadedAlpha):
-			screenAlpha = fadedAlpha;
-			inBlackoutPhase = true;
-			lastBlackedOut = Time.get_ticks_msec();
+		if fadeOut(delta):
 			$"../Player".teleportToRespawn();
-		set_color(Color(0,0,0,screenAlpha));
 
+func fadeIn(delta):
+	screenAlpha -= fadeSpeed * delta;
+	if(screenAlpha <= fullyVisibleAlpha):
+		fadingIn = false;
+		screenAlpha = fullyVisibleAlpha;
+		fadingScreen = false;
+		inBlackoutPhase = false;
+		$"../Player".wakeUp();
+	set_color(Color(0,0,0,screenAlpha));
+	return(screenAlpha <= fullyVisibleAlpha);
+
+func fadeOut(delta:float):
+	screenAlpha += fadeSpeed * delta;
+	if(screenAlpha >= fadedAlpha):
+		screenAlpha = fadedAlpha;
+		inBlackoutPhase = true;
+		lastBlackedOut = Time.get_ticks_msec();
+	set_color(Color(0,0,0,screenAlpha));
+	return(screenAlpha >= fadedAlpha);
 
 func _on_player_death():
 	print("Player Died");
