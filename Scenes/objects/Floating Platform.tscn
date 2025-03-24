@@ -35,12 +35,12 @@ rotation_mode = 0
 cubic_interp = false
 script = ExtResource("1_x2mso")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Path3D/PathFollow3D"]
+[node name="MovingLillyPad" type="CharacterBody3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 motion_mode = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D/CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D/MovingLillyPad"]
 mesh = SubResource("CylinderMesh_t4la1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/CharacterBody3D"]
+[node name="LillyPadCollision" type="CollisionShape3D" parent="Path3D/PathFollow3D/MovingLillyPad"]
 shape = SubResource("CylinderShape3D_nihuc")

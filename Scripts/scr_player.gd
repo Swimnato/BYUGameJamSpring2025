@@ -13,7 +13,9 @@ var target_velocity = Vector3.ZERO
 var wasOnFloorLastLoop = true;
 enum surfaceType{
 GRASS,
-LILLYPAD	
+LILLYPAD	,
+COMP_STORE,
+GYM
 };
 var floorType:surfaceType = 0;
 var isBlackedOut = false;
@@ -22,8 +24,8 @@ var specificRespawn = false;
 var specificRespawnPoint:Node3D;
 var direction:Vector3;
 var location = 0;
-var footsteps:Array = [preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Footsteps.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Footsteps.wav")];
-var landingSound:Array = [[preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Landing2.wav")],[preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing2.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing3.wav")]]
+var footsteps:Array = [preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Footsteps.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Footsteps.wav"), preload("res://Audio/SFX/Player Movements/Indoor/ComputerStore_Footsteps.wav"), preload("res://Audio/SFX/Player Movements/Indoor/Gym_Footsteps.wav")];
+var landingSound:Array = [[preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Landing2.wav")],[preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing2.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing3.wav")],[preload("res://Audio/SFX/Player Movements/Indoor/ComputerStore_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Indoor/ComputerStore_Landing2.wav")], [preload("res://Audio/SFX/Player Movements/Indoor/Gym_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Indoor/Gym_Landing2.wav")]];
 var splash = preload("res://Audio/SFX/Feedback/Splash.wav");
 var splat = preload("res://Audio/SFX/Feedback/Smash.wav")
 var stampCollected = preload("res://Audio/SFX/Feedback/Stamp_Collected.wav");
