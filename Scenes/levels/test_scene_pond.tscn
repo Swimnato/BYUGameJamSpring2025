@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_0pplq"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_ygifq"]
 [ext_resource type="PackedScene" uid="uid://3i3ucjfxkmq7" path="res://Scenes/levels/scn_PondMap.tscn" id="3_76m6k"]
-[ext_resource type="Script" path="res://Scripts/death_rectangle.gd" id="4_0pplq"]
+[ext_resource type="Script" uid="uid://brl6usinhjm8y" path="res://Scripts/death_rectangle.gd" id="4_0pplq"]
 [ext_resource type="PackedScene" uid="uid://bj3njwgib7ys7" path="res://Scenes/levels/scn_cookie_tree.tscn" id="5_76m6k"]
-[ext_resource type="PackedScene" path="res://Scenes/objects/StampUI.tscn" id="6_l7gkt"]
+[ext_resource type="PackedScene" uid="uid://c7ikuk1jy74us" path="res://Scenes/objects/StampUI.tscn" id="6_l7gkt"]
 [ext_resource type="PackedScene" uid="uid://bxkiq03h5yyl2" path="res://Scenes/objects/PauseMenu.tscn" id="7_byhxo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]

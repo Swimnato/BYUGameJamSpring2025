@@ -16,8 +16,7 @@ var specificRespawnPoint:Node3D;
 var direction:Vector3;
 
 func _physics_process(delta):
-	if(!isTalking):
-		direction = Vector3.ZERO
+	direction = Vector3.ZERO
 	if(!isBlackedOut && !isTalking):
 		direction.x += (1 if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") 
 			  else (-1 if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right")
@@ -25,7 +24,7 @@ func _physics_process(delta):
 		direction.z += (1 if Input.is_action_pressed("move_down") and not Input.is_action_pressed("move_up") 
 			  else (-1 if Input.is_action_pressed("move_up") and not Input.is_action_pressed("move_down")
 			  else 0))
-	if(direction != Vector3.ZERO):
+	if(direction != Vector3.ZERO && !isTalking):
 		direction = direction.normalized()
 		$Pivot.basis = $Pivot.basis.slerp(Basis.looking_at(direction), .25)
 
@@ -79,13 +78,11 @@ func collect_stamp(ID_num:int):
 
 func stop_and_face_npc(npc:Node3D):
 	isTalking = true;
-	#$Pivot.look_at(npc.get_parent().get_parent().get_parent().to_global(npc.position))
-	var tween:Tween = $Pivot.create_tween();
-	var basis:Basis = Basis.looking_at(npc.get_parent().get_parent().get_parent().to_global(npc.position) - $Pivot.position)
-	print($Pivot.rotation);
-	print(basis.get_euler());
-	tween.tween_property($Pivot, "rotation:y", Basis.looking_at(npc.get_parent().get_parent().get_parent().to_global(npc.position) - $Pivot.position) , .5)
-
+	var positionToNPC = npc.get_parent().get_parent().get_parent().to_global(npc.position) - position
+	var rotationToNPC = atan2(-positionToNPC.x, -positionToNPC.z);
+	var rotate_tween = create_tween();
+	rotate_tween.tween_property($Pivot, "rotation:y", rotationToNPC , 0.5);
+	
 	
 
 func release_player():
