@@ -1,5 +1,6 @@
 [
-	{"name":"Boblin", "text": "Hello there!"},
-	{"name":"Boblin", "text": "How are you?"},
-	{"name":"Boblin", "text": "Names Boblin, nice ta meet ya."}
+	{"name":"Boblin", "text": "Hello there! You look new!\nHow are you?"},
+	{"name":"Boblin", "text": "Names Boblin, nice ta meet ya. I'm the local Burger Salesman, say, have you ever tried a delicious hamburger before?"},
+	{"name":"Boblin", "text": "No?!?!?!?!?!?! Well, you should totally try one sometime! It only costs a dollar!"},
+	{"name":"Boblin", "text": "You don't have any money? Well.... that's too bad, you should definately come back when you get some though!"}
 ]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjbbwnh740lyy"]
+[gd_scene load_steps=11 format=3 uid="uid://cjbbwnh740lyy"]
 
 [ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_44hb8"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="2_bspi0"]
 [ext_resource type="Script" uid="uid://brl6usinhjm8y" path="res://Scripts/death_rectangle.gd" id="3_f8ikr"]
 [ext_resource type="PackedScene" uid="uid://c7ikuk1jy74us" path="res://Scenes/objects/StampUI.tscn" id="6_ainp4"]
 [ext_resource type="PackedScene" uid="uid://ckraltnh0no7s" path="res://Scenes/levels/BurgerLand.tscn" id="6_v2shn"]
+[ext_resource type="Script" uid="uid://ci8pi8qjuoct" path="res://Scenes/levels/audio_stream_player.gd" id="7_44hb8"]
 [ext_resource type="PackedScene" uid="uid://bxkiq03h5yyl2" path="res://Scenes/objects/PauseMenu.tscn" id="7_s24so"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
@@ -44,3 +45,6 @@ script = ExtResource("3_f8ikr")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_s24so")]
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("7_44hb8")
