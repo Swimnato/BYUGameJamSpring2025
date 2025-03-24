@@ -54,11 +54,11 @@ func _physics_process(delta):
 		target_velocity.y = jump_force[frogJump];
 		sfxPlayer.stream = jmpSound[frogJump];
 		sfxPlayer.play();
-	handleAnimations(target_velocity)
-	velocity = target_velocity
-	if(is_on_floor() and !wasOnFloorLastLoop):
+	elif(!wasOnFloorLastLoop):
 		sfxPlayer.stream = landingSound[floorType][round(randf_range(0,len(landingSound[floorType]) - 1))];
 		sfxPlayer.play();
+	handleAnimations(target_velocity)
+	velocity = target_velocity
 	wasOnFloorLastLoop = is_on_floor();
 	move_and_slide()
 	for i in get_slide_collision_count():
