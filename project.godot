@@ -21,6 +21,11 @@ config/icon="uid://c0eaqpidg6oi4"
 EventController="*res://Scripts/eventController.gd"
 GameController="*res://Scripts/game_controller.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray()
