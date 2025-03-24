@@ -5,15 +5,30 @@ signal PlayerDied;
 
 @export var speed = 12
 @export var fall_acceleration = 75
-@export var jump_force = 20
+@export var frogJump = 0;
+@export var jump_force:Array = [20,30]
 var target_velocity = Vector3.ZERO
 @onready var respawnPoints = get_parent().respawnPoints;
 
+var wasOnFloorLastLoop = true;
+enum surfaceType{
+GRASS,
+LILLYPAD	
+};
+var floorType:surfaceType = 0;
 var isBlackedOut = false;
 var isTalking = false;
 var specificRespawn = false;
 var specificRespawnPoint:Node3D;
 var direction:Vector3;
+var location = 0;
+var footsteps:Array = [preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Footsteps.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Footsteps.wav")];
+var landingSound:Array = [[preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Grass_Landing2.wav")],[preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing1.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing2.wav"),preload("res://Audio/SFX/Player Movements/Outdoor/Lilypad_Landing3.wav")]]
+var splash = preload("res://Audio/SFX/Feedback/Splash.wav");
+var splat = preload("res://Audio/SFX/Feedback/Smash.wav")
+var stampCollected = preload("res://Audio/SFX/Feedback/Stamp_Collected.wav");
+@onready var sfxPlayer = $AudioStreamPlayer;
+var jmpSound:Array = [preload("res://Audio/SFX/Player Movements/Standard_Jump.wav"),preload("res://Audio/SFX/Player Movements/Frog_Jump.wav")]
 
 func _physics_process(delta):
 	direction = Vector3.ZERO
@@ -28,25 +43,44 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		$Pivot.basis = $Pivot.basis.slerp(Basis.looking_at(direction), .25)
 
-	if(!isTalking):
-		target_velocity.x = direction.x * speed
-		target_velocity.z = direction.z * speed
+	target_velocity.x = direction.x * speed
+	target_velocity.z = direction.z * speed
 
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 	elif Input.is_action_pressed("jump") and !isBlackedOut && !isTalking:
-		target_velocity.y = jump_force
+		target_velocity.y = jump_force[frogJump];
+		sfxPlayer.stream = jmpSound[frogJump];
+		sfxPlayer.play();
 	handleAnimations(target_velocity)
 	velocity = target_velocity
+	if(is_on_floor() and !wasOnFloorLastLoop):
+		sfxPlayer.stream = landingSound[floorType][round(randf_range(0,len(landingSound[floorType]) - 1))];
+		sfxPlayer.play();
+	wasOnFloorLastLoop = is_on_floor();
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if(collision.get_collider().name.to_lower().contains("lillypad")):
+			floorType = surfaceType.LILLYPAD;
+		else:
+			floorType = surfaceType.GRASS;
 	
 func handleAnimations(_target_velocity: Vector3) -> void: 
 	if _target_velocity.x || _target_velocity.z != 0:
 		animations.current_animation = animations.get_animation_list()[1]
+		if(is_on_floor() and !sfxPlayer.playing):
+			sfxPlayer.stream = footsteps[floorType];
+			sfxPlayer.play()
 	else: 
 		animations.current_animation = animations.get_animation_list()[0]
 
-func die() -> void:
+func die(src:int = 0) -> void:
+	if(src == 0):
+		sfxPlayer.stream = splat;
+	elif(src == 1):
+		sfxPlayer.stream = splash;
+	sfxPlayer.play()
 	PlayerDied.emit();
 	isBlackedOut = true;
 	print("TODO: die");
@@ -75,6 +109,8 @@ func teleportToRespawn():
 
 func collect_stamp(ID_num:int):
 	print("Collected Stamp: " + str(ID_num))
+	sfxPlayer.stream = stampCollected
+	sfxPlayer.play();
 
 func stop_and_face_npc(npc:Node3D):
 	isTalking = true;

@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 0.404902, 0.91436, 0, -0.91436, 0.404902, 0,
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ygifq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4267, 0, -33.0814)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10074, 0, 20.6928)
 frogJump = 1
 
 [node name="deathRectangle" type="ColorRect" parent="."]
@@ -54,3 +54,4 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("8_byhxo")
+shouldPlay = false

@@ -175,6 +175,7 @@ progressOffsetRatio = 0.5
 
 [node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("3_khnxe")]
 transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, -12.7578, -1.82235, -2.19385)
+deathID = 1
 
 [node name="Trigger Zones" type="Node3D" parent="objects"]
 
