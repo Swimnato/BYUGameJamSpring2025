@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/interactable/scn_stamp.tscn" id="6_u451p"]
 [ext_resource type="PackedScene" uid="uid://c7ikuk1jy74us" path="res://Scenes/objects/interactable/StampUI.tscn" id="7_icl02"]
 [ext_resource type="PackedScene" uid="uid://bxkiq03h5yyl2" path="res://Scenes/objects/interactable/PauseMenu.tscn" id="8_kq4ai"]
-[ext_resource type="Script" uid="uid://ci8pi8qjuoct" path="res://Scenes/levels/audio_stream_player.gd" id="9_w3h0d"]
+[ext_resource type="Script" uid="uid://ci8pi8qjuoct" path="res://Scripts/audio_stream_player.gd" id="9_w3h0d"]
 [ext_resource type="PackedScene" uid="uid://gpaicupseby" path="res://Scenes/objects/characters/scn_Bully.tscn" id="9_xu44b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]

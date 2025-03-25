@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bj3njwgib7ys7" path="res://Scenes/levels/scn_cookie_tree.tscn" id="5_76m6k"]
 [ext_resource type="PackedScene" uid="uid://c7ikuk1jy74us" path="res://Scenes/objects/interactable/StampUI.tscn" id="6_l7gkt"]
 [ext_resource type="PackedScene" uid="uid://bxkiq03h5yyl2" path="res://Scenes/objects/interactable/PauseMenu.tscn" id="7_byhxo"]
-[ext_resource type="Script" uid="uid://ci8pi8qjuoct" path="res://Scenes/levels/audio_stream_player.gd" id="8_byhxo"]
+[ext_resource type="Script" uid="uid://ci8pi8qjuoct" path="res://Scripts/audio_stream_player.gd" id="8_byhxo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 

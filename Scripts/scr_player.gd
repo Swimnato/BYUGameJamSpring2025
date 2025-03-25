@@ -64,6 +64,9 @@ func _physics_process(delta):
 		if(collision.get_collider().name.to_lower().contains("lillypad")):
 			floorType = surfaceType.LILLYPAD;
 			canJump = true;
+		elif collision.get_collider().name.to_lower().contains("computer") or collision.get_collider().get_parent().name.to_lower().contains("shelf") or collision.get_collider().get_parent().name.to_lower().contains("box"):
+			floorType = surfaceType.COMP_STORE
+			canJump = true;
 		elif collision.get_collider().get_parent().name.to_lower().contains("tread"):
 			floorType = surfaceType.COMP_STORE
 			var tread_direction = Vector3.ZERO
@@ -81,7 +84,7 @@ func _physics_process(delta):
 			target_velocity.x += tread_direction.x * speed
 			target_velocity.z += tread_direction.z * speed
 			canJump = false;
-		else:
+		elif(!collision.get_collider().get_parent().name.to_lower().contains("npc")):
 			floorType = surfaceType.GRASS;	
 			canJump = true;
 			
