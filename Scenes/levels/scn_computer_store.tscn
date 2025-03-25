@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://djtoma4eohgsi"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_wdws0"]
-[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_p7tt2"]
 [ext_resource type="PackedScene" uid="uid://v5y0m8csa3gx" path="res://Scenes/objects/Static/shelf_2.tscn" id="3_x6gup"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="4_4t0q4"]
 [ext_resource type="PackedScene" uid="uid://2h0bxg203me3" path="res://Scenes/objects/Static/tread_2.tscn" id="5_2mg0t"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="5_861lp"]
 [ext_resource type="PackedScene" uid="uid://dx4jpnlipm42" path="res://Scenes/objects/Static/box_22.tscn" id="7_p7tt2"]
 [ext_resource type="PackedScene" uid="uid://dnx0b5q1x8p5j" path="res://Scenes/objects/Static/box_12.tscn" id="8_yh6o4"]
+[ext_resource type="PackedScene" uid="uid://crd1gnockw33n" path="res://Scenes/objects/characters/scn_Computer_Guy.tscn" id="9_4t0q4"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/interactable/scn_stamp.tscn" id="9_yh6o4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7tt2"]
@@ -24,9 +24,6 @@ script = ExtResource("1_wdws0")
 [node name="objects" type="Node3D" parent="."]
 
 [node name="Interactibles" type="Node3D" parent="objects"]
-
-[node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("2_p7tt2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122108, 1.01953, 9.09494)
 
 [node name="Collisions" type="Node3D" parent="objects"]
 
@@ -1629,3 +1626,6 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 [node name="stamp" parent="." instance=ExtResource("9_yh6o4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7936, 1.47419, -10.3126)
 ID_num = 1
+
+[node name="Clerk NPC" parent="." instance=ExtResource("9_4t0q4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124403, 0.5, 8.87186)
