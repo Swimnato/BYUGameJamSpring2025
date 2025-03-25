@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djtoma4eohgsi"]
+[gd_scene load_steps=14 format=3 uid="uid://djtoma4eohgsi"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_wdws0"]
 [ext_resource type="PackedScene" uid="uid://v5y0m8csa3gx" path="res://Scenes/objects/Static/shelf_2.tscn" id="3_x6gup"]
@@ -10,9 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dnx0b5q1x8p5j" path="res://Scenes/objects/Static/box_12.tscn" id="8_yh6o4"]
 [ext_resource type="PackedScene" uid="uid://crd1gnockw33n" path="res://Scenes/objects/characters/scn_Computer_Guy.tscn" id="9_4t0q4"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/interactable/scn_stamp.tscn" id="9_yh6o4"]
+[ext_resource type="PackedScene" uid="uid://dkjie27jry6qe" path="res://Scenes/objects/Static/scn_doors.tscn" id="11_861lp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4t0q4"]
 size = Vector3(18, 6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_861lp"]
+size = Vector3(41, 1, 31)
 
 [node name="whiteboxTemplate" type="Node3D"]
 script = ExtResource("1_wdws0")
@@ -1054,6 +1058,21 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 3,
 material_override = ExtResource("4_861lp")
 size = Vector3(4, 5, 1)
 
+[node name="CSGBox3D14" type="CSGBox3D" parent="objects/Collisions/ComputerStore"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 4.75854, 9.2002)
+material_override = ExtResource("4_861lp")
+size = Vector3(4, 1.48291, 1)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="objects/Collisions/ComputerStore"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 4.75854, 9.2002)
+material_override = ExtResource("4_861lp")
+size = Vector3(4, 1.48291, 1)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="objects/Collisions/ComputerStore"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 4.759, 7.7)
+material_override = ExtResource("4_861lp")
+size = Vector3(4, 1.48291, 1)
+
 [node name="CSGBox3D10" type="CSGBox3D" parent="objects/Collisions/ComputerStore"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 3, 7.7002)
 material_override = ExtResource("4_861lp")
@@ -1098,6 +1117,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3388, 0, 15.7786)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 2.5, 0)
 shape = SubResource("BoxShape3D_4t0q4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="objects"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_861lp")
+
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
 [node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("4_4t0q4")]
@@ -1115,7 +1140,7 @@ omni_range = 23.462
 [node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
 
 [node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("5_861lp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.318038, 0, 13.2359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101531, 0, 12.2456)
 
 [node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
 
@@ -1653,3 +1678,12 @@ ID_num = 1
 
 [node name="Clerk NPC" parent="." instance=ExtResource("9_4t0q4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875597, 0.5, 9.87186)
+
+[node name="doors" parent="." instance=ExtResource("11_861lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.688613, -4, 0.445403, 9.71198)
+
+[node name="doors2" parent="." instance=ExtResource("11_861lp")]
+transform = Transform3D(-1, 0, -6.02005e-08, 0, 1, 0, 8.74228e-08, 0, -0.688613, 4.06309, 0.445403, 9.71198)
+
+[node name="doors3" parent="." instance=ExtResource("11_861lp")]
+transform = Transform3D(1.31134e-07, 0, -0.688613, 0, 1, 0, 1, 0, 9.03007e-08, -0.997234, 0.445403, 7.71198)
