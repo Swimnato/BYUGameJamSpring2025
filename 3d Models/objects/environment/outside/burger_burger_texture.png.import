@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ujttw0rlsvl"
-path.s3tc="res://.godot/imported/stump_stump2_texture.png-4beda0481582dd7ec419150389401659.s3tc.ctex"
+uid="uid://dpgsthtv7q22o"
+path.s3tc="res://.godot/imported/burger_burger_texture.png-c59f0716b3bd665386c3efc8a228e973.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ebdfeb6fe3b7b35a86f2e8046f44da7a"
+"md5": "e2b09bb82cc5486a09c5c644f73729bc"
 }
 
 [deps]
 
-source_file="res://3d Models/objects/environment/stump_stump2_texture.png"
-dest_files=["res://.godot/imported/stump_stump2_texture.png-4beda0481582dd7ec419150389401659.s3tc.ctex"]
+source_file="res://3d Models/objects/environment/outside/burger_burger_texture.png"
+dest_files=["res://.godot/imported/burger_burger_texture.png-c59f0716b3bd665386c3efc8a228e973.s3tc.ctex"]
 
 [params]
 

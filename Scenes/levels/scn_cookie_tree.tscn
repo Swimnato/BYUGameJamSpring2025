@@ -60,6 +60,6 @@ shape = SubResource("CylinderShape3D_o5md1")
 [node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
 
 [node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("5_ghrgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2401, 0, 12.2622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7599, 0, 0.2622)
 
 [node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
