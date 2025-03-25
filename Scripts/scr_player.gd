@@ -8,12 +8,13 @@ signal PlayerDied;
 @export var frogJump = 0;
 @export var jump_force:Array = [20,30]
 var target_velocity = Vector3.ZERO
+var tread_velocity = Vector3.ZERO
 @onready var respawnPoints = get_parent().respawnPoints;
 
 var wasOnFloorLastLoop = true;
 enum surfaceType{
 GRASS,
-LILLYPAD	,
+LILLYPAD,
 COMP_STORE,
 GYM
 };
@@ -65,6 +66,8 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if(collision.get_collider().name.to_lower().contains("lillypad")):
 			floorType = surfaceType.LILLYPAD;
+		#elif collision.get_collider().name.contains("tread"):
+			#floorType = surfaceType.COMP_STORE
 		else:
 			floorType = surfaceType.GRASS;
 	

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0q841l0nuyab"
-path.s3tc="res://.godot/imported/env_tree2_tree2_texture.png-197873ec3e371d92d51bd04c2ffc3eaa.s3tc.ctex"
+uid="uid://b5yvinh7i5pk4"
+path.s3tc="res://.godot/imported/shelf_shelf_texture.png-7b9e165e90746fab9e0fe5d8520fc3a7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f0e8656a056ee940edd72787b140ce07"
+"md5": "cf781389c0b08a92f346ccd9315af57b"
 }
 
 [deps]
 
-source_file="res://3d Models/objects/environment/env_tree2_tree2_texture.png"
-dest_files=["res://.godot/imported/env_tree2_tree2_texture.png-197873ec3e371d92d51bd04c2ffc3eaa.s3tc.ctex"]
+source_file="res://3d Models/objects/environment/computer_store/shelf_shelf_texture.png"
+dest_files=["res://.godot/imported/shelf_shelf_texture.png-7b9e165e90746fab9e0fe5d8520fc3a7.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

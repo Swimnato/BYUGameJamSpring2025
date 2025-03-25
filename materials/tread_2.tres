@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csi5rgyu7rnah"]
+
+[ext_resource type="Texture2D" uid="uid://cyrlhu5kw8ccj" path="res://3d Models/objects/environment/computer_store/tread_tread_texture.png" id="1_q0oxr"]
+
+[resource]
+resource_name = "tread"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_q0oxr")

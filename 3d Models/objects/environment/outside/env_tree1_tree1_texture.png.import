@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjpypc01riafs"
-path.s3tc="res://.godot/imported/box1_box1_texture.png-5376c916140eb1004da791ac2459de08.s3tc.ctex"
+uid="uid://bu3xsy5akaeo1"
+path.s3tc="res://.godot/imported/env_tree1_tree1_texture.png-8774b1dc27183a9b32508ffca084ad2c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a3f5a4103b707fef093e344fc1109046"
+"md5": "02d564e3f7222e502a91d425ee3160f1"
 }
 
 [deps]
 
-source_file="res://3d Models/objects/environment/box1_box1_texture.png"
-dest_files=["res://.godot/imported/box1_box1_texture.png-5376c916140eb1004da791ac2459de08.s3tc.ctex"]
+source_file="res://3d Models/objects/environment/outside/env_tree1_tree1_texture.png"
+dest_files=["res://.godot/imported/env_tree1_tree1_texture.png-8774b1dc27183a9b32508ffca084ad2c.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

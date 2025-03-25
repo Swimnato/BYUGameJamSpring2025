@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5yvinh7i5pk4"
-path.s3tc="res://.godot/imported/shelf_shelf_texture.png-b3cf33e0e7d7bb9bc45964258f3f98e9.s3tc.ctex"
+uid="uid://cyrlhu5kw8ccj"
+path.s3tc="res://.godot/imported/tread_tread_texture.png-92227ca32f8e4b5e5ac60c421624a7ea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cf781389c0b08a92f346ccd9315af57b"
+"md5": "68b5fd8e8e7aa4498a764a062b247ed7"
 }
 
 [deps]
 
-source_file="res://3d Models/objects/environment/shelf_shelf_texture.png"
-dest_files=["res://.godot/imported/shelf_shelf_texture.png-b3cf33e0e7d7bb9bc45964258f3f98e9.s3tc.ctex"]
+source_file="res://3d Models/objects/environment/computer_store/tread_tread_texture.png"
+dest_files=["res://.godot/imported/tread_tread_texture.png-92227ca32f8e4b5e5ac60c421624a7ea.s3tc.ctex"]
 
 [params]
 

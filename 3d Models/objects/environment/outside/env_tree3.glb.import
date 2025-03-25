@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsyhx5u4ru5a7"
-path="res://.godot/imported/shelf.glb-881e7cfe54d16f3345ca1bd0552c19f2.scn"
+uid="uid://dahi8aorscj0b"
+path="res://.godot/imported/env_tree3.glb-fd6cafcbaf6c2be5cba8773deda0555f.scn"
 
 [deps]
 
-source_file="res://3d Models/objects/environment/shelf.glb"
-dest_files=["res://.godot/imported/shelf.glb-881e7cfe54d16f3345ca1bd0552c19f2.scn"]
+source_file="res://3d Models/objects/environment/outside/env_tree3.glb"
+dest_files=["res://.godot/imported/env_tree3.glb-fd6cafcbaf6c2be5cba8773deda0555f.scn"]
 
 [params]
 

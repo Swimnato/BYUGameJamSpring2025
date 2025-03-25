@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djtoma4eohgsi"]
+[gd_scene load_steps=7 format=3 uid="uid://djtoma4eohgsi"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_wdws0"]
 [ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_p7tt2"]
+[ext_resource type="PackedScene" uid="uid://v5y0m8csa3gx" path="res://Scenes/objects/Static/shelf_2.tscn" id="3_x6gup"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="4_4t0q4"]
+[ext_resource type="PackedScene" uid="uid://2h0bxg203me3" path="res://Scenes/objects/Static/tread_2.tscn" id="5_2mg0t"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="5_861lp"]
 
 [node name="whiteboxTemplate" type="Node3D"]
@@ -13,9 +15,327 @@ script = ExtResource("1_wdws0")
 [node name="Interactibles" type="Node3D" parent="objects"]
 
 [node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("2_p7tt2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122108, 1.01953, 10.0949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122108, 1.01953, 9.09494)
 
 [node name="Collisions" type="Node3D" parent="objects"]
+
+[node name="shelf3" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.53877, 0.495004, 7.45534)
+
+[node name="shelf2" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.53877, 2.08996, 7.45534)
+
+[node name="shelf4" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.53877, 0.495004, 12.4553)
+
+[node name="shelf5" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.53877, 2.08996, 12.4553)
+
+[node name="shelf6" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.53877, 0.495004, 7.45534)
+
+[node name="shelf7" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.53877, 2.08996, 7.45534)
+
+[node name="shelf8" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.53877, 0.495004, 12.4553)
+
+[node name="shelf9" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.53877, 2.08996, 12.4553)
+
+[node name="shelf12" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.53877, 0.495004, 12.4553)
+
+[node name="shelf13" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.53877, 2.08996, 12.4553)
+
+[node name="shelf16" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.5388, 0.495004, 12.4553)
+
+[node name="shelf17" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.5388, 2.08996, 12.4553)
+
+[node name="shelf18" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 0.495004, 7.26615)
+
+[node name="shelf19" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 2.08996, 7.26615)
+
+[node name="shelf42" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2934, 0.495004, 7.26615)
+
+[node name="shelf43" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2934, 2.08996, 7.26615)
+
+[node name="shelf22" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, 6.9856)
+
+[node name="shelf23" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, 6.9856)
+
+[node name="shelf30" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 0.495004, 5.26615)
+
+[node name="shelf31" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 2.08996, 5.26615)
+
+[node name="shelf32" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, 4.9856)
+
+[node name="shelf33" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, 4.9856)
+
+[node name="shelf34" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 0.495004, 3.26615)
+
+[node name="shelf35" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 2.08996, 3.26615)
+
+[node name="shelf36" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, 2.9856)
+
+[node name="shelf37" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, 2.9856)
+
+[node name="shelf38" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 0.495004, 1.26615)
+
+[node name="shelf39" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0391, 2.08996, 1.26615)
+
+[node name="shelf40" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, 0.985596)
+
+[node name="shelf41" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, 0.985596)
+
+[node name="shelf48" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, -4.83402)
+
+[node name="shelf49" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, -4.83402)
+
+[node name="shelf50" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, -6.83402)
+
+[node name="shelf51" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, -6.83402)
+
+[node name="shelf52" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, -8.83402)
+
+[node name="shelf53" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, -8.83402)
+
+[node name="shelf54" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, -10.834)
+
+[node name="shelf55" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, -10.834)
+
+[node name="shelf60" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42155, 0.495004, -4.83402)
+
+[node name="shelf61" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42155, 2.08996, -4.83402)
+
+[node name="shelf62" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42155, 0.495004, -6.83402)
+
+[node name="shelf63" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42155, 2.08996, -6.83402)
+
+[node name="shelf64" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42155, 0.495004, -8.83402)
+
+[node name="shelf65" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42155, 2.08996, -8.83402)
+
+[node name="shelf68" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2379, 0.495004, -8.83402)
+
+[node name="shelf69" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2379, 2.08996, -8.83402)
+
+[node name="shelf70" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2379, 0.495004, -10.834)
+
+[node name="shelf71" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2379, 2.08996, -10.834)
+
+[node name="shelf26" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, 8.9856)
+
+[node name="shelf27" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, 8.9856)
+
+[node name="shelf28" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 0.495004, 10.9856)
+
+[node name="shelf29" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9762, 2.08996, 10.9856)
+
+[node name="shelf20" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.5388, 0.495004, 12.4553)
+
+[node name="shelf21" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.5388, 2.08996, 12.4553)
+
+[node name="shelf24" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.5388, 0.495004, 12.4553)
+
+[node name="shelf25" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.5388, 2.08996, 12.4553)
+
+[node name="shelf44" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.5359, 0.495004, -4.46692)
+
+[node name="shelf45" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.5359, 2.08996, -4.46692)
+
+[node name="shelf46" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.5359, 0.495004, -4.46692)
+
+[node name="shelf47" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.5359, 2.08996, -4.46692)
+
+[node name="shelf56" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.53587, 0.495004, -4.46692)
+
+[node name="shelf57" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.53587, 2.08996, -4.46692)
+
+[node name="shelf58" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.5359, 0.495004, -4.46692)
+
+[node name="shelf59" parent="objects/Collisions" instance=ExtResource("3_x6gup")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.5359, 2.08996, -4.46692)
+
+[node name="tread2" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.94055, 0.500001, 14.1235)
+
+[node name="tread3" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.94055, 0.500001, 14.1235)
+
+[node name="tread13" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -14.0996, 0.500001, -6.40678)
+
+[node name="tread20" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -10.0996, 0.500001, -6.40678)
+
+[node name="tread21" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -9.09956, 0.500001, -11.1835)
+
+[node name="tread24" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -16.0996, 0.500001, -13.4068)
+
+[node name="tread25" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -12.0996, 0.500001, -13.4068)
+
+[node name="tread26" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -8.09956, 0.500001, -13.4068)
+
+[node name="tread27" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -4.09956, 0.500001, -13.4068)
+
+[node name="tread28" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -0.0995636, 0.500001, -13.4068)
+
+[node name="tread29" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 3.90044, 0.500001, -13.4068)
+
+[node name="tread30" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 7.90044, 0.500001, -13.4068)
+
+[node name="tread31" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 11.9004, 0.500001, -13.4068)
+
+[node name="tread32" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 15.9004, 0.500001, -13.4068)
+
+[node name="tread23" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.09956, 0.500001, -11.1835)
+
+[node name="tread22" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -5.09956, 0.500001, -11.1835)
+
+[node name="tread4" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9405, 0.500001, 14.1235)
+
+[node name="tread5" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.9405, 0.500001, 14.1235)
+
+[node name="tread40" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 6.05946, 0.500001, 14.1235)
+
+[node name="tread41" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.0595, 0.500001, 14.1235)
+
+[node name="tread42" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 14.0595, 0.500001, 14.1235)
+
+[node name="tread43" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 18.0595, 0.500001, 14.1235)
+
+[node name="tread6" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9405, 0.500001, 11.1235)
+
+[node name="tread7" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9405, 0.500001, 7.12352)
+
+[node name="tread8" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9405, 0.500001, 3.12352)
+
+[node name="tread9" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9405, 0.500001, -0.876478)
+
+[node name="tread14" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -14.9906, 0.500001, 1.58265)
+
+[node name="tread15" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -14.9906, 0.500001, 5.58265)
+
+[node name="tread16" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -14.9906, 0.500001, 9.58265)
+
+[node name="tread17" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -11.1406, 0.500001, 6.22745)
+
+[node name="tread18" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -11.1406, 0.500001, 2.22745)
+
+[node name="tread19" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -11.1406, 0.500001, -1.77255)
+
+[node name="tread10" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9405, 0.500001, -4.87648)
+
+[node name="tread11" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9405, 0.500001, -8.87648)
+
+[node name="tread12" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9405, 0.500001, -12.8765)
+
+[node name="tread33" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8675, 0.500001, 11.1235)
+
+[node name="tread34" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8675, 0.500001, 7.12352)
+
+[node name="tread35" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8675, 0.500001, 3.12352)
+
+[node name="tread36" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8675, 0.500001, -0.876478)
+
+[node name="tread37" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8675, 0.500001, -4.87648)
+
+[node name="tread38" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8675, 0.500001, -8.87648)
+
+[node name="tread39" parent="objects/Collisions" instance=ExtResource("5_2mg0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8675, 0.500001, -12.8765)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions"]
 use_collision = true
@@ -23,27 +343,37 @@ size = Vector3(40, 1, 30)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3, 14.5)
+visible = false
 size = Vector3(18, 5, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, 14.5)
+visible = false
 size = Vector3(18, 5, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -14.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -15.5)
 size = Vector3(40, 5, 1)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 7.20021)
+size = Vector3(8, 2, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.5, 11.2002)
+size = Vector3(8, 2, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 1.5, 11.2002)
 size = Vector3(8, 2, 1)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.5, 3, 0)
-size = Vector3(28, 5, 1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.5, 3, 0)
+size = Vector3(30, 5, 1)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.5, 3, 0)
-size = Vector3(28, 5, 1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.5, 3, 0)
+size = Vector3(30, 5, 1)
 
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
