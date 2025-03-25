@@ -23,7 +23,7 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="Wkey" type="TextureButton" parent="Control"]
+[node name="Wkey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
 layout_mode = 0
 offset_left = 65.0
 offset_top = -89.0
@@ -35,7 +35,8 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_orpfs")
 
-[node name="sKey" type="TextureButton" parent="Control"]
+[node name="sKey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+layout_mode = 0
 offset_left = 64.0
 offset_top = -52.0
 offset_right = 112.0
@@ -47,7 +48,8 @@ stretch_mode = 0
 script = ExtResource("3_orpfs")
 action_name = "move_down"
 
-[node name="dKey" type="TextureButton" parent="Control"]
+[node name="dKey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+layout_mode = 0
 offset_left = 104.0
 offset_top = -52.0
 offset_right = 152.0
@@ -59,7 +61,8 @@ stretch_mode = 0
 script = ExtResource("3_orpfs")
 action_name = "move_right"
 
-[node name="aKey" type="TextureButton" parent="Control"]
+[node name="aKey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+layout_mode = 0
 offset_left = 24.0
 offset_top = -52.0
 offset_right = 72.0
@@ -71,7 +74,8 @@ stretch_mode = 0
 script = ExtResource("3_orpfs")
 action_name = "move_left"
 
-[node name="spaceKey" type="TextureButton" parent="Control"]
+[node name="spaceKey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+layout_mode = 0
 offset_left = 5.0
 offset_top = -10.0
 offset_right = 198.0
@@ -82,14 +86,3 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_orpfs")
 action_name = "jump"
-
-[connection signal="button_down" from="Control/Wkey" to="Control/Wkey" method="_on_button_down"]
-[connection signal="button_up" from="Control/Wkey" to="Control/Wkey" method="_on_button_up"]
-[connection signal="button_down" from="Control/sKey" to="Control/sKey" method="_on_button_down"]
-[connection signal="button_up" from="Control/sKey" to="Control/sKey" method="_on_button_up"]
-[connection signal="button_down" from="Control/dKey" to="Control/dKey" method="_on_button_down"]
-[connection signal="button_up" from="Control/dKey" to="Control/dKey" method="_on_button_up"]
-[connection signal="button_down" from="Control/aKey" to="Control/aKey" method="_on_button_down"]
-[connection signal="button_up" from="Control/aKey" to="Control/aKey" method="_on_button_up"]
-[connection signal="button_down" from="Control/spaceKey" to="Control/spaceKey" method="_on_button_down"]
-[connection signal="button_up" from="Control/spaceKey" to="Control/spaceKey" method="_on_button_up"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b65hp46cls10n"]
+[gd_scene load_steps=14 format=3 uid="uid://b65hp46cls10n"]
 
 [ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_lyvv4"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_vuhdq"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://djtoma4eohgsi" path="res://Scenes/levels/scn_computer_store.tscn" id="5_i4wb1"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/interactable/scn_stamp.tscn" id="5_sa1m2"]
 [ext_resource type="PackedScene" uid="uid://c7ikuk1jy74us" path="res://Scenes/objects/interactable/StampUI.tscn" id="6_tiwv8"]
+[ext_resource type="PackedScene" uid="uid://bumwi1o22hq64" path="res://Scenes/objects/interactable/keyboardUI.tscn" id="7_eob8m"]
 [ext_resource type="PackedScene" uid="uid://bxkiq03h5yyl2" path="res://Scenes/objects/interactable/PauseMenu.tscn" id="7_ih4ht"]
-[ext_resource type="Script" uid="uid://ci8pi8qjuoct" path="res://Scripts/audio_stream_player.gd" id="8_hytrt"]
+[ext_resource type="Script" path="res://Scenes/levels/audio_stream_player.gd" id="8_hytrt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -51,6 +52,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.1062)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03356, 1.15561, -1.56123)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_tiwv8")]
+
+[node name="CanvasLayer" parent="CanvasLayer" instance=ExtResource("7_eob8m")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_ih4ht")]
 metadata/_edit_use_anchors_ = true

@@ -62,8 +62,5 @@ func _on_quit_pressed() -> void:
 
 func _process(delta: float) -> void:
 	testEsc()
-	#print()
-	#print(restartOnSoundFinished)
-	#print(!sound.playing)
 	if(restartOnSoundFinished && Time.get_ticks_msec() - pressedRestart > startGameSFX.get_length() * 500):
 		get_tree().reload_current_scene()
