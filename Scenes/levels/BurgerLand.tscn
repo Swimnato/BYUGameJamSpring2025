@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://ckraltnh0no7s"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_hjk4y"]
-[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_2qhx2"]
 [ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="3_iag5r"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="5_00pt0"]
 [ext_resource type="PackedScene" uid="uid://bxrtvwwmuptc1" path="res://3d Models/objects/burger-export.glb" id="5_1nlie"]
 [ext_resource type="PackedScene" uid="uid://c5o3p4irfkgy3" path="res://3d Models/objects/billboard_exported.glb" id="5_tddp3"]
+[ext_resource type="PackedScene" uid="uid://ckh4s10vul0vn" path="res://Scenes/objects/characters/scn_BurgerMan.tscn" id="7_2qhx2"]
 [ext_resource type="PackedScene" uid="uid://3qo8l71slvw2" path="res://Scenes/objects/Static/Tree.tscn" id="7_hjk4y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1nlie"]
@@ -18,9 +18,6 @@ script = ExtResource("1_hjk4y")
 [node name="objects" type="Node3D" parent="."]
 
 [node name="Interactibles" type="Node3D" parent="objects"]
-
-[node name="Phat Tony" parent="objects/Interactibles" instance=ExtResource("2_2qhx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0767918, 0.0195343, -0.268264)
 
 [node name="Collisions" type="Node3D" parent="objects"]
 
@@ -98,3 +95,6 @@ treeMesh = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358804, 0, 8.47894)
 
 [node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ScnNpc" parent="." instance=ExtResource("7_2qhx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0351425, 9.53674e-07, -1.43998)

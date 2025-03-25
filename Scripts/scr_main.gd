@@ -9,3 +9,10 @@ func _ready():
 		for point in child.respawnPoints:
 			#respawnPoints.append(child.position + (point * child.scale))
 			respawnPoints.append(child.to_global(point))
+
+func fadeOut(len:int):
+	$AudioStreamPlayer.shouldPlay = false;
+	$AudioStreamPlayer.stop();
+	$deathRectangle.fadingScreen = true;
+	$deathRectangle.blackoutLen = len;
+	$deathRectangle.screenAlpha = $deathRectangle.fullyVisibleAlpha;
