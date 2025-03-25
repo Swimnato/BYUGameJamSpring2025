@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://djtoma4eohgsi"]
+
+[ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_wdws0"]
+[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_p7tt2"]
+[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="4_4t0q4"]
+[ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="5_861lp"]
+
+[node name="whiteboxTemplate" type="Node3D"]
+script = ExtResource("1_wdws0")
+
+[node name="objects" type="Node3D" parent="."]
+
+[node name="Interactibles" type="Node3D" parent="objects"]
+
+[node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("2_p7tt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122108, 1.01953, 10.0949)
+
+[node name="Collisions" type="Node3D" parent="objects"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions"]
+use_collision = true
+size = Vector3(40, 1, 30)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3, 14.5)
+size = Vector3(18, 5, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, 14.5)
+size = Vector3(18, 5, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -14.5)
+size = Vector3(40, 5, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 7.5)
+size = Vector3(8, 2, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.5, 3, 0)
+size = Vector3(28, 5, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="objects/Collisions/CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.5, 3, 0)
+size = Vector3(28, 5, 1)
+
+[node name="Hurtboxes" type="Node3D" parent="objects"]
+
+[node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("4_4t0q4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13247, 0.519535, 3.4603)
+
+[node name="RespawnPoints" type="Node3D" parent="."]
+
+[node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
+
+[node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("5_861lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80014, 0, 11.8708)
+
+[node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]

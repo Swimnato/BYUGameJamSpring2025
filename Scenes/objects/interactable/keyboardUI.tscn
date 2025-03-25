@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5txuxuqerw5g"]
+
+[ext_resource type="Script" uid="uid://dqijeaswa0mbq" path="res://Scenes/objects/interactable/akey.gd" id="1_bvk0x"]
+[ext_resource type="Script" uid="uid://bwfy3gdfxjfdo" path="res://Scenes/objects/interactable/dkey.gd" id="1_f7ukw"]
+[ext_resource type="Script" uid="uid://cfsviiv2f3x3" path="res://Scripts/wkey.gd" id="1_fbkhp"]
+[ext_resource type="Script" uid="uid://dnykpfvp6q65d" path="res://Scenes/objects/interactable/space.gd" id="2_3atpc"]
+[ext_resource type="Script" uid="uid://cp8nmsgpo2tb4" path="res://Scenes/objects/interactable/skey.gd" id="2_ipeoc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="d" type="Button" parent="."]
+layout_mode = 1
+offset_left = 85.0
+offset_top = -7.0
+offset_right = 105.0
+offset_bottom = 24.0
+text = "D"
+script = ExtResource("1_f7ukw")
+
+[node name="s" type="Button" parent="."]
+layout_mode = 1
+offset_left = 56.0
+offset_top = -6.0
+offset_right = 73.0
+offset_bottom = 25.0
+text = "S"
+script = ExtResource("2_ipeoc")
+
+[node name="a" type="Button" parent="."]
+layout_mode = 1
+offset_left = 26.0
+offset_top = -6.0
+offset_right = 45.0
+offset_bottom = 25.0
+text = "A"
+script = ExtResource("1_bvk0x")
+action_name = "move_left"
+
+[node name="w" type="Button" parent="."]
+layout_mode = 1
+offset_left = 54.0
+offset_top = -47.0
+offset_right = 78.0
+offset_bottom = -16.0
+text = "W"
+script = ExtResource("1_fbkhp")
+
+[node name="Space" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = -7.0
+offset_right = 168.0
+offset_bottom = 24.0
+text = "space"
+script = ExtResource("2_3atpc")
+
+[connection signal="button_down" from="w" to="w" method="_on_button_down"]

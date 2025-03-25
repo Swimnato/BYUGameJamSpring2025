@@ -30,7 +30,9 @@ enum {
 }
 
 func _ready() -> void:
-	$Dialogue.connect("dialogue_finished", Callable(self, "_on_dialogue_dialogue_finished"));
+	if not $Dialogue.is_connected("dialogue_finished", Callable(self, "_on_dialogue_dialogue_finished")):
+		$Dialogue.connect("dialogue_finished", Callable(self, "_on_dialogue_dialogue_finished"))
+
 
 func _process(delta: float) -> void:
 	if(jumping):

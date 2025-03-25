@@ -5,12 +5,15 @@ enum musicTrack {
 	COMPUTER_STORE,
 	GYM
 }
-var musicList:Array = [preload("res://Audio/Music/Song2Loop.wav"), preload("res://Audio/Music/Song1Loop.wav")];
+var mainMenuMusic = preload("res://Audio/Music/Song3.wav");
+var musicList:Array = [preload("res://Audio/Music/Song2Loop.wav"), preload("res://Audio/Music/Song4Loop.wav"), preload("res://Audio/Music/Song1Loop.wav")];
 var currentSong = 0;
 var prevSong;
 var lastAttempt = 0;
 var delayAttempt = 100;
 var volume = -20;
+
+var inMainMenu:bool = false;
 @export var shouldPlay = true;
 @onready var player = $"../Player";
 
@@ -26,5 +29,5 @@ func _process(delta: float) -> void:
 		if(playing):
 			stop();
 		prevSong = currentSong;
-		stream = musicList[currentSong];
+		stream = mainMenuMusic if inMainMenu else musicList[currentSong];
 		play()

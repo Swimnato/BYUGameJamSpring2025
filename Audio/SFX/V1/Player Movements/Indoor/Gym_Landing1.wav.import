@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cck7lfjs0ek4b"
+path="res://.godot/imported/Gym_Landing1.wav-15518ae6c45052bae442213254ca840f.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/V1/Player Movements/Indoor/Gym_Landing1.wav"
+dest_files=["res://.godot/imported/Gym_Landing1.wav-15518ae6c45052bae442213254ca840f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

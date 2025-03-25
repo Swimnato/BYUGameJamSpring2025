@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3a5a4xrw55gq"
+path="res://.godot/imported/Standard_Jump.wav-27332501874a21b378174a9b3896850e.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/V1/Player Movements/Standard_Jump.wav"
+dest_files=["res://.godot/imported/Standard_Jump.wav-27332501874a21b378174a9b3896850e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

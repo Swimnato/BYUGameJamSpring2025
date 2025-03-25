@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://235q1snttwta"
+path="res://.godot/imported/Lilypad_Landing2.wav-c436e625bc387163d425d539ec62a07b.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/V2/Player Movements/Outdoor/Lilypad_Landing2.wav"
+dest_files=["res://.godot/imported/Lilypad_Landing2.wav-c436e625bc387163d425d539ec62a07b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
