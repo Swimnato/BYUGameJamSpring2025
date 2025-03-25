@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6k1uddlp385m"
-path.s3tc="res://.godot/imported/goblin_v1_goblin_texture.png-b7a28f87e2ea1cb2a6eb2291c91a8d14.s3tc.ctex"
+uid="uid://c21f1r58cxxik"
+path.s3tc="res://.godot/imported/weird piece for adams witchcraft_tread_texture.png-4cd105df210ccb711dff81976f1f6e02.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "965293c156fa0a578ad4d78fcab8f729"
+"md5": "68b5fd8e8e7aa4498a764a062b247ed7"
 }
 
 [deps]
 
-source_file="res://3d Models/characters/goblin_v1_goblin_texture.png"
-dest_files=["res://.godot/imported/goblin_v1_goblin_texture.png-b7a28f87e2ea1cb2a6eb2291c91a8d14.s3tc.ctex"]
+source_file="res://3d Models/objects/environment/computer_store/weird piece for adams witchcraft_tread_texture.png"
+dest_files=["res://.godot/imported/weird piece for adams witchcraft_tread_texture.png-4cd105df210ccb711dff81976f1f6e02.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

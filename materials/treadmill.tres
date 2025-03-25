@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://df8cqtyr1wrnf"]
+
+[ext_resource type="Texture2D" uid="uid://sts312e6fjnv" path="res://3d Models/objects/environment/computer_store/treadmill_texture.png" id="1_e8ne4"]
+
+[resource]
+albedo_texture = ExtResource("1_e8ne4")
+uv1_scale = Vector3(50, 1, 1)

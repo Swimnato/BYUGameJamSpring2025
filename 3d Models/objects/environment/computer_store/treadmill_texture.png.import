@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6k1uddlp385m"
-path.s3tc="res://.godot/imported/goblin_v1_goblin_texture.png-b7a28f87e2ea1cb2a6eb2291c91a8d14.s3tc.ctex"
+uid="uid://sts312e6fjnv"
+path.s3tc="res://.godot/imported/treadmill_texture.png-b0f9c0b85453580a16fe025ded7b54bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "965293c156fa0a578ad4d78fcab8f729"
-}
 
 [deps]
 
-source_file="res://3d Models/characters/goblin_v1_goblin_texture.png"
-dest_files=["res://.godot/imported/goblin_v1_goblin_texture.png-b7a28f87e2ea1cb2a6eb2291c91a8d14.s3tc.ctex"]
+source_file="res://3d Models/objects/environment/computer_store/treadmill_texture.png"
+dest_files=["res://.godot/imported/treadmill_texture.png-b0f9c0b85453580a16fe025ded7b54bd.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +22,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

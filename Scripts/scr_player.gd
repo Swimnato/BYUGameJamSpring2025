@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var animations: AnimationPlayer = $Pivot/model/AnimationPlayer
+@onready var animations: AnimationPlayer = $Pivot/goblin_v1/AnimationPlayer
 signal PlayerDied;
 
 @export var speed = 12
@@ -18,6 +18,7 @@ LILLYPAD,
 COMP_STORE,
 GYM
 };
+var canJump = true;
 var floorType:surfaceType = 0;
 var isBlackedOut = false;
 var isTalking = false;
@@ -51,34 +52,58 @@ func _physics_process(delta):
 
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-	elif Input.is_action_pressed("jump") and !isBlackedOut && !isTalking:
+	elif Input.is_action_pressed("jump") and !isBlackedOut && !isTalking && canJump:
 		target_velocity.y = jump_force[frogJump];
 		sfxPlayer.stream = jmpSound[frogJump];
 		sfxPlayer.play();
 	elif(!wasOnFloorLastLoop):
 		sfxPlayer.stream = landingSound[floorType][round(randf_range(0,len(landingSound[floorType]) - 1))];
 		sfxPlayer.play();
-	handleAnimations(target_velocity)
-	velocity = target_velocity
-	wasOnFloorLastLoop = is_on_floor();
-	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if(collision.get_collider().name.to_lower().contains("lillypad")):
 			floorType = surfaceType.LILLYPAD;
-		#elif collision.get_collider().name.contains("tread"):
-			#floorType = surfaceType.COMP_STORE
+			canJump = true;
+		elif collision.get_collider().get_parent().name.to_lower().contains("tread"):
+			floorType = surfaceType.COMP_STORE
+			var tread_direction = Vector3.ZERO
+			tread_direction = collision.get_collider().get_parent().get_rotation()
+			var tdir = round(rad_to_deg(collision.get_collider().get_parent().get_rotation().y))
+			if tdir == 0:
+				tread_direction.z = 1
+			elif tdir == 180 || tdir == -180:
+				tread_direction.z = -1
+			elif tdir == 90:
+				tread_direction.x = 1
+			elif tdir == -90:
+				tread_direction.x = -1;
+			#tread_direction = tread_direction.normalized()
+			target_velocity.x += tread_direction.x * speed
+			target_velocity.z += tread_direction.z * speed
+			canJump = false;
 		else:
-			floorType = surfaceType.GRASS;
+			floorType = surfaceType.GRASS;	
+			canJump = true;
+			
 	
-func handleAnimations(_target_velocity: Vector3) -> void: 
-	if _target_velocity.x || _target_velocity.z != 0:
-		animations.current_animation = animations.get_animation_list()[1]
+	handleAnimations(target_velocity, is_on_floor())
+	velocity = target_velocity
+	wasOnFloorLastLoop = is_on_floor();
+	move_and_slide()
+	
+func handleAnimations(_target_velocity: Vector3, on_floor) -> void: 
+	if !on_floor:
+		if _target_velocity.y < 0:
+			animations.current_animation = animations.get_animation_list()[6];
+		else:
+			animations.current_animation = animations.get_animation_list()[6];
+	elif _target_velocity.x || _target_velocity.z != 0:
+		animations.current_animation = animations.get_animation_list()[7]
 		if(is_on_floor() and !sfxPlayer.playing):
 			sfxPlayer.stream = footsteps[floorType];
 			sfxPlayer.play()
 	else: 
-		animations.current_animation = animations.get_animation_list()[0]
+		animations.current_animation = animations.get_animation_list()[5]
 
 func die(src:int = 0) -> void:
 	if(src == 0):
