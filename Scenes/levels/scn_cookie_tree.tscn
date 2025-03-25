@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bj3njwgib7ys7"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_0n740"]
-[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="2_l2wx1"]
+[ext_resource type="PackedScene" uid="uid://dotiq82o2gyex" path="res://Scenes/objects/characters/CookieKid.tscn" id="2_b4qwi"]
 [ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="3_8vv17"]
 [ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="3_b4qwi"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="4_e7cin"]
@@ -29,10 +29,9 @@ script = ExtResource("1_0n740")
 
 [node name="Interactibles" type="Node3D" parent="objects"]
 
-[node name="ScnNpc" parent="objects/Interactibles" instance=ExtResource("2_l2wx1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037973, 0.0737426, 3.07475)
+[node name="cookiekid" parent="objects/Interactibles" instance=ExtResource("2_b4qwi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.16918)
 d_file = "res://Dialogue/Cookie_Kid.json"
-jumping = true
 
 [node name="Collisions" type="Node3D" parent="objects"]
 

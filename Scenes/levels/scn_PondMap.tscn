@@ -297,6 +297,6 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 123.25, 0, 68.1392)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -93.2102, 0, 152.848)
 
 [node name="ConditionalRespawn2" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("12_ujri8")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 148.197, 0.668285, 4.30879)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 148.197, 0.668285, 0.0258274)
 
 [connection signal="body_entered" from="objects/Trigger Zones/Trigger Cat" to="Animations/AnimationPlayer" method="_on_trigger_cat_body_entered"]
