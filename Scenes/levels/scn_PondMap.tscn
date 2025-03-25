@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=21 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_h85wo"]
-[ext_resource type="PackedScene" uid="uid://cfabpgfj3vlue" path="res://Scenes/objects/characters/scn_npc.tscn" id="1_wj234"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/interactable/scn_stamp.tscn" id="2_3yaxh"]
 [ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="2_khnxe"]
 [ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="3_42eyn"]
@@ -13,9 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="10_8wpu8"]
 [ext_resource type="PackedScene" uid="uid://ditt1bva0gim6" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_set.tscn" id="11_x1l0e"]
 [ext_resource type="PackedScene" uid="uid://cdm1kprq8fc2r" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_remove.tscn" id="12_ujri8"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_ujri8"]
-size = Vector3(1, 2, 1)
+[ext_resource type="PackedScene" uid="uid://bsu8xdt84bks8" path="res://Scenes/objects/characters/scn_frogNPC.tscn" id="13_osfwr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crnpl"]
 
@@ -72,11 +69,6 @@ script = ExtResource("1_h85wo")
 [node name="objects" type="Node3D" parent="."]
 
 [node name="Interactibles" type="Node3D" parent="objects"]
-
-[node name="Frog" parent="objects/Interactibles" instance=ExtResource("1_wj234")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 64.7562, 0.442986, 131.734)
-d_file = "res://Dialogue/Frog_Dialogue.json"
-NPC_Mesh = SubResource("PrismMesh_ujri8")
 
 [node name="Stamp" parent="objects/Interactibles" instance=ExtResource("2_3yaxh")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -93.1718, 3.22376, 152.059)
@@ -298,5 +290,9 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -93.2102, 0, 152.848)
 
 [node name="ConditionalRespawn2" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("12_ujri8")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 148.197, 0.668285, 0.0258274)
+
+[node name="FrogNPC" parent="." instance=ExtResource("13_osfwr")]
+transform = Transform3D(-1.65827, 0, 1.1181, 0, 2, 0, -1.1181, 0, -1.65827, 63.1604, 0, 126.057)
+d_file = "res://Dialogue/Frog_Dialogue.json"
 
 [connection signal="body_entered" from="objects/Trigger Zones/Trigger Cat" to="Animations/AnimationPlayer" method="_on_trigger_cat_body_entered"]

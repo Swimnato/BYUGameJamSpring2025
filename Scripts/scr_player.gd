@@ -13,7 +13,7 @@ var target_velocity = Vector3.ZERO
 var wasOnFloorLastLoop = true;
 enum surfaceType{
 GRASS,
-LILLYPAD	,
+LILLYPAD,
 COMP_STORE,
 GYM
 };
