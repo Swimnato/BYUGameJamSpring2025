@@ -60,11 +60,8 @@ func _on_quit_pressed() -> void:
 
 func _process(delta: float) -> void:
 	testEsc()
-<<<<<<< HEAD
 	#print()
 	#print(restartOnSoundFinished)
 	#print(!sound.playing)
-=======
->>>>>>> 74c663af4742e678a1126f6f4d8d86e14fb28d4b
 	if(restartOnSoundFinished && !sound.playing):
 		get_tree().reload_current_scene()
