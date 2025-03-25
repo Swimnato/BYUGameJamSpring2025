@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://bumwi1o22hq64"]
+
+[ext_resource type="Texture2D" uid="uid://c16ic73hb2nlg" path="res://3d Models/objects/w_key.webp" id="1_ipeoc"]
+[ext_resource type="Texture2D" uid="uid://2xm5wbhxkqvv" path="res://3d Models/objects/pressed_w_key.webp" id="2_f7ukw"]
+[ext_resource type="Script" uid="uid://b0g267p6u7lgk" path="res://Scenes/objects/interactable/w_textureButton.gd" id="3_orpfs"]
+[ext_resource type="Texture2D" uid="uid://c8j01iaw4irx2" path="res://3d Models/objects/s_key.webp" id="4_orpfs"]
+[ext_resource type="Texture2D" uid="uid://dl5u05tjqwug4" path="res://3d Models/objects/pressed_s_key.webp" id="5_hp28c"]
+[ext_resource type="Texture2D" uid="uid://3kesdggj10bn" path="res://3d Models/objects/d_key.webp" id="6_wdmck"]
+[ext_resource type="Texture2D" uid="uid://b7jxyj83aixvv" path="res://3d Models/objects/pressed_d_key.webp" id="7_vxcfd"]
+[ext_resource type="Texture2D" uid="uid://dnrkrtqa4mpuh" path="res://3d Models/objects/a_key.webp" id="8_e6lso"]
+[ext_resource type="Texture2D" uid="uid://b7a143tcyhlsd" path="res://3d Models/objects/pressed_a_key.webp" id="9_oh2w2"]
+[ext_resource type="Texture2D" uid="uid://bu2lkjcbt3qdb" path="res://3d Models/objects/spacebar_key.webp" id="10_e6lso"]
+[ext_resource type="Texture2D" uid="uid://hu8uvfqnge0u" path="res://3d Models/objects/pressed_space.webp" id="11_oh2w2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Wkey" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = -89.0
+offset_right = 113.0
+offset_bottom = -45.0
+texture_normal = ExtResource("1_ipeoc")
+texture_pressed = ExtResource("2_f7ukw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_orpfs")
+
+[node name="sKey" type="TextureButton" parent="Control"]
+offset_left = 64.0
+offset_top = -52.0
+offset_right = 112.0
+offset_bottom = -8.0
+texture_normal = ExtResource("4_orpfs")
+texture_pressed = ExtResource("5_hp28c")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_orpfs")
+action_name = "move_down"
+
+[node name="dKey" type="TextureButton" parent="Control"]
+offset_left = 104.0
+offset_top = -52.0
+offset_right = 152.0
+offset_bottom = -8.0
+texture_normal = ExtResource("6_wdmck")
+texture_pressed = ExtResource("7_vxcfd")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_orpfs")
+action_name = "move_right"
+
+[node name="aKey" type="TextureButton" parent="Control"]
+offset_left = 24.0
+offset_top = -52.0
+offset_right = 72.0
+offset_bottom = -8.0
+texture_normal = ExtResource("8_e6lso")
+texture_pressed = ExtResource("9_oh2w2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_orpfs")
+action_name = "move_left"
+
+[node name="spaceKey" type="TextureButton" parent="Control"]
+offset_left = 5.0
+offset_top = -10.0
+offset_right = 198.0
+offset_bottom = 32.0
+texture_normal = ExtResource("10_e6lso")
+texture_pressed = ExtResource("11_oh2w2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_orpfs")
+action_name = "jump"
+
+[connection signal="button_down" from="Control/Wkey" to="Control/Wkey" method="_on_button_down"]
+[connection signal="button_up" from="Control/Wkey" to="Control/Wkey" method="_on_button_up"]
+[connection signal="button_down" from="Control/sKey" to="Control/sKey" method="_on_button_down"]
+[connection signal="button_up" from="Control/sKey" to="Control/sKey" method="_on_button_up"]
+[connection signal="button_down" from="Control/dKey" to="Control/dKey" method="_on_button_down"]
+[connection signal="button_up" from="Control/dKey" to="Control/dKey" method="_on_button_up"]
+[connection signal="button_down" from="Control/aKey" to="Control/aKey" method="_on_button_down"]
+[connection signal="button_up" from="Control/aKey" to="Control/aKey" method="_on_button_up"]
+[connection signal="button_down" from="Control/spaceKey" to="Control/spaceKey" method="_on_button_down"]
+[connection signal="button_up" from="Control/spaceKey" to="Control/spaceKey" method="_on_button_up"]
