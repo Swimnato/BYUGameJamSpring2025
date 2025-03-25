@@ -86,6 +86,10 @@ transform = Transform3D(1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, -110.974, -7.191
 [node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Interactibles/catprototype/CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_crnpl")
 
+[node name="FrogNPC" parent="objects/Interactibles" instance=ExtResource("13_osfwr")]
+transform = Transform3D(-6.63307, 0, 4.4724, 0, 8, 0, -4.4724, 0, -6.63307, 72.9442, 0, 133.123)
+d_file = "res://Dialogue/Frog_Dialogue.json"
+
 [node name="Collisions" type="Node3D" parent="objects"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
@@ -396,9 +400,5 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -93.2102, 0, 152.848)
 
 [node name="ConditionalRespawn2" parent="RespawnPoints/ConditionalRespawn" instance=ExtResource("12_ujri8")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 148.197, 0.668285, 0.0258274)
-
-[node name="FrogNPC" parent="." instance=ExtResource("13_osfwr")]
-transform = Transform3D(-1.65827, 0, 1.1181, 0, 2, 0, -1.1181, 0, -1.65827, 63.1604, 0, 126.057)
-d_file = "res://Dialogue/Frog_Dialogue.json"
 
 [connection signal="body_entered" from="objects/Trigger Zones/Trigger Cat" to="Animations/AnimationPlayer" method="_on_trigger_cat_body_entered"]

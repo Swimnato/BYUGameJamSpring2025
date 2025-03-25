@@ -48,7 +48,7 @@ func _on_restart_pressed() -> void:
 	sound.stream = startGameSFX;
 	sound.play()
 	restartOnSoundFinished = true;
-	get_parent().get_parent().fadeOut(startGameSFX.get_length() * 1000)
+	get_parent().get_parent().fadeOut(startGameSFX.get_length() * 500)
 
 
 func _on_settings_pressed() -> void:

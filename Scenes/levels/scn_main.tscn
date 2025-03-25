@@ -18,7 +18,7 @@ sky_material = SubResource("ProceduralSkyMaterial_vuhdq")
 background_mode = 2
 sky = SubResource("Sky_ct860")
 
-[node name="ScnMain" type="Node3D"]
+[node name="ScnMain2" type="Node3D"]
 script = ExtResource("1_lyvv4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
