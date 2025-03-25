@@ -7,6 +7,7 @@ var enterMenuSFX = preload("res://Audio/SFX/V2/UI/EnterWindow.wav");
 var exitMenuSFX = preload("res://Audio/SFX/V2/UI/ExitWindow.wav");
 var cancelSFX = preload("res://Audio/SFX/V2/UI/Cancel.wav");
 var startGameSFX = preload("res://Audio/SFX/V2/UI/StartGame.wav");
+var pressedRestart = 0;
 
 var restartOnSoundFinished = false;
 
@@ -48,6 +49,7 @@ func _on_restart_pressed() -> void:
 	sound.stream = startGameSFX;
 	sound.play()
 	restartOnSoundFinished = true;
+	pressedRestart = Time.get_ticks_msec();
 	get_parent().get_parent().fadeOut(startGameSFX.get_length() * 500)
 
 
@@ -63,5 +65,5 @@ func _process(delta: float) -> void:
 	#print()
 	#print(restartOnSoundFinished)
 	#print(!sound.playing)
-	if(restartOnSoundFinished && !sound.playing):
+	if(restartOnSoundFinished && Time.get_ticks_msec() - pressedRestart > startGameSFX.get_length() * 500):
 		get_tree().reload_current_scene()
