@@ -13,7 +13,7 @@ var target_velocity = Vector3.ZERO
 var wasOnFloorLastLoop = true;
 enum surfaceType{
 GRASS,
-LILLYPAD	,
+LILLYPAD,
 COMP_STORE,
 GYM
 };
@@ -116,7 +116,7 @@ func collect_stamp(ID_num:int):
 
 func stop_and_face_npc(npc:Node3D):
 	isTalking = true;
-	var positionToNPC = npc.get_parent().get_parent().get_parent().to_global(npc.position) - position
+	var positionToNPC = npc.global_position - global_position
 	var rotationToNPC = atan2(-positionToNPC.x, -positionToNPC.z);
 	var rotate_tween = create_tween();
 	rotate_tween.tween_property($Pivot, "rotation:y", rotationToNPC , 0.5);

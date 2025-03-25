@@ -15,3 +15,4 @@ func fadeOut(len:int):
 	$AudioStreamPlayer.stop();
 	$deathRectangle.fadingScreen = true;
 	$deathRectangle.blackoutLen = len;
+	$deathRectangle.screenAlpha = $deathRectangle.fullyVisibleAlpha;

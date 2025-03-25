@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0bdqq5usm8bx"
-path="res://.godot/imported/NPC_burger_guy.glb-41276b0047566cfa83b36b1f446b3353.scn"
+uid="uid://h0tq0akvbylu"
+path="res://.godot/imported/frog.glb-f43671fa3056e011e2f27d241658ea6e.scn"
 
 [deps]
 
-source_file="res://3d Models/characters/NPC_burger_guy.glb"
-dest_files=["res://.godot/imported/NPC_burger_guy.glb-41276b0047566cfa83b36b1f446b3353.scn"]
+source_file="res://3d Models/characters/frog.glb"
+dest_files=["res://.godot/imported/frog.glb-f43671fa3056e011e2f27d241658ea6e.scn"]
 
 [params]
 
@@ -34,7 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "animations": {
-"burger_guy_idle": {
+"frog_idle": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
@@ -1833,7 +1833,7 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 },
-"burger_guy_talk": {
+"frog_receive_cookie": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",

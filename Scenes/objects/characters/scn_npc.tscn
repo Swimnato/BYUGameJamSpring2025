@@ -1,9 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfabpgfj3vlue"]
+[gd_scene load_steps=9 format=3 uid="uid://cfabpgfj3vlue"]
 
 [ext_resource type="Script" uid="uid://bi37ffismaxk2" path="res://Scripts/scr_npc.gd" id="1_oek5n"]
 [ext_resource type="PackedScene" uid="uid://c33833ffvdp02" path="res://Dialogue/dialogue.tscn" id="2_ethv3"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ethv3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wr6wu"]
 radius = 6.0
@@ -50,7 +48,6 @@ radius = 1.0
 [node name="ScnNpc" type="Node3D"]
 script = ExtResource("1_oek5n")
 d_file = "res://Dialogue/boblin_dialogue.json"
-NPC_Mesh = SubResource("CapsuleMesh_ethv3")
 
 [node name="Speaking zone" type="Area3D" parent="."]
 

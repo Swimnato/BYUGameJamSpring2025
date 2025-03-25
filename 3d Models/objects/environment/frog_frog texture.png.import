@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu3xsy5akaeo1"
-path.s3tc="res://.godot/imported/env_tree1_tree1_texture.png-a23b82aaae2f54346927ff60f67b36ad.s3tc.ctex"
+uid="uid://bjx4viyidn8yq"
+path.s3tc="res://.godot/imported/frog_frog texture.png-ae98909ddc36fa61f5d70c5d84dcc806.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d28fdd20d08a04f26952c01ee29f227d"
+"md5": "2748256fcfb8f5e870b569ae8db7af8c"
 }
 
 [deps]
 
-source_file="res://3d Models/objects/environment/env_tree1_tree1_texture.png"
-dest_files=["res://.godot/imported/env_tree1_tree1_texture.png-a23b82aaae2f54346927ff60f67b36ad.s3tc.ctex"]
+source_file="res://3d Models/objects/environment/frog_frog texture.png"
+dest_files=["res://.godot/imported/frog_frog texture.png-ae98909ddc36fa61f5d70c5d84dcc806.s3tc.ctex"]
 
 [params]
 
