@@ -1,26 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://bj3njwgib7ys7"]
+[gd_scene load_steps=10 format=3 uid="uid://bj3njwgib7ys7"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_0n740"]
 [ext_resource type="PackedScene" uid="uid://dotiq82o2gyex" path="res://Scenes/objects/characters/scn_CookieKid.tscn" id="2_b4qwi"]
-[ext_resource type="Material" uid="uid://bv3qdqpq1ifyg" path="res://materials/m_green.tres" id="3_8vv17"]
 [ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="3_b4qwi"]
-[ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="4_e7cin"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="5_ghrgq"]
+[ext_resource type="PackedScene" uid="uid://dej6bvu3t46a0" path="res://3d Models/objects/environment/stump.glb" id="5_o5md1"]
+[ext_resource type="PackedScene" uid="uid://8f56wug8egey" path="res://3d Models/objects/environment/cookie.glb" id="6_b4qwi"]
+[ext_resource type="Script" uid="uid://bug3p1gaddaeu" path="res://Scripts/scr_cookie.gd" id="7_0n740"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4qwi"]
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_0n740"]
+radius = 1.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_b4qwi"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0n740"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="TorusMesh" id="TorusMesh_0n740"]
-inner_radius = 1.39
-outer_radius = 3.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2wx1"]
-albedo_color = Color(0, 0.298031, 0.0551608, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o5md1"]
+height = 7.45166
+radius = 4.44434
 
 [node name="CookieTree" type="Node3D"]
 script = ExtResource("1_0n740")
@@ -33,6 +26,16 @@ script = ExtResource("1_0n740")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.16918)
 d_file = "res://Dialogue/Cookie_Kid.json"
 
+[node name="cookie" parent="objects/Interactibles" instance=ExtResource("6_b4qwi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0419067, 2.38175, 1.29123)
+script = ExtResource("7_0n740")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Interactibles/cookie"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Interactibles/cookie/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.167348, 0)
+shape = SubResource("SphereShape3D_0n740")
+
 [node name="Collisions" type="Node3D" parent="objects"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions"]
@@ -41,33 +44,16 @@ use_collision = true
 size = Vector3(30, 1, 30)
 material = ExtResource("3_b4qwi")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="objects/Collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
-use_collision = true
-radius = 2.0
-height = 7.0
-material = ExtResource("3_8vv17")
+[node name="stump2" parent="objects/Collisions" instance=ExtResource("5_o5md1")]
+transform = Transform3D(0.334881, 0, -0.218757, 0, 0.4, 0, 0.218757, 0, 0.334881, 0, 0, 1)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="objects/Collisions/CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75608, 1.52069)
-operation = 2
-material = SubResource("StandardMaterial3D_b4qwi")
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/stump2"]
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="objects/Collisions/CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0700812, -3.17102, 1.90544)
-operation = 2
-mesh = SubResource("CapsuleMesh_b4qwi")
-material = SubResource("StandardMaterial3D_0n740")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="objects/Collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.39468, 0)
-mesh = SubResource("TorusMesh_0n740")
-material = SubResource("StandardMaterial3D_l2wx1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/stump2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99998, 0, 0, 0, 1, 0, 2.7258, 0)
+shape = SubResource("CylinderShape3D_o5md1")
 
 [node name="Hurtboxes" type="Node3D" parent="objects"]
-
-[node name="Hurtbox" parent="objects/Hurtboxes" instance=ExtResource("4_e7cin")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0378885, 0.519535, 1.0626)
 
 [node name="RespawnPoints" type="Node3D" parent="."]
 

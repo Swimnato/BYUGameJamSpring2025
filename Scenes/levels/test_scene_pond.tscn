@@ -29,6 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 0.404902, 0.91436, 0, -0.91436, 0.404902, 0,
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ygifq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.1864, 0, -73.7774)
 frogJump = 1
 
 [node name="deathRectangle" type="ColorRect" parent="."]

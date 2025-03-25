@@ -8,7 +8,7 @@ func _ready():
 		child.calculatePoints();
 		for point in child.respawnPoints:
 			#respawnPoints.append(child.position + (point * child.scale))
-			respawnPoints.append(child.to_global(point))
+			respawnPoints.append(point)
 
 func fadeOut(len:int):
 	$AudioStreamPlayer.shouldPlay = false;

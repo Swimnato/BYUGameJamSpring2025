@@ -1315,7 +1315,7 @@ _data = {
 height = 3.0
 radius = 1.0
 
-[node name="ScnNpc" type="Node3D"]
+[node name="Burger Man" type="Node3D"]
 script = ExtResource("1_hqhrl")
 d_file = "res://Dialogue/boblin_dialogue.json"
 
@@ -1401,7 +1401,7 @@ bones/5/parent = 0
 bones/5/rest = Transform3D(0, 1, -2.23931e-07, 1, 0, 1.65483e-07, 1.65483e-07, -2.23931e-07, -1, 0.280415, 0.75518, 4.70257e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(0.280415, 0.75518, 1.91626e-08)
-bones/5/rotation = Quaternion(0.430459, 0.560986, 0.430459, 0.560986)
+bones/5/rotation = Quaternion(0.430459, 0.560986, 0.430459, 0.560985)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "arm2.L"
 bones/6/parent = 5

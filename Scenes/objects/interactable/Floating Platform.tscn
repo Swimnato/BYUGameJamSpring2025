@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc5s0rft0e5gf"]
+[gd_scene load_steps=6 format=3 uid="uid://bc5s0rft0e5gf"]
 
 [ext_resource type="Script" uid="uid://danmkyiubuvq4" path="res://Scripts/scr_floating_platform_manager.gd" id="1_t4la1"]
 [ext_resource type="Script" uid="uid://bxkuapurh3v8x" path="res://Scripts/FollowPath.gd" id="1_x2mso"]
-[ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="2_yd2ce"]
+[ext_resource type="PackedScene" uid="uid://bx2lyigpcr0im" path="res://3d Models/objects/environment/lilypad.glb" id="3_pbpun"]
 
 [sub_resource type="Curve3D" id="Curve3D_yd2ce"]
 closed = true
@@ -12,15 +12,9 @@ _data = {
 }
 point_count = 18
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_t4la1"]
-material = ExtResource("2_yd2ce")
-top_radius = 25.0
-bottom_radius = 25.0
-height = 0.25
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_nihuc"]
-height = 0.5
-radius = 25.0
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nvno2"]
+height = 0.380249
+radius = 2.38574
 
 [node name="FloatingPlatform" type="Node3D"]
 script = ExtResource("1_t4la1")
@@ -39,8 +33,9 @@ script = ExtResource("1_x2mso")
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 motion_mode = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D/MovingLillyPad"]
-mesh = SubResource("CylinderMesh_t4la1")
+[node name="lilypad2" parent="Path3D/PathFollow3D/MovingLillyPad" instance=ExtResource("3_pbpun")]
+transform = Transform3D(4.8342, 0, 8.75389, 0, 10, 0, -8.75389, 0, 4.8342, -0.20723, 0, -1.52588e-05)
 
-[node name="LillyPadCollision" type="CollisionShape3D" parent="Path3D/PathFollow3D/MovingLillyPad"]
-shape = SubResource("CylinderShape3D_nihuc")
+[node name="lillypad" type="CollisionShape3D" parent="Path3D/PathFollow3D/MovingLillyPad"]
+transform = Transform3D(4.8342, 0, 8.75389, 0, 10, 0, -8.75389, 0, 4.8342, -0.20723, -1.83777, -1.52588e-05)
+shape = SubResource("CylinderShape3D_nvno2")

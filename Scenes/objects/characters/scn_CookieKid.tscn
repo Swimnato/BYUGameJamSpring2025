@@ -36,7 +36,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oek5n"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0f3nw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oek5n"]
 albedo_color = Color(0.505556, 0.707164, 1, 1)
@@ -1201,7 +1201,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("3_x3yjq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CookieKid"]
-shape = SubResource("CapsuleShape3D_oek5n")
+shape = SubResource("CylinderShape3D_0f3nw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CookieKid"]
 visible = false

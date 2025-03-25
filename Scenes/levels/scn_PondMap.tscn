@@ -1,14 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://3i3ucjfxkmq7"]
+[gd_scene load_steps=23 format=3 uid="uid://3i3ucjfxkmq7"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_h85wo"]
 [ext_resource type="PackedScene" uid="uid://b3mui13brndfm" path="res://Scenes/objects/interactable/scn_stamp.tscn" id="2_3yaxh"]
 [ext_resource type="Material" uid="uid://b1g4mk5l5dnr2" path="res://materials/Grass.tres" id="2_khnxe"]
-[ext_resource type="Material" uid="uid://c2xvfosssjgat" path="res://materials/LillyPads.tres" id="3_42eyn"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="3_khnxe"]
 [ext_resource type="PackedScene" uid="uid://bc5s0rft0e5gf" path="res://Scenes/objects/interactable/Floating Platform.tscn" id="4_khnxe"]
+[ext_resource type="PackedScene" uid="uid://bx2lyigpcr0im" path="res://3d Models/objects/environment/lilypad.glb" id="6_orb10"]
 [ext_resource type="PackedScene" uid="uid://dvhfttb1g2ogl" path="res://3d Models/characters/catprototype.glb" id="7_crnpl"]
 [ext_resource type="Script" uid="uid://cjjluumojh0qk" path="res://Scripts/scr_cat_out_of_water.gd" id="8_6wd78"]
 [ext_resource type="PackedScene" uid="uid://3qo8l71slvw2" path="res://Scenes/objects/Static/Tree.tscn" id="8_osfwr"]
+[ext_resource type="PackedScene" uid="uid://xvmbkehmdc3g" path="res://3d Models/objects/environment/cattails.glb" id="8_sfmhe"]
 [ext_resource type="PackedScene" uid="uid://jr1hjqhit2g7" path="res://Scenes/objects/Respawn Points/scn_Respawn_Standard.tscn" id="10_8wpu8"]
 [ext_resource type="PackedScene" uid="uid://ditt1bva0gim6" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_set.tscn" id="11_x1l0e"]
 [ext_resource type="PackedScene" uid="uid://cdm1kprq8fc2r" path="res://Scenes/objects/Respawn Points/scn_cnd_respawn_remove.tscn" id="12_ujri8"]
@@ -21,6 +22,10 @@ transparency = 1
 albedo_color = Color(0.137255, 1, 1, 0.74902)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3yaxh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_orb10"]
+height = 0.380249
+radius = 2.38574
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h85wo"]
 height = 5.0
@@ -103,59 +108,77 @@ skeleton = NodePath("../..")
 
 [node name="LillyPads" type="Node3D" parent="objects/Collisions"]
 
-[node name="LillyPad" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -135.934, -0.448917, -1.04412)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lilypad2" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(4.8342, 0, 8.75389, 0, 10, 0, -8.75389, 0, 4.8342, -147.18, 0, -1.28669e-05)
 
-[node name="LillyPad9" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -147.977, -0.448917, 205.488)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad2"]
 
-[node name="LillyPad2" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -149.896, -0.448917, 56.9414)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad2/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
 
-[node name="LillyPad3" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -121.112, -0.448917, 111.663)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lilypad3" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(8.70407, 0, 4.92332, 0, 10, 0, -4.92332, 0, 8.70407, -160.529, 0, 57.9074)
 
-[node name="LillyPad4" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 37.2605, -0.448917, -108.788)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad3"]
 
-[node name="LillyPad5" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 103.577, -0.448917, -153.85)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad3/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
 
-[node name="LillyPad6" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -57.7357, -0.261051, 43.9505)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lilypad4" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(2.208, 0, -9.75319, 0, 10, 0, 9.75319, 0, 2.208, -132.69, 0, 113.137)
 
-[node name="LillyPad7" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -55.4612, -0.358158, 135.363)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad4"]
 
-[node name="LillyPad8" type="CSGPolygon3D" parent="objects/Collisions/LillyPads"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 42.3986, -0.448917, -166.292)
-use_collision = true
-polygon = PackedVector2Array(-14.6657, -23.1622, -25.9839, -18.3262, -30.0278, -12.5935, -31.3456, -6.37251, -30.2345, -4.27969, -24.6849, -2.21325, -20.2635, -0.749763, -25.8505, 1.33781, -30.0192, 2.67466, -30.4087, 6.46019, -30.1414, 8.92019, -26.215, 13.6942, -21.9203, 17.7549, -13.5298, 19.4757, -3.32312, 19.1448, 5.14016, 15.624, 10.7387, 4.58801, 9.07394, -11.5453, -3.87979, -21.0027)
-material = ExtResource("3_42eyn")
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad4/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
+
+[node name="lilypad5" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(-9.96366, 0, 0.851735, 0, 10, 0, -0.851735, 0, -9.96366, -66.4047, 0, 136.125)
+
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad5"]
+
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad5/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
+
+[node name="lilypad6" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(-9.96366, 0, 0.851735, 0, 10, 0, -0.851735, 0, -9.96366, -69.173, 0, 45.5051)
+
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad6"]
+
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad6/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
+
+[node name="lilypad7" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(6.9034, 0, 7.23486, 0, 10, 0, -7.23486, 0, 6.9034, 27.3018, 0, -107.814)
+
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad7"]
+
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad7/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
+
+[node name="lilypad8" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(-9.16579, 0, -3.99853, 0, 10, 0, 3.99853, 0, -9.16579, 32.3285, 0, -163.17)
+
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad8"]
+
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad8/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
+
+[node name="lilypad9" parent="objects/Collisions/LillyPads" instance=ExtResource("6_orb10")]
+transform = Transform3D(5.12268, 0, -8.58826, 0, 10, 0, 8.58826, 0, 5.12268, 92.934, 0, -152.972)
+
+[node name="lillypad" type="StaticBody3D" parent="objects/Collisions/LillyPads/lilypad9"]
+
+[node name="lillypad" type="CollisionShape3D" parent="objects/Collisions/LillyPads/lilypad9/lillypad"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, -0.183777, 0)
+shape = SubResource("CylinderShape3D_orb10")
 
 [node name="FloatingPlatform" parent="objects/Collisions" instance=ExtResource("4_khnxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
@@ -164,94 +187,176 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2323, 0, -25.0908)
 progressOffsetRatio = 0.5
 
-[node name="Tree" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Trees" type="Node3D" parent="objects/Collisions"]
+
+[node name="Tree" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 215.278, 0.684003, -188.919)
 treeMesh = 2
 
-[node name="Tree10" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree10" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-2.65503, 0, -2.99179, 0, 4, 0, 2.99179, 0, -2.65503, 170.307, 0.684003, -210.174)
 treeMesh = 1
 
-[node name="Tree11" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree11" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-2.91855, 0, -2.73534, 0, 4, 0, 2.73534, 0, -2.91855, 229.096, 0.684003, -223.325)
 
-[node name="Tree12" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree12" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 229.096, 0.684003, -95.6261)
 treeMesh = 1
 
-[node name="Tree13" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree13" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-3.40585, 0, 2.09767, 0, 4, 0, -2.09767, 0, -3.40585, 229.096, 0.684003, -143.234)
 
-[node name="Tree14" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree14" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 214.699, 0.684003, -0.670071)
 
-[node name="Tree15" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree15" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(3.97378, 0, 0.457251, 0, 4, 0, -0.457251, 0, 3.97378, 226.886, 0.684003, 126.313)
 treeMesh = 2
 
-[node name="Tree16" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree16" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-2.08618, 0, 3.41289, 0, 4, 0, -3.41289, 0, -2.08618, 214.699, 0.684003, 198.836)
 
-[node name="Tree17" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree17" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 177.556, 0.684003, 157.094)
 treeMesh = 1
 
-[node name="Tree18" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree18" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-2.61912, 0, -3.02328, 0, 4, 0, 3.02328, 0, -2.61912, 83.1536, 0.684003, 228.2)
 
-[node name="Tree19" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree19" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 12.6037, 0.684003, 187.306)
 treeMesh = 1
 
-[node name="Tree20" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree20" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-3.74412, 0, -1.40769, 0, 4, 0, 1.40769, 0, -3.74412, -77.9162, 0.684003, 240.151)
 treeMesh = 2
 
-[node name="Tree2" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree2" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -142.896, 0.684003, -106.516)
 treeMesh = 2
 
-[node name="Tree3" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree3" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(2.7004, 0, 2.9509, 0, 4, 0, -2.9509, 0, 2.7004, -95.5306, 0.684003, -163.404)
 
-[node name="Tree4" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree4" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-3.4572, 0, 2.0119, 0, 4, 0, -2.0119, 0, -3.4572, -205.239, 0.684003, 144.648)
 treeMesh = 2
 
-[node name="Tree5" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree5" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-2.36039, 0, 3.22933, 0, 4, 0, -3.22933, 0, -2.36039, 35.8225, 0.684003, -240.753)
 treeMesh = 2
 
-[node name="Tree9" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree9" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, 116.397, 0.684003, -231.246)
 
-[node name="Tree6" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree6" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -68.2864, 0.684003, -229.972)
 treeMesh = 1
 
-[node name="Tree7" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree7" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(0.715965, 0, 3.9354, 0, 4, 0, -3.9354, 0, 0.715965, -169.169, 0.684003, -143.81)
 treeMesh = 1
 
-[node name="Tree21" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree21" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-1.61508, 0, -3.65944, 0, 4, 0, 3.65944, 0, -1.61508, -138.022, 0.684003, -207.256)
 treeMesh = 2
 
-[node name="Tree23" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree23" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -160.257, 0.684003, -230.91)
 
-[node name="Tree22" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree22" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-2.73636, 0, -2.91759, 0, 4, 0, 2.91759, 0, -2.73636, -204.686, 0.684003, -171.43)
 
-[node name="Tree24" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree24" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -214.546, 0.684003, -198.99)
 
-[node name="Tree25" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree25" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -214.546, 0.684003, -228.566)
 treeMesh = 1
 
-[node name="Tree8" parent="objects/Collisions" instance=ExtResource("8_osfwr")]
+[node name="Tree8" parent="objects/Collisions/Trees" instance=ExtResource("8_osfwr")]
 transform = Transform3D(-4, 0, 6.03983e-07, 0, 4, 0, -6.03983e-07, 0, -4, -229.599, 0.684003, -94.8571)
+
+[node name="Cattails" type="Node3D" parent="objects/Collisions"]
+
+[node name="cattails2" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, -48.5157, -5.53262, -192.404)
+
+[node name="cattails9" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 134.555, -5.53262, -192.404)
+
+[node name="cattails10" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 186.518, -5.53262, -136.245)
+
+[node name="cattails11" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 186.518, -5.53262, -79.8743)
+
+[node name="cattails12" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 126.568, -5.53262, -79.8743)
+
+[node name="cattails13" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 163.312, -5.53262, 14.3894)
+
+[node name="cattails14" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 193.108, -5.53262, 43.8827)
+
+[node name="cattails15" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 112.284, -5.53262, 135.489)
+
+[node name="cattails16" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 37.2499, -5.53262, 144.994)
+
+[node name="cattails17" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, -44.6484, -5.53262, 188.278)
+
+[node name="cattails18" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.98354, -0.362461, 3.49691e-07, -0.362461, 3.98354, 0, -3.48253e-07, -3.16873e-08, -4, -185.449, -5.53262, -94.835)
+
+[node name="cattails19" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.86371, -0.351558, -0.973715, -0.362461, 3.98354, 0, 0.969709, 0.0882334, -3.87968, -200.248, -5.53262, -94.835)
+
+[node name="cattails20" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.00651, -0.273561, -2.62413, -0.362461, 3.98354, 0, 2.61334, 0.237786, -3.01893, -178.357, -5.53262, -70.9095)
+
+[node name="cattails21" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.00651, -0.273561, -2.62413, -0.362461, 3.98354, 0, 2.61334, 0.237786, -3.01893, -201.681, -4.7772, -8.55746)
+
+[node name="cattails23" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.00651, -0.273561, -2.62413, -0.362461, 3.98354, 0, 2.61334, 0.237786, -3.01893, -201.681, -4.7772, 97.3313)
+
+[node name="cattails24" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.00651, -0.273561, -2.62413, -0.362461, 3.98354, 0, 2.61334, 0.237786, -3.01893, -78.5933, -4.7772, 97.3313)
+
+[node name="cattails25" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.00651, -0.273561, -2.62413, -0.362461, 3.98354, 0, 2.61334, 0.237786, -3.01893, -78.5932, -4.7772, -19.7321)
+
+[node name="cattails26" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.97901, -0.362048, -0.190866, -0.362461, 3.98354, 1.95513e-08, 0.190081, 0.0172954, -3.99544, -78.5932, -4.7772, -56.4361)
+
+[node name="cattails27" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.5703, -0.32486, 1.7741, -0.362461, 3.98354, 1.72148e-08, -1.7668, -0.16076, -3.58505, -43.5028, -4.7772, -93.5934)
+
+[node name="cattails22" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.00651, -0.273561, -2.62413, -0.362461, 3.98354, 0, 2.61334, 0.237786, -3.01893, -197.112, -0.209774, -69.3776)
+
+[node name="cattails3" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, -70.2073, -0.261016, -192.404)
+
+[node name="cattails4" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, -70.2073, -4.17739, -202.144)
+
+[node name="cattails5" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-2.51663, 0, -3.10911, 0, 4, 0, 3.10911, 0, -2.51663, -57.2914, -4.17739, -202.144)
+
+[node name="cattails6" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.49828, 0, -1.9396, 0, 4, 0, 1.9396, 0, -3.49828, -57.2914, -4.17739, -191.126)
+
+[node name="cattails7" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.49828, 0, -1.9396, 0, 4, 0, 1.9396, 0, -3.49828, -42.0839, -1.94171, -199.541)
+
+[node name="cattails8" parent="objects/Collisions/Cattails" instance=ExtResource("8_sfmhe")]
+transform = Transform3D(-3.34158, 0, 2.1986, 0, 4, 0, -2.1986, 0, -3.34158, -48.4016, -9.02639, -199.541)
 
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
@@ -277,6 +382,7 @@ libraries = {
 script = ExtResource("8_6wd78")
 
 [node name="RespawnPoints" type="Node3D" parent="."]
+visible = false
 
 [node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
 
