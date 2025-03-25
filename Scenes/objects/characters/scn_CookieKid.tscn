@@ -1,9 +1,9 @@
 [gd_scene load_steps=28 format=4 uid="uid://dotiq82o2gyex"]
 
-[ext_resource type="Script" uid="uid://bi37ffismaxk2" path="res://Scripts/scr_npc.gd" id="1_avka2"]
-[ext_resource type="PackedScene" uid="uid://c33833ffvdp02" path="res://Dialogue/dialogue.tscn" id="2_dib1d"]
-[ext_resource type="Texture2D" uid="uid://cyb630tgm87wc" path="res://3d Models/characters/NPC_cookie kid_cookie kid texture.png" id="3_dib1d"]
-[ext_resource type="Script" uid="uid://de5femlpdk06i" path="res://Scripts/scr_cookie_kid.gd" id="3_tbkuo"]
+[ext_resource type="Script" uid="uid://bi37ffismaxk2" path="res://Scripts/scr_npc.gd" id="1_0f3nw"]
+[ext_resource type="PackedScene" uid="uid://c33833ffvdp02" path="res://Dialogue/dialogue.tscn" id="2_pb0ul"]
+[ext_resource type="Script" uid="uid://de5femlpdk06i" path="res://Scripts/scr_cookie_kid.gd" id="3_x3yjq"]
+[ext_resource type="Texture2D" uid="uid://cyb630tgm87wc" path="res://3d Models/characters/NPC_cookie kid_cookie kid texture.png" id="4_eh5ox"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wr6wu"]
 radius = 6.0
@@ -49,7 +49,7 @@ cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
-emission_texture = ExtResource("3_dib1d")
+emission_texture = ExtResource("4_eh5ox")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tbkuo"]
 resource_name = "NPC_cookie kid_Icosphere_001"
@@ -1170,7 +1170,7 @@ height = 3.0
 radius = 1.0
 
 [node name="ScnNpc" type="Node3D"]
-script = ExtResource("1_avka2")
+script = ExtResource("1_0f3nw")
 d_file = "res://Dialogue/boblin_dialogue.json"
 
 [node name="Speaking zone" type="Area3D" parent="."]
@@ -1183,7 +1183,7 @@ shape = SubResource("CylinderShape3D_wr6wu")
 sprite_frames = SubResource("SpriteFrames_wr6wu")
 animation = &"walk_w"
 
-[node name="Dialogue" parent="." instance=ExtResource("2_dib1d")]
+[node name="Dialogue" parent="." instance=ExtResource("2_pb0ul")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dialogue"]
 
@@ -1198,7 +1198,7 @@ outline_size = 30
 
 [node name="CookieKid" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("3_tbkuo")
+script = ExtResource("3_x3yjq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CookieKid"]
 shape = SubResource("CapsuleShape3D_oek5n")
