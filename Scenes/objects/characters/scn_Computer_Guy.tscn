@@ -1427,7 +1427,7 @@ _data = {
 height = 3.0
 radius = 1.0
 
-[node name="Clerk NPC" type="Node3D"]
+[node name="Clerk NPC" type="Node3D" groups=["npcs"]]
 script = ExtResource("1_mt6up")
 d_file = "res://Dialogue/computer_guy.json"
 

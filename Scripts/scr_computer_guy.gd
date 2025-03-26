@@ -19,6 +19,7 @@ func _process(delta):
 		
 				
 func _take_key():
+	GameController.open_doors()
 	pass; #take selected key
 	
 func rotateBackToCounter():

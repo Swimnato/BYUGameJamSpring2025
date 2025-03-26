@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bi37ffismaxk2" path="res://Scripts/scr_npc.gd" id="1_7bnp5"]
 [ext_resource type="PackedScene" uid="uid://c33833ffvdp02" path="res://Dialogue/dialogue.tscn" id="2_2ukwf"]
 [ext_resource type="Texture2D" uid="uid://d0f24kob0687b" path="res://3d Models/characters/frog_frog texture.png" id="3_2ukwf"]
-[ext_resource type="Script" uid="uid://b5t8tusy46nvl" path="res://Scripts/scr_frog_npc.gd" id="3_8turl"]
+[ext_resource type="Script" path="res://Scripts/scr_frog_npc.gd" id="3_8turl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wr6wu"]
 radius = 6.0

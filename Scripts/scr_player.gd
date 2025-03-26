@@ -19,6 +19,7 @@ COMP_STORE,
 GYM
 };
 var canJump = true;
+var hasCookie = false;
 var floorType:surfaceType = 0;
 var isBlackedOut = false;
 var isTalking = false;
@@ -116,6 +117,7 @@ func die(src:int = 0) -> void:
 	sfxPlayer.play()
 	PlayerDied.emit();
 	isBlackedOut = true;
+	GameController.reset_disabled_buttons()
 	print("TODO: die");
 
 func respawn():

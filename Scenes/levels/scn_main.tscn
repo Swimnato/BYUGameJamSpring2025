@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b65hp46cls10n"]
+[gd_scene load_steps=28 format=3 uid="uid://b65hp46cls10n"]
 
 [ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_lyvv4"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_vuhdq"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://drilxmvvfwl7h" path="res://3d Models/objects/environment/building.glb" id="15_b6sy0"]
 [ext_resource type="PackedScene" uid="uid://b0y4qh64th4xv" path="res://Scenes/objects/interactable/scn_hurtbox.tscn" id="15_p6olv"]
 [ext_resource type="Script" uid="uid://cj8g3niko13at" path="res://Scripts/scr_tp.gd" id="16_b6sy0"]
+[ext_resource type="PackedScene" uid="uid://c4cbkwuedk8xb" path="res://Scenes/objects/Static/scn_path2.tscn" id="17_h0xkg"]
+[ext_resource type="PackedScene" uid="uid://bqitpfnk4bfi7" path="res://Scenes/objects/Static/scn_path1.tscn" id="18_gqo1r"]
+[ext_resource type="PackedScene" uid="uid://bx2n45tuv3504" path="res://Scenes/objects/Static/scn_path3.tscn" id="19_4txmc"]
+[ext_resource type="PackedScene" uid="uid://bslsvmcjkcj17" path="res://Scenes/objects/Static/scn_path4.tscn" id="20_58pc6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -235,6 +239,123 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -84)
 
 [node name="Tree43" parent="environment" instance=ExtResource("14_wqddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -111)
+
+[node name="ScnPath1" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(0.990679, 0, -2.73468, 0, 1, 0, 3.15085, 0, 0.859827, 2.34245, 0.05, -2.1046)
+
+[node name="ScnPath2" parent="environment" instance=ExtResource("18_gqo1r")]
+transform = Transform3D(1.05244, 0, 1.837, 0, 2.11712, 0, -1.837, 0, 1.05244, 3.46477, 0.05, -6.61573)
+
+[node name="ScnPath3" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(1.34476, 0, 0, 0, 1.34476, 0, 0, 0, 1.34476, 1.52313, 0.05, -10.4338)
+
+[node name="ScnPath4" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(5.26607, 0, -4.1504, 0, 6.70502, 0, 4.1504, 0, 5.26607, 0.405188, 0.05, -22.9179)
+
+[node name="ScnPath5" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(1.02097, 0, -1.29342, 0, 1.64782, 0, 1.29342, 0, 1.02097, -0.330688, 0.05, 0.939489)
+
+[node name="ScnPath6" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(-0.672682, 0, -2.10513, 0, 2.20999, 0, 2.10513, 0, -0.672682, 3.58037, 0.05, 2.41989)
+
+[node name="ScnPath7" parent="environment" instance=ExtResource("18_gqo1r")]
+transform = Transform3D(-0.289936, 0, 2.21783, 0, 2.2367, 0, -2.21783, 0, -0.289936, 6.47357, 0.05, 7.04071)
+
+[node name="ScnPath8" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(3.03417, 0, 0, 0, 3.03417, 0, 0, 0, 3.03417, 8.92515, 0.05, 15.628)
+
+[node name="ScnPath9" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(0.0220056, 0, -2.17752, 0, 2.17763, 0, 2.17752, 0, 0.0220056, 10.9241, 0.05, 10.7329)
+
+[node name="ScnPath10" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(4.55067, 0, 0.955911, 0, 1.1415, 0, -2.63697, 0, 1.64963, 7.49486, 0.05, 20.8485)
+
+[node name="ScnPath11" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(-1.78599, 0, 0.373966, 0, 1, 0, -0.400919, 0, -1.66592, 2.58819, 0.05, 20.6632)
+
+[node name="ScnPath12" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(3.09887, 0, 0, 0, 1, 0, 0, 0, 2.44647, 9.08938, 0.05, -20.9518)
+
+[node name="ScnPath13" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(-2.452, 0, 1.49598, 0, 1, 0, -1.89491, 0, -1.93578, 2.39754, 0.05, -14.4237)
+
+[node name="ScnPath14" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(-0.267406, 0, -2.18004, 0, 2.19638, 0, 2.18004, 0, -0.267406, 4.90513, 0.05, -10.1466)
+
+[node name="ScnPath15" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(3.02915, 0, -1.22018, 0, 1, 0, 2.20493, 0, 1.6763, -3.87107, 0.05, 0.813023)
+
+[node name="ScnPath16" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(-0.0627143, 0, 2.57567, 0, 1.20914, 0, -3.03701, 0, -0.0531877, -11.1662, 0.05, -6.21832)
+
+[node name="ScnPath17" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(-0.730079, 0, -0.683363, 0, 1, 0, 0.683363, 0, -0.730079, -7.92474, 0.05, -5.09535)
+
+[node name="ScnPath18" parent="environment" instance=ExtResource("18_gqo1r")]
+transform = Transform3D(1.1999, 0, -2.77932, 0, 3.02727, 0, 2.77932, 0, 1.1999, -18.2133, 0.05, -10.8528)
+
+[node name="ScnPath19" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(0.921798, 0, -4.01159, 0, 4.11613, 0, 4.01159, 0, 0.921798, -24.1153, 0.05, -14.5669)
+
+[node name="ScnPath20" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(-0.991296, 0, -0.131651, 0, 1, 0, 0.131651, 0, -0.991296, -21.4806, 0.05, -12.956)
+
+[node name="ScnPath21" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(3.55341, 0, -0.475141, 0, 1, 0, 1.14306, 0, 1.47706, -23.2873, 0.05, -9.52742)
+
+[node name="ScnPath22" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(0.430466, 0, -1.79385, 0, 1.84477, 0, 1.79385, 0, 0.430466, -7.98007, 0.05, -2.5921)
+
+[node name="ScnPath23" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(1.27192, 0, -2.5949, 0, 1, 0, 3.64221, 0, 0.906179, -22.7258, 0.05, -20.2204)
+
+[node name="ScnPath24" parent="environment" instance=ExtResource("18_gqo1r")]
+transform = Transform3D(1.58082, 0, -1.73705, 0, 2.34869, 0, 1.73705, 0, 1.58082, -25.2794, 0.05, -30.0463)
+
+[node name="ScnPath25" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(-1.72655, 0, 1.83808, 0, 2.52181, 0, -1.83808, 0, -1.72655, -32.0547, 0.05, -36.8028)
+
+[node name="ScnPath26" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0516, 0.05, -33.7532)
+
+[node name="ScnPath27" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1561, 0.05, -23.2306)
+
+[node name="ScnPath28" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(0.123929, 0, -3.18254, 0, 3.18495, 0, 3.18254, 0, 0.123929, -38.2412, 0.05, -41.109)
+
+[node name="ScnPath29" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(2.68879, 0, 0, 0, 2.68879, 0, 0, 0, 2.68879, -44.821, 0.05, -52.5304)
+
+[node name="ScnPath30" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(2.8852, 0, 0, 0, 2.8852, 0, 0, 0, 2.8852, -42.7426, 0.05, -57.7126)
+
+[node name="ScnPath31" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(0.328053, 0, -2.47944, 0, 2.50105, 0, 2.47944, 0, 0.328053, -37.788, 0.05, -60.7412)
+
+[node name="ScnPath32" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(2.3508, 0, -2.39779, 0, 3.35793, 0, 2.39779, 0, 2.3508, 12.8912, 0.05, 0.409369)
+
+[node name="ScnPath33" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(0.982162, 0, -2.047, 0, 2.27043, 0, 2.047, 0, 0.982162, 18.4635, 0.05, 1.25558)
+
+[node name="ScnPath34" parent="environment" instance=ExtResource("18_gqo1r")]
+transform = Transform3D(2.72669, 0, 2.18997, 0, 3.49726, 0, -2.18997, 0, 2.72669, 22.606, 0.05, 5.3252)
+
+[node name="ScnPath35" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(-1.52435, 0, 2.9063, 0, 3.2818, 0, -2.9063, 0, -1.52435, 32.341, 0.05, 9.34157)
+
+[node name="ScnPath36" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(2.06643, 0, 0, 0, 2.06643, 0, 0, 0, 2.06643, 28.3085, 0.05, 9.35049)
+
+[node name="ScnPath37" parent="environment" instance=ExtResource("17_h0xkg")]
+transform = Transform3D(-1.55726, 0, -1.90599, 0, 2.46127, 0, 1.90599, 0, -1.55726, 33.4558, 0.05, 16.1203)
+
+[node name="ScnPath38" parent="environment" instance=ExtResource("19_4txmc")]
+transform = Transform3D(9.88867, 0, 0, 0, 4.05367, 0, 0, 0, 9.92267, 47.1431, 0.05, 17.5412)
+
+[node name="ScnPath39" parent="environment" instance=ExtResource("20_58pc6")]
+transform = Transform3D(0.10969, 0, 2.18647, 0, 2.18922, 0, -2.18647, 0, 0.10969, 37.0706, 0.05, 18.177)
 
 [node name="building" parent="." instance=ExtResource("15_b6sy0")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 47, -0.0258102, 18)

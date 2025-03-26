@@ -32,9 +32,10 @@ func rotateBackToTree():
 	rotate_tween.tween_property(self, "rotation_degrees:y", 180 , 0.5);
 
 func stop_and_face_player():
-	var playerPos = npcMain.playerBody.global_position
-	var npcPos = npcMain.global_position
-	var positionToPlayer = playerPos - npcPos
-	var rotationToPlayer = atan2(positionToPlayer.x, positionToPlayer.z);
-	var rotate_tween = create_tween();
-	rotate_tween.tween_property(self, "rotation:y", rotationToPlayer , 0.5);
+	if npcMain.playerBody != null:
+		var playerPos = npcMain.playerBody.global_position
+		var npcPos = npcMain.global_position
+		var positionToPlayer = playerPos - npcPos
+		var rotationToPlayer = atan2(positionToPlayer.x, positionToPlayer.z);
+		var rotate_tween = create_tween();
+		rotate_tween.tween_property(self, "rotation:y", rotationToPlayer , 0.5);

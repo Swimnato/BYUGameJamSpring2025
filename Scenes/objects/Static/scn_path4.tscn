@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bslsvmcjkcj17"]
+
+[ext_resource type="Texture2D" uid="uid://bhqgbx2i3jwxu" path="res://3d Models/textures/pathcard4.png" id="1_lmbyx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_536fs"]
+transparency = 1
+albedo_texture = ExtResource("1_lmbyx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vxjde"]
+
+[node name="ScnPath1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_536fs")
+mesh = SubResource("PlaneMesh_vxjde")

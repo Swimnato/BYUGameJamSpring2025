@@ -4,6 +4,8 @@ var current_hovered_npc = null  # Stores NPC under the mouse
 var disabled_buttons = []
 var removed_buttons = []
 signal transaction_complete()
+var doors = []
+
 func _ready():
 	# Get all buttons in the scene and connect their signals
 	print("hooking up")
@@ -111,3 +113,7 @@ func reset_disabled_buttons():
 	print("Clearing disabled_buttons list.")
 	disabled_buttons.clear()
 	print("Reset completed. All buttons re-enabled and list cleared.")
+
+func open_doors():
+	for d in doors:
+		d.open_doors()

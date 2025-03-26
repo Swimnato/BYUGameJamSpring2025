@@ -1169,7 +1169,7 @@ _data = {
 height = 3.0
 radius = 1.0
 
-[node name="ScnNpc" type="Node3D"]
+[node name="ScnNpc" type="Node3D" groups=["npcs"]]
 script = ExtResource("1_0f3nw")
 d_file = "res://Dialogue/boblin_dialogue.json"
 
