@@ -18,7 +18,7 @@ func _disableButton(button:String):
 			break;
 
 func _enableButton(button:String):
-	for child in get_children():
+	for child in get_child(0).get_children():
 		if(button == child.name):
 			child.visible = true;  
 			InputMap.add_action(child.action_name);var button_event = InputEventKey.new()

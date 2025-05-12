@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bumwi1o22hq64"]
+[gd_scene load_steps=15 format=3 uid="uid://bumwi1o22hq64"]
 
 [ext_resource type="Texture2D" uid="uid://c16ic73hb2nlg" path="res://3d Models/objects/w_key.webp" id="1_ipeoc"]
 [ext_resource type="Script" uid="uid://bwbdwaglclb62" path="res://Scenes/objects/interactable/buttonHandler.gd" id="1_oh2w2"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b7a143tcyhlsd" path="res://3d Models/objects/pressed_a_key.webp" id="9_oh2w2"]
 [ext_resource type="Texture2D" uid="uid://bu2lkjcbt3qdb" path="res://3d Models/objects/spacebar_key.webp" id="10_e6lso"]
 [ext_resource type="Texture2D" uid="uid://hu8uvfqnge0u" path="res://3d Models/objects/pressed_space.webp" id="11_oh2w2"]
+[ext_resource type="Texture2D" uid="uid://cgapfwy6icsgc" path="res://3d Models/textures/Cookie.png" id="13_0or8h"]
+[ext_resource type="Script" uid="uid://260oobyd6va6" path="res://Scripts/cookie_indicator.gd" id="13_8dxyt"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_oh2w2")
@@ -88,3 +90,14 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_orpfs")
 action_name = "jump"
+
+[node name="CookieIndicator" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+layout_mode = 0
+offset_left = 1044.0
+offset_top = -50.0
+offset_right = 1135.0
+offset_bottom = 24.0
+texture_normal = ExtResource("13_0or8h")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("13_8dxyt")

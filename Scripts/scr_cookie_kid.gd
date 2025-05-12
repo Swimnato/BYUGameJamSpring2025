@@ -38,6 +38,7 @@ func _checkTradeOffer(item:String):
 	if(selected && item.to_lower().contains("space")):
 		dialogueManager.stop_dialogue();
 		mainScn.disableButton.emit(item);
+		mainScn.enableButton.emit("CookieIndicator");
 		npcMain._on_transaction_complete();
 		dialogueManager.d_file = "res://Dialogue/Cookie_Kid_Post_Trade.json";
 		dialogueManager.start();
