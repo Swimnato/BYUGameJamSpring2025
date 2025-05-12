@@ -2,6 +2,9 @@ extends Node3D
 
 var respawnPoints:Array = [];
 
+signal buttonDragFinished(buttonID:String);
+signal disableButton(buttonID:String);
+signal enableButton(buttonID:String);
 
 func _ready():
 	for child in $SubScenes.get_children():

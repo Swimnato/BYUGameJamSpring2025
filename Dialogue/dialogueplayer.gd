@@ -20,6 +20,8 @@ func _ready() -> void:
 		$typing_timer.timeout.connect(_on_typing_timer_timeout)
 
 func _process(delta: float) -> void:
+	if(d_file != get_parent().d_file):
+		d_file = get_parent().d_file;
 	if(typing && !$AudioStreamPlayer.playing && $NinePatchRect/Text.text.length() > charOffsetToStartSound):
 		$AudioStreamPlayer.stream = voiceSound;
 		$AudioStreamPlayer.play();
@@ -53,9 +55,7 @@ func next_script():
 	$finished_typing.visible = false
 	current_dialogue_id += 1
 	if current_dialogue_id >= len(dialogue):
-		d_active = false
-		$NinePatchRect.visible = false
-		emit_signal("dialogue_finished")
+		stop_dialogue();
 		return
 	$NinePatchRect/Name.text = dialogue[current_dialogue_id]['name']
 	full_text = "[color=black]" + dialogue[current_dialogue_id]['text']
@@ -64,8 +64,13 @@ func next_script():
 	typing = true
 	$typing_timer.start(typing_speed)
 
-func _on_typing_timer_timeout():
+func stop_dialogue():
+	d_active = false;
+	$NinePatchRect.visible = false;
+	emit_signal("dialogue_finished");
 	
+
+func _on_typing_timer_timeout():
 	if displayed_text.length() < full_text.length():
 		displayed_text += full_text[displayed_text.length()]
 		$NinePatchRect/Text.text = displayed_text  

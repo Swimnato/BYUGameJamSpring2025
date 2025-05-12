@@ -8,16 +8,19 @@ var speed;
 var current_state = IDLE;
 var prev_mesh:Mesh;
 signal npc_hovered(npc)  # Signal emitted when mouse enters NPC
-var hovered = false
+var isHovered;
 var animationState:animationStates = animationStates.IDLE;
 signal playerTradedSuccessfully;
 signal playerFailedTrade;
 signal transaction_complete;
+signal mouseOverStatus(over:bool)
 
 var player;
 var playerBody;
 var player_in_chat_zone = false;
 var player_too_close = false;
+var queueHoverOff = false;
+var secondsToTurnHoverOff:float = 0.0;
 
 enum animationStates {
 	IDLE,
@@ -32,13 +35,13 @@ enum {
 
 func _ready() -> void:
 	$Dialogue.connect("dialogue_finished", Callable(self, "_on_dialogue_dialogue_finished"));
-	connect("mouse_entered", _on_speaking_zone_mouse_entered)
-	connect("mouse_exited", _on_speaking_zone_mouse_exited)
 	var game_controller = get_node("/root/GameController")
 	if game_controller:
 		game_controller.connect("transaction_complete", _on_transaction_complete)
 	else:
 		print("Error: GameController node not found.")
+	isHovered = false;
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("chat") and player_in_chat_zone:
 		if lastTimeSpokenTo == 0 or Time.get_ticks_msec() - lastTimeSpokenTo >= cooldown * 1000:
@@ -65,7 +68,7 @@ func _on_dialogue_dialogue_finished() -> void:
 	lastTimeSpokenTo = Time.get_ticks_msec();
 	playerBody.release_player()
 	animationState = animationStates.IDLE;
-	playerTradedSuccessfully.emit();
+	#playerTradedSuccessfully.emit();
 
 
 func _on_no_jump_region_body_entered(body: Node3D) -> void:
@@ -76,18 +79,21 @@ func _on_no_jump_region_body_entered(body: Node3D) -> void:
 func _on_no_jump_region_body_exited(body: Node3D) -> void:
 	if body.name == "Player":
 		player_too_close = false;
+	
+func setHovered():
+	isHovered = true
 
 func _on_speaking_zone_mouse_entered() -> void:
-	if hovered:
-		return
-	hovered = true
-	print("mouse entered")
-	npc_hovered.emit(self)
-	print("sending signal")
+	setHovered()
+	mouseOverStatus.emit(true);
+	#npc_hovered.emit(self)
+	#print("sending signal")
 
 func _on_speaking_zone_mouse_exited() -> void:
-	hovered = false
-	print('mouse exited'); 
+	#hovered = false
+	queueHoverOff = true; #for some reason you need to debounce this? it is a bit touchy
+	secondsToTurnHoverOff = .1;
+	mouseOverStatus.emit(false);
 	
 
 func _on_transaction_complete() -> void:

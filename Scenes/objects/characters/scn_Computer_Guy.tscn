@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c3gngl54qhmog" path="res://Scripts/scr_computer_guy.gd" id="3_w60tn"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wr6wu"]
+height = 5.0
 radius = 6.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wr6wu"]
@@ -1563,6 +1564,8 @@ shape = SubResource("CylinderShape3D_ethv3")
 
 [connection signal="body_entered" from="Speaking zone" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Speaking zone" to="." method="_on_speaking_zone_body_exited"]
+[connection signal="mouse_entered" from="Speaking zone" to="." method="_on_speaking_zone_mouse_entered"]
+[connection signal="mouse_exited" from="Speaking zone" to="." method="_on_speaking_zone_mouse_exited"]
 [connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
 [connection signal="body_entered" from="No Jump Region" to="." method="_on_no_jump_region_body_entered"]
 [connection signal="body_exited" from="No Jump Region" to="." method="_on_no_jump_region_body_exited"]

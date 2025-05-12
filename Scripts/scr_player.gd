@@ -122,6 +122,7 @@ func die(src:int = 0) -> void:
 
 func respawn():
 	isBlackedOut = true;
+	GameController.reset_disabled_buttons()
 	
 func wakeUp():
 	isBlackedOut = false;
