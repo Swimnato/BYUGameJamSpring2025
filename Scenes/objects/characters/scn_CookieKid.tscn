@@ -1189,7 +1189,7 @@ animation = &"walk_w"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dialogue"]
 
 [node name="TalkPrompt" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95332, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48887, 0)
 visible = false
 billboard = 1
 modulate = Color(1, 0.0666667, 0.121569, 1)

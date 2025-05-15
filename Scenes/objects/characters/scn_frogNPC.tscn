@@ -7,7 +7,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wr6wu"]
 height = 6.0
-radius = 6.0
+radius = 8.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wr6wu"]
 animations = [{
