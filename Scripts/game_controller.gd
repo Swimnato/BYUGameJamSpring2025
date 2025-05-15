@@ -117,3 +117,7 @@ func reset_disabled_buttons():
 func open_doors():
 	for d in doors:
 		d.open_doors()
+
+func close_doors():
+	for d in doors:
+		d.close_doors();

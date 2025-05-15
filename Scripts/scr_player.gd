@@ -55,7 +55,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 	elif Input.is_action_pressed("jump") and !isBlackedOut && !isTalking && canJump:
-		target_velocity.y = jump_force[frogJump];
+		if floorType != surfaceType.COMP_STORE:
+			target_velocity.y = jump_force[frogJump];
+		else:
+			target_velocity.y = jump_force[0];
 		sfxPlayer.stream = jmpSound[frogJump];
 		sfxPlayer.play();
 	elif(!wasOnFloorLastLoop):
@@ -131,6 +134,7 @@ func wakeUp():
 
 func teleportToRespawn():
 	print(global_position);
+	GameController.close_doors()
 	if !specificRespawn:
 		var distanceToEachPoint:Array;
 		var indexOfShortest:int = 0;
