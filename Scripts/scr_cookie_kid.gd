@@ -10,6 +10,7 @@ var selected = false;
 @onready var dialogueManager = $"../Dialogue";
 var queueSelectedOff = false;
 var secondsToTurnSelectedOff:float = 0.0;
+var hasThankedPlayer = false;
 
 func _ready():
 	npcMain.playerTradedSuccessfully.connect(_superJump);
@@ -24,24 +25,28 @@ func _process(delta):
 		secondsToTurnSelectedOff -= delta;
 	if(done and animations.current_animation != "cookie_kid_big_jump"):
 		stop_and_face_player();
-	if((npcMain.animationState != lastState && animations.current_animation != "cookie_kid_big_jump") || animations.current_animation == "[Stop]"):
+	if((npcMain.animationState != lastState && animations.current_animation != "cookie_kid_big_jump") || !animations.is_playing()):
 		lastState = npcMain.animationState;
 		if(npcMain.animationState == npcMain.animationStates.TALK_TO_PLAYER || done):
 			stop_and_face_player()
 			animations.play("cookie_kid_idle");
+			if(!hasThankedPlayer && done):
+				print("thanking players")
+				hasThankedPlayer = true;
+				dialogueManager.d_file = "res://Dialogue/Cookie_Kid_Post_Trade.json";
+				npcMain.startDialogue();
 		elif(npcMain.animationState == npcMain.animationStates.IDLE):
 			rotateBackToTree()
 			animations.play("cookie_kid_jump");
 
 
 func _checkTradeOffer(item:String):
-	if(selected && item.to_lower().contains("space")):
+	if(selected && item.to_lower().contains("space") && npcMain.player_in_chat_zone):
+		print("trade accepted")
 		dialogueManager.stop_dialogue();
 		mainScn.disableButton.emit(item);
-		mainScn.enableButton.emit("CookieIndicator");
 		npcMain._on_transaction_complete();
-		dialogueManager.d_file = "res://Dialogue/Cookie_Kid_Post_Trade.json";
-		dialogueManager.start();
+		npcMain.playerBody.stop_and_face_npc(self);
 
 func _superJump():
 	rotateBackToTree()
@@ -68,3 +73,9 @@ func _on_scn_npc_mouse_over_status(over: bool) -> void:
 	else:
 		queueSelectedOff = true;
 		secondsToTurnSelectedOff = .1
+
+
+func _on_dialogue_dialogue_finished() -> void:
+	if(done && hasThankedPlayer):
+		dialogueManager.d_file = "res://Dialogue/Cookie_Kid_Post_Gift.json";
+		mainScn.enableButton.emit("CookieIndicator");

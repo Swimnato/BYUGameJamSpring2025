@@ -166,4 +166,6 @@ func setSpecifiedRespawn(point:Node3D):
 	
 func disableSpecifiedRespawn():
 	specificRespawn = false;
-	
+
+func enableFrogJump():
+	frogJump = 1;

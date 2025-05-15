@@ -25,7 +25,6 @@ func _input(event):
 		if event.pressed and get_global_rect().has_point(event.position):
 			dragging = true
 			dragged_button = self
-			print('dragged button: ', dragged_button)
 			#drag_offset = event.position - position
 		elif not event.pressed:
 			if dragging:

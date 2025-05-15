@@ -1223,7 +1223,7 @@ bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, 0)
 bones/0/rotation = Quaternion(0, -2.06795e-25, 0, 1)
-bones/0/scale = Vector3(1, 1, 1)
+bones/0/scale = Vector3(0.972, 0.99, 0.972)
 bones/1/name = "head"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531567, 0)
@@ -1243,7 +1243,7 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(1, -4.19406e-14, -4.85705e-22, 4.19406e-14, 1, -2.15404e-07, 9.51987e-21, 2.15404e-07, 1, -1.9873e-14, 0.331567, -7.10543e-15)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.9873e-14, 0.331567, -7.10543e-15)
-bones/3/rotation = Quaternion(0.34537, 0.411595, 1.32511e-07, 0.843391)
+bones/3/rotation = Quaternion(0.34537, 0.411595, 1.23677e-07, 0.843391)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm1.L"
 bones/4/parent = 0
@@ -1282,5 +1282,6 @@ shape = SubResource("CylinderShape3D_ethv3")
 [connection signal="mouse_entered" from="Speaking zone" to="." method="_on_speaking_zone_mouse_entered"]
 [connection signal="mouse_exited" from="Speaking zone" to="." method="_on_speaking_zone_mouse_exited"]
 [connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
+[connection signal="dialogue_finished" from="Dialogue" to="CookieKid" method="_on_dialogue_dialogue_finished"]
 [connection signal="body_entered" from="No Jump Region" to="." method="_on_no_jump_region_body_entered"]
 [connection signal="body_exited" from="No Jump Region" to="." method="_on_no_jump_region_body_exited"]

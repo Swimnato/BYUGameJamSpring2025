@@ -18,10 +18,10 @@ func _ready() -> void:
 	$finished_typing.visible = false #make sure its not seen first
 	if not $typing_timer.timeout.is_connected(_on_typing_timer_timeout):#comfirm timeout connection for typing effect
 		$typing_timer.timeout.connect(_on_typing_timer_timeout)
-
-func _process(delta: float) -> void:
 	if(d_file != get_parent().d_file):
 		d_file = get_parent().d_file;
+
+func _process(delta: float) -> void:
 	if(typing && !$AudioStreamPlayer.playing && $NinePatchRect/Text.text.length() > charOffsetToStartSound):
 		$AudioStreamPlayer.stream = voiceSound;
 		$AudioStreamPlayer.play();

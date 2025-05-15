@@ -101,3 +101,4 @@ texture_normal = ExtResource("13_0or8h")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("13_8dxyt")
+action_name = ""

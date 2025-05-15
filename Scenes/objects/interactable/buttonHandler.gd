@@ -8,13 +8,11 @@ func _ready() -> void:
 
 
 func _disableButton(button:String):
-	print("Disabling buttons: " + button)
 	for child in get_child(0).get_children():
-		print("Child name: " + child.name)
 		if(button == child.name):
 			child.visible = false;
-			print("found input, deleting: " + child.action_name)
-			InputMap.erase_action(child.action_name);
+			if(child.action_name != ""):
+				InputMap.erase_action(child.action_name);
 			break;
 
 func _enableButton(button:String):

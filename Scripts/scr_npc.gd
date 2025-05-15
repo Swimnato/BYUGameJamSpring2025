@@ -45,14 +45,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("chat") and player_in_chat_zone:
 		if lastTimeSpokenTo == 0 or Time.get_ticks_msec() - lastTimeSpokenTo >= cooldown * 1000:
-			$Dialogue.start();  # Start the dialogue if the cooldown has passed
-			lastTimeSpokenTo = Time.get_ticks_msec();  # Update the last time spoken to NPC
-			current_state = IDLE;
+			startDialogue();
 			animationState = animationStates.TALK_TO_PLAYER;
-			playerBody.stop_and_face_npc(self);
 		else:
 			var remaining_time = cooldown - (Time.get_ticks_msec() - lastTimeSpokenTo) / 1000;
-		
+
+func startDialogue():
+	$Dialogue.start();  # Start the dialogue if the cooldown has passed
+	lastTimeSpokenTo = Time.get_ticks_msec();  # Update the last time spoken to NPC
+	current_state = IDLE;
+	playerBody.stop_and_face_npc(self);
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		player_in_chat_zone = true;
