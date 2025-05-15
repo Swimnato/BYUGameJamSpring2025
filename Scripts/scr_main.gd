@@ -5,6 +5,7 @@ var respawnPoints:Array = [];
 signal buttonDragFinished(buttonID:String);
 signal disableButton(buttonID:String);
 signal enableButton(buttonID:String);
+signal resetDisabledButtons();
 
 func _ready():
 	for child in $SubScenes.get_children():

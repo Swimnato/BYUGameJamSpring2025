@@ -10,6 +10,7 @@ signal PlayerDied;
 var target_velocity = Vector3.ZERO
 var tread_velocity = Vector3.ZERO
 @onready var respawnPoints = get_parent().respawnPoints;
+@onready var mainScn = get_tree().get_root().get_node("ScnMain");
 
 var wasOnFloorLastLoop = true;
 enum surfaceType{
@@ -88,13 +89,12 @@ func _physics_process(delta):
 		elif(!collision.get_collider().get_parent().name.to_lower().contains("npc")):
 			floorType = surfaceType.GRASS;	
 			canJump = true;
-			
-	
 	handleAnimations(target_velocity, is_on_floor())
 	velocity = target_velocity
 	wasOnFloorLastLoop = is_on_floor();
 	move_and_slide()
-	
+
+
 func handleAnimations(_target_velocity: Vector3, on_floor) -> void: 
 	if !on_floor:
 		if _target_velocity.y < 0:
@@ -109,6 +109,7 @@ func handleAnimations(_target_velocity: Vector3, on_floor) -> void:
 	else: 
 		animations.current_animation = animations.get_animation_list()[5]
 
+
 func die(src:int = 0) -> void:
 	if(src == 0):
 		sfxPlayer.stream = splat;
@@ -117,36 +118,40 @@ func die(src:int = 0) -> void:
 	sfxPlayer.play()
 	PlayerDied.emit();
 	isBlackedOut = true;
-	GameController.reset_disabled_buttons()
-	print("TODO: die");
+	mainScn.resetDisabledButtons.emit()
+
 
 func respawn():
 	isBlackedOut = true;
-	GameController.reset_disabled_buttons()
-	
+
+
 func wakeUp():
 	isBlackedOut = false;
-	
+
+
 func teleportToRespawn():
+	print(global_position);
 	if !specificRespawn:
 		var distanceToEachPoint:Array;
 		var indexOfShortest:int = 0;
 		var test:Vector3;
 		for point in respawnPoints:
-			distanceToEachPoint.append((position-point).length_squared());
+			distanceToEachPoint.append((global_position-point).length_squared());
 		var shortestDist:int = distanceToEachPoint[0]
 		for distance in range(len(distanceToEachPoint)):
 			if distanceToEachPoint[distance] < shortestDist:
 				shortestDist = distanceToEachPoint[distance];
 				indexOfShortest = distance;
-		position = respawnPoints[indexOfShortest];
+		global_position = respawnPoints[indexOfShortest];
 	else:
-		position = get_parent().to_local(specificRespawnPoint.get_parent().get_parent().to_global(specificRespawnPoint.position))
+		global_position = specificRespawnPoint.global_position
+
 
 func collect_stamp(ID_num:int):
 	print("Collected Stamp: " + str(ID_num))
 	sfxPlayer.stream = stampCollected
 	sfxPlayer.play();
+
 
 func stop_and_face_npc(npc:Node3D):
 	isTalking = true;
@@ -154,18 +159,20 @@ func stop_and_face_npc(npc:Node3D):
 	var rotationToNPC = atan2(-positionToNPC.x, -positionToNPC.z);
 	var rotate_tween = create_tween();
 	rotate_tween.tween_property($Pivot, "rotation:y", rotationToNPC , 0.5);
-	
-	
+
 
 func release_player():
 	isTalking = false;
 
+
 func setSpecifiedRespawn(point:Node3D):
 	specificRespawnPoint = point;
 	specificRespawn = true;
-	
+
+
 func disableSpecifiedRespawn():
 	specificRespawn = false;
+
 
 func enableFrogJump():
 	frogJump = 1;

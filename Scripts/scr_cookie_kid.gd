@@ -11,6 +11,7 @@ var selected = false;
 var queueSelectedOff = false;
 var secondsToTurnSelectedOff:float = 0.0;
 var hasThankedPlayer = false;
+var hasGivenCookie = false;
 
 func _ready():
 	npcMain.playerTradedSuccessfully.connect(_superJump);
@@ -33,7 +34,6 @@ func _process(delta):
 			if(!hasThankedPlayer && done):
 				print("thanking players")
 				hasThankedPlayer = true;
-				dialogueManager.d_file = "res://Dialogue/Cookie_Kid_Post_Trade.json";
 				npcMain.startDialogue();
 		elif(npcMain.animationState == npcMain.animationStates.IDLE):
 			rotateBackToTree()
@@ -42,7 +42,7 @@ func _process(delta):
 
 func _checkTradeOffer(item:String):
 	if(selected && item.to_lower().contains("space") && npcMain.player_in_chat_zone):
-		print("trade accepted")
+		dialogueManager.d_file = "res://Dialogue/Cookie_Kid_Post_Trade.json";
 		dialogueManager.stop_dialogue();
 		mainScn.disableButton.emit(item);
 		npcMain._on_transaction_complete();
@@ -76,6 +76,7 @@ func _on_scn_npc_mouse_over_status(over: bool) -> void:
 
 
 func _on_dialogue_dialogue_finished() -> void:
-	if(done && hasThankedPlayer):
+	if(done && !hasGivenCookie):
+		hasGivenCookie = true;
 		dialogueManager.d_file = "res://Dialogue/Cookie_Kid_Post_Gift.json";
 		mainScn.enableButton.emit("CookieIndicator");

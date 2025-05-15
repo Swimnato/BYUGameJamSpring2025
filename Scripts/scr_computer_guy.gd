@@ -3,11 +3,13 @@ extends CharacterBody3D
 @onready var npcMain = get_parent();
 @onready var animations = $NPC_clerk/AnimationPlayer;
 @onready var mainScn = get_tree().get_root().get_node("ScnMain");
+@onready var dialogueManager = $"../Dialogue";
 var lastState = null;
 var selected = false;
 
 var queueSelectedOff = false;
 var secondsToTurnSelectedOff:float = 0.0;
+var hasThankedPlayer = false;
 
 func _ready():
 	mainScn.buttonDragFinished.connect(_checkTradeOffer);
@@ -29,19 +31,25 @@ func _process(delta):
 			animations.play("clerk_idle");
 
 func _checkTradeOffer(item:String):
-	if(npcMain.isHovered && (item == "Wkey" || item == "Akey" || item == "Skey" || item == "Dkey")):
+	print(selected);
+	print(npcMain.player_in_chat_zone);
+	if(selected && (item == "Wkey" || item == "Akey" || item == "Skey" || item == "Dkey") && npcMain.player_in_chat_zone):
 		print("Trade Offer", item);
 		mainScn.disableButton.emit(item);
 		npcMain._on_transaction_complete();
+		dialogueManager.stop_dialogue();
+		dialogueManager.d_file = "res://Dialogue/computer_guy_start_challenge.json";
+		npcMain.startDialogue();
 
-				
+
 func _take_key():
 	GameController.open_doors()
-	pass; #take selected key
-	
+
+
 func rotateBackToCounter():
 	var rotate_tween = create_tween();
 	rotate_tween.tween_property(self, "rotation_degrees:y", 0 , 0.5);
+
 
 func stop_and_face_player():
 	var playerPos = npcMain.playerBody.global_position

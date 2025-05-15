@@ -5,6 +5,14 @@ extends CanvasLayer
 func _ready() -> void:
 	mainScn.disableButton.connect(_disableButton);
 	mainScn.enableButton.connect(_enableButton);
+	mainScn.resetDisabledButtons.connect(_resetKeys);
+
+func _resetKeys():
+	print("resetting Keys")
+	_enableButton("Wkey");
+	_enableButton("Akey");
+	_enableButton("Skey");
+	_enableButton("Dkey");
 
 
 func _disableButton(button:String):

@@ -21,6 +21,7 @@ var player_in_chat_zone = false;
 var player_too_close = false;
 var queueHoverOff = false;
 var secondsToTurnHoverOff:float = 0.0;
+var mute = false;
 
 enum animationStates {
 	IDLE,
@@ -43,7 +44,7 @@ func _ready() -> void:
 	isHovered = false;
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("chat") and player_in_chat_zone:
+	if Input.is_action_just_pressed("chat") and player_in_chat_zone and !mute:
 		if lastTimeSpokenTo == 0 or Time.get_ticks_msec() - lastTimeSpokenTo >= cooldown * 1000:
 			startDialogue();
 			animationState = animationStates.TALK_TO_PLAYER;

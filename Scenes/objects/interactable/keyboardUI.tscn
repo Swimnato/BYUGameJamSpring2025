@@ -39,7 +39,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_orpfs")
 
-[node name="sKey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+[node name="Skey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
 layout_mode = 0
 offset_left = 64.0
 offset_top = -52.0
@@ -52,7 +52,7 @@ stretch_mode = 0
 script = ExtResource("3_orpfs")
 action_name = "move_down"
 
-[node name="dKey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+[node name="Dkey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
 layout_mode = 0
 offset_left = 104.0
 offset_top = -52.0
@@ -65,7 +65,7 @@ stretch_mode = 0
 script = ExtResource("3_orpfs")
 action_name = "move_right"
 
-[node name="aKey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
+[node name="Akey" type="TextureButton" parent="Control" groups=["draggable_buttons"]]
 layout_mode = 0
 offset_left = 24.0
 offset_top = -52.0

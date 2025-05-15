@@ -18,7 +18,7 @@ albedo_color = Color(1, 1, 1, 0)
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
-[node name="whiteboxTemplate" type="Node3D"]
+[node name="ComputerStore" type="Node3D"]
 script = ExtResource("1_wdws0")
 
 [node name="objects" type="Node3D" parent="."]
@@ -1091,9 +1091,7 @@ transform = Transform3D(1, 0, 0, 0, 2.21407, 0, 0, 0, 1, -5.0828, 2.54363, 14.25
 [node name="StandardRespawn" type="Node3D" parent="RespawnPoints"]
 
 [node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("5_861lp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00973833, 0, 14.2359)
-
-[node name="ConditionalRespawn" type="Node3D" parent="RespawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00973833, 0.838461, 14.2359)
 
 [node name="box22" parent="." instance=ExtResource("7_p7tt2")]
 transform = Transform3D(-0.117054, 0, -0.486105, 0, 0.5, 0, 0.486105, 0, -0.117054, 5.71707, 2.94223, 7.50757)
