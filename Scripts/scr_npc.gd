@@ -103,3 +103,8 @@ func _on_speaking_zone_mouse_exited() -> void:
 func _on_transaction_complete() -> void:
 	print("_on_transaction_complete")
 	playerTradedSuccessfully.emit()
+
+
+func _on_stamp_is_collected() -> void:
+	if(name == "Clerk NPC"):
+		$"computer clerk npc".isStampCollected();

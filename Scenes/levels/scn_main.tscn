@@ -388,5 +388,6 @@ pos = Vector3(47, 1, 23)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1194, 1.96954, 0)
 shape = SubResource("BoxShape3D_naxrm")
 
+[connection signal="fadeAndTeleport" from="." to="deathRectangle" method="fade_and_teleport"]
 [connection signal="body_entered" from="tp/Area3D" to="tp" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="tp2/Area3D" to="tp2" method="_on_area_3d_body_entered"]

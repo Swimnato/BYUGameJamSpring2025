@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djtoma4eohgsi"]
+[gd_scene load_steps=18 format=3 uid="uid://djtoma4eohgsi"]
 
 [ext_resource type="Script" uid="uid://bueje60u7w654" path="res://Scripts/scr_sceneRespawnPointManager.gd" id="1_wdws0"]
 [ext_resource type="PackedScene" uid="uid://v5y0m8csa3gx" path="res://Scenes/objects/Static/shelf_2.tscn" id="3_x6gup"]
@@ -20,7 +20,19 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4t0q4"]
-size = Vector3(1.0827, 2.53937, 3.02383)
+size = Vector3(1.31549, 7.13794, 1.01782)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_861lp"]
+size = Vector3(1.62646, 3.96667, 1.02393)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_suj8f"]
+size = Vector3(0.847656, 4.37695, 1.13818)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjv6f"]
+size = Vector3(1, 3.85986, 3.08691)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8jjmm"]
+size = Vector3(1.08698, 4.81299, 3.22272)
 
 [node name="ComputerStore" type="Node3D"]
 script = ExtResource("1_wdws0")
@@ -1641,40 +1653,40 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.036
 
 [node name="Invisible Walls" type="Node3D" parent="objects/Collisions"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
+[node name="Invisible Wall 1" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05151, 3.4997, 8.06485)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0647671, 0.269995, -0.855553)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/Invisible Wall 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159035, -2.55036, -0.857594)
 shape = SubResource("BoxShape3D_4t0q4")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
+[node name="Invisible Wall 2" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5584, 3.4997, 8.06485)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50471, 0.269995, -0.855553)
-shape = SubResource("BoxShape3D_4t0q4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/Invisible Wall 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.403109, -1.23503, -0.867516)
+shape = SubResource("BoxShape3D_861lp")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
+[node name="Invisible Wall 3" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05151, 3.4997, 8.18949)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.698114, 0.269995, -0.855553)
-shape = SubResource("BoxShape3D_4t0q4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/Invisible Wall 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.871556, -1.41848, -0.924644)
+shape = SubResource("BoxShape3D_suj8f")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
+[node name="Invisible Wall 4" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05151, 3.4997, 14.84)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.986533, 0.269995, -1.15028)
-shape = SubResource("BoxShape3D_4t0q4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/Invisible Wall 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945299, -1.15994, -1.14198)
+shape = SubResource("BoxShape3D_bjv6f")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
+[node name="Invisible Wall 5" type="StaticBody3D" parent="objects/Collisions/Invisible Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.02773, 3.4997, 14.84)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/StaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.986533, 0.269995, -1.15028)
-shape = SubResource("BoxShape3D_4t0q4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Collisions/Invisible Walls/Invisible Wall 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00885, -1.6365, -1.0535)
+shape = SubResource("BoxShape3D_8jjmm")
 
 [node name="Hurtboxes" type="Node3D" parent="objects"]
 
@@ -1693,9 +1705,12 @@ visible = false
 [node name="ScnRespawnStandard" parent="RespawnPoints/StandardRespawn" instance=ExtResource("5_861lp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00973833, 0.838461, 14.2359)
 
-[node name="stamp" parent="." instance=ExtResource("9_yh6o4")]
+[node name="stamp" parent="." node_paths=PackedStringArray("personOfInterest") instance=ExtResource("9_yh6o4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7936, 1.47419, -10.3126)
 ID_num = 1
+personOfInterest = NodePath("../Clerk NPC")
 
 [node name="Clerk NPC" parent="." instance=ExtResource("9_4t0q4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124403, 0.5, 8.87186)
+
+[connection signal="isCollected" from="stamp" to="Clerk NPC" method="_on_stamp_is_collected"]

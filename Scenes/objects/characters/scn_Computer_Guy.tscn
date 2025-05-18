@@ -1455,27 +1455,27 @@ text = "C"
 font_size = 80
 outline_size = 30
 
-[node name="computer clerk" type="CharacterBody3D" parent="."]
+[node name="computer clerk npc" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("3_w60tn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="computer clerk"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="computer clerk npc"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("CapsuleShape3D_oek5n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="computer clerk"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="computer clerk npc"]
 visible = false
 material_override = SubResource("StandardMaterial3D_oek5n")
 mesh = SubResource("CapsuleMesh_fx43c")
 skeleton = NodePath("../..")
 
-[node name="NPC_clerk" type="Node3D" parent="computer clerk"]
+[node name="NPC_clerk" type="Node3D" parent="computer clerk npc"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -1, 0)
 
-[node name="clerk rig" type="Node3D" parent="computer clerk/NPC_clerk"]
+[node name="clerk rig" type="Node3D" parent="computer clerk npc/NPC_clerk"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="computer clerk/NPC_clerk/clerk rig"]
+[node name="Skeleton3D" type="Skeleton3D" parent="computer clerk npc/NPC_clerk/clerk rig"]
 bones/0/name = "body"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -1547,11 +1547,11 @@ bones/9/position = Vector3(4.5265e-09, 0.5, 3.61464e-09)
 bones/9/rotation = Quaternion(-2.92478e-07, -1.63913e-07, -1.36529e-07, 1)
 bones/9/scale = Vector3(1, 1, 1)
 
-[node name="clerk" type="MeshInstance3D" parent="computer clerk/NPC_clerk/clerk rig/Skeleton3D"]
+[node name="clerk" type="MeshInstance3D" parent="computer clerk npc/NPC_clerk/clerk rig/Skeleton3D"]
 mesh = SubResource("ArrayMesh_fecf7")
 skin = SubResource("Skin_oneig")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="computer clerk/NPC_clerk"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="computer clerk npc/NPC_clerk"]
 libraries = {
 &"": SubResource("AnimationLibrary_3pd8g")
 }
@@ -1562,11 +1562,12 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CylinderShape3D_ethv3")
 
-[connection signal="mouseOverStatus" from="." to="computer clerk" method="_on_scn_npc_mouse_over_status"]
+[connection signal="mouseOverStatus" from="." to="computer clerk npc" method="_on_scn_npc_mouse_over_status"]
 [connection signal="body_entered" from="Speaking zone" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Speaking zone" to="." method="_on_speaking_zone_body_exited"]
 [connection signal="mouse_entered" from="Speaking zone" to="." method="_on_speaking_zone_mouse_entered"]
 [connection signal="mouse_exited" from="Speaking zone" to="." method="_on_speaking_zone_mouse_exited"]
 [connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
+[connection signal="dialogue_finished" from="Dialogue" to="computer clerk npc" method="_on_dialogue_dialogue_finished"]
 [connection signal="body_entered" from="No Jump Region" to="." method="_on_no_jump_region_body_entered"]
 [connection signal="body_exited" from="No Jump Region" to="." method="_on_no_jump_region_body_exited"]

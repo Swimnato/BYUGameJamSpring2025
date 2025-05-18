@@ -10,6 +10,8 @@ var inBlackoutPhase = false;
 var fadingIn = false
 var screenAlpha = fullyVisibleAlpha;
 var lastBlackedOut = 0;
+var isFromDeath = false;
+var tpPos:Vector3;
 
 func _ready():
 	$"../Player".PlayerDied.connect(_on_player_death)
@@ -25,7 +27,11 @@ func _process(delta):
 			fadingIn = true;
 	elif(fadingScreen):
 		if fadeOut(delta):
-			$"../Player".teleportToRespawn();
+			if isFromDeath :
+				isFromDeath = false;
+				$"../Player".teleportToRespawn();
+			else:
+				$"../Player".position = tpPos;
 
 func fadeIn(delta):
 	screenAlpha -= fadeSpeed * delta;
@@ -47,8 +53,16 @@ func fadeOut(delta:float):
 	set_color(Color(0,0,0,screenAlpha));
 	return(screenAlpha >= fadedAlpha);
 
-func _on_player_death():
-	print("Player Died");
+func beginScreenFade():
 	fadingScreen = true;
 	screenAlpha = fullyVisibleAlpha;
 	set_color(Color(255,0,0,screenAlpha));
+
+func fade_and_teleport(pos:Vector3):
+	if(!fadingScreen):
+		tpPos = pos;
+		beginScreenFade();
+
+func _on_player_death():
+	isFromDeath = true;
+	beginScreenFade();

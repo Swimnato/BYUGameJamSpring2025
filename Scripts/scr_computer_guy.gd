@@ -10,10 +10,13 @@ var selected = false;
 var queueSelectedOff = false;
 var secondsToTurnSelectedOff:float = 0.0;
 var hasThankedPlayer = false;
+var playerHasStamp = false;
+var hasTakenKey = false;
 
 func _ready():
 	mainScn.buttonDragFinished.connect(_checkTradeOffer);
 	npcMain.playerTradedSuccessfully.connect(_take_key);
+	mainScn.playerDied.connect(_playerDied);
 
 func _process(delta):
 	if queueSelectedOff and secondsToTurnSelectedOff <= 0:
@@ -33,8 +36,8 @@ func _process(delta):
 func _checkTradeOffer(item:String):
 	print(selected);
 	print(npcMain.player_in_chat_zone);
-	if(selected && (item == "Wkey" || item == "Akey" || item == "Skey" || item == "Dkey") && npcMain.player_in_chat_zone):
-		print("Trade Offer", item);
+	if(!playerHasStamp && !hasTakenKey && selected && (item == "Wkey" || item == "Akey" || item == "Skey" || item == "Dkey") && npcMain.player_in_chat_zone):
+		hasTakenKey = true;
 		mainScn.disableButton.emit(item);
 		npcMain._on_transaction_complete();
 		dialogueManager.stop_dialogue();
@@ -66,3 +69,19 @@ func _on_scn_npc_mouse_over_status(over: bool) -> void:
 	else:
 		queueSelectedOff = true;
 		secondsToTurnSelectedOff = .1
+
+func isStampCollected():
+	playerHasStamp = true;
+	hasTakenKey = false;
+	dialogueManager.d_file = "res://Dialogue/computer_guy_post_stamp.json";
+	#npcMain.startDialogue();
+
+func _playerDied():
+	if(!playerHasStamp):
+		dialogueManager.d_file = "res://Dialogue/computer_guy.json";
+		hasTakenKey = false;
+
+
+func _on_dialogue_dialogue_finished() -> void:
+	if(playerHasStamp):
+		dialogueManager.d_file = "res://Dialogue/computer_guy_sales_pitch.json";

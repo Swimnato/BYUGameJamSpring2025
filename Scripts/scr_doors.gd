@@ -1,5 +1,5 @@
 extends Node3D
-@onready var collision_shape_3d: CollisionShape3D = $StaticBody3D/CollisionShape3D
+@onready var collision_shape_3d: CollisionShape3D = $DoorHitbox/CollisionShape3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer3
 @onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 
