@@ -7,6 +7,10 @@ extends Node3D
 func _ready() -> void:
 	if(!automatic_door):
 		GameController.doors.append(self);
+		$"Auto Door Open".queue_free();
+	else:
+		collision_shape_3d.disabled = true;
+		
 
 #func _process(delta):
 	#print(collision_shape_3d.disabled);
@@ -23,10 +27,10 @@ func open_doors() -> void:
 
 
 func _on_auto_door_open_body_entered(body: Node3D) -> void:
-	if(body.name.to_lower().contains("player")):
+	if(automatic_door && body.name.to_lower().contains("player")):
 		open_doors()
 
 
 func _on_auto_door_open_body_exited(body: Node3D) -> void:
-	if(body.name.to_lower().contains("player")):
+	if(automatic_door && body.name.to_lower().contains("player")):
 		close_doors();
