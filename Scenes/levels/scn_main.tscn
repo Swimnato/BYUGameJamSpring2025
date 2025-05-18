@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b65hp46cls10n"]
+[gd_scene load_steps=29 format=3 uid="uid://b65hp46cls10n"]
 
 [ext_resource type="Script" uid="uid://c63gbi8q0rwyi" path="res://Scripts/scr_main.gd" id="1_lyvv4"]
 [ext_resource type="PackedScene" uid="uid://brrmrxq6wwaf6" path="res://Scenes/objects/characters/scn_player.tscn" id="1_vuhdq"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bqitpfnk4bfi7" path="res://Scenes/objects/Static/scn_path1.tscn" id="18_gqo1r"]
 [ext_resource type="PackedScene" uid="uid://bx2n45tuv3504" path="res://Scenes/objects/Static/scn_path3.tscn" id="19_4txmc"]
 [ext_resource type="PackedScene" uid="uid://bslsvmcjkcj17" path="res://Scenes/objects/Static/scn_path4.tscn" id="20_58pc6"]
+[ext_resource type="PackedScene" uid="uid://dkjie27jry6qe" path="res://Scenes/objects/Static/scn_doors.tscn" id="21_gqo1r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuhdq"]
 
@@ -387,6 +388,10 @@ pos = Vector3(47, 1, 23)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tp2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1194, 1.96954, 0)
 shape = SubResource("BoxShape3D_naxrm")
+
+[node name="doors" parent="." instance=ExtResource("21_gqo1r")]
+transform = Transform3D(-3.71547e-08, 0, -0.85, 0, 0.85, 0, 0.85, 0, -3.71547e-08, 46.741, 3.42816e-06, 22.2186)
+automatic_door = true
 
 [connection signal="fadeAndTeleport" from="." to="deathRectangle" method="fade_and_teleport"]
 [connection signal="body_entered" from="tp/Area3D" to="tp" method="_on_area_3d_body_entered"]

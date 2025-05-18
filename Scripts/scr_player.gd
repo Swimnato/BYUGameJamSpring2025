@@ -36,6 +36,7 @@ var stampCollected = preload("res://Audio/SFX/V2/Feedback/Stamp_Collected.wav");
 var waitingToTeleport = false;
 var personToVisit:Node3D;
 var living = true;
+var lastStampCollected:int;
 @onready var sfxPlayer = $AudioStreamPlayer;
 var jmpSound:Array = [preload("res://Audio/SFX/V2/Player Movements/Standard_Jump.wav"),preload("res://Audio/SFX/V2/Player Movements/Frog_Jump.wav")]
 
@@ -69,7 +70,6 @@ func _physics_process(delta):
 		sfxPlayer.play();
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		print(collision.get_collider().name)
 		if(collision.get_collider().name.to_lower().contains("lillypad")):
 			floorType = surfaceType.LILLYPAD;
 			canJump = true;
@@ -125,7 +125,8 @@ func handleAnimations(_target_velocity: Vector3, on_floor) -> void:
 			mainScn.fadeAndTeleport.emit(personToVisit.global_position + Vector3(0,0,3));
 		elif(!isBlackedOut):
 			waitingToTeleport = false;
-			mainScn.resetDisabledButtons.emit()
+			mainScn.resetDisabledButtons.emit();
+			GameController.close_doors();
 			personToVisit.startDialogue();
 
 
@@ -172,9 +173,6 @@ func teleportToRespawn():
 func collect_stamp(ID_num:int):
 	sfxPlayer.stream = stampCollected
 	sfxPlayer.play();
-	if(ID_num == 1):
-		GameController.close_doors()
-		
 
 
 func stop_and_face_npc(npc:Node3D):

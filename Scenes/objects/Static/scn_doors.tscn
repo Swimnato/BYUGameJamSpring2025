@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkjie27jry6qe"]
+[gd_scene load_steps=8 format=3 uid="uid://dkjie27jry6qe"]
 
 [ext_resource type="PackedScene" uid="uid://cnqgpl7pk1p4d" path="res://3d Models/objects/environment/computer_store/doors.glb" id="1_a24vg"]
 [ext_resource type="Script" uid="uid://dc7ex71btlsx6" path="res://Scripts/scr_doors.gd" id="2_yvrym"]
@@ -48,6 +48,10 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_bcm71"]
 size = Vector3(0.522156, 3.52527, 4.4361)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2s3qy"]
+height = 8.25
+radius = 5.595
+
 [node name="doors" instance=ExtResource("1_a24vg")]
 script = ExtResource("2_yvrym")
 
@@ -69,3 +73,11 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorHitbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10318, 1.78523, -0.0138245)
 shape = SubResource("BoxShape3D_bcm71")
+
+[node name="Auto Door Open" type="Area3D" parent="." index="6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Auto Door Open" index="0"]
+shape = SubResource("CylinderShape3D_2s3qy")
+
+[connection signal="body_entered" from="Auto Door Open" to="." method="_on_auto_door_open_body_entered"]
+[connection signal="body_exited" from="Auto Door Open" to="." method="_on_auto_door_open_body_exited"]
