@@ -4,6 +4,8 @@ extends CharacterBody3D
 @onready var animations = $frog2/AnimationPlayer;
 @onready var mainScn = get_tree().get_root().get_node("ScnMain");
 @onready var dialogueManager = $"../Dialogue";
+@onready var lyingHitbox = $"Lying Down";
+@onready var sittingHitbox = $"Sitting Up";
 var lastState = null;
 var done = false;
 var selected = false;
@@ -26,6 +28,8 @@ func _process(delta):
 	if((npcMain.animationState != lastState && animations.current_animation != "frog_receive_cookie2") || !animations.is_playing()):
 		lastState = npcMain.animationState;
 		if(done):
+			lyingHitbox.disabled = true;
+			sittingHitbox.disabled = false;
 			animations.play("frog_receive_cookie");
 			if(!hasThankedPlayer):
 				print("thanking player")

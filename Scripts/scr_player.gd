@@ -35,6 +35,7 @@ var splat = preload("res://Audio/SFX/V2/Feedback/Smash.wav")
 var stampCollected = preload("res://Audio/SFX/V2/Feedback/Stamp_Collected.wav");
 var waitingToTeleport = false;
 var personToVisit:Node3D;
+var living = true;
 @onready var sfxPlayer = $AudioStreamPlayer;
 var jmpSound:Array = [preload("res://Audio/SFX/V2/Player Movements/Standard_Jump.wav"),preload("res://Audio/SFX/V2/Player Movements/Frog_Jump.wav")]
 
@@ -63,7 +64,7 @@ func _physics_process(delta):
 			target_velocity.y = jump_force[0];
 		sfxPlayer.stream = jmpSound[frogJump];
 		sfxPlayer.play();
-	elif(!wasOnFloorLastLoop):
+	elif(!wasOnFloorLastLoop and living):
 		sfxPlayer.stream = landingSound[floorType][round(randf_range(0,len(landingSound[floorType]) - 1))];
 		sfxPlayer.play();
 	for i in get_slide_collision_count():
@@ -129,6 +130,7 @@ func handleAnimations(_target_velocity: Vector3, on_floor) -> void:
 
 
 func die(src:int = 0) -> void:
+	living = false
 	if(src == 0):
 		sfxPlayer.stream = splat;
 	elif(src == 1):
@@ -141,6 +143,7 @@ func die(src:int = 0) -> void:
 
 func respawn():
 	isBlackedOut = true;
+	living = true;
 
 
 func wakeUp():
